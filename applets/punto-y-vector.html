@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Puntos y vectores</title>
+<style>
+  :root{--acc:#0E7C8C;--rojo:#C1502E;--verde:#B07C10}
+  body{margin:0;font:14px/1.4 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1b2430;
+       display:flex;flex-direction:column;align-items:center;background:#fff}
+  svg{touch-action:none;user-select:none;max-width:100%;height:auto}
+  .barra{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;justify-content:center;
+         padding:.5rem .6rem;width:100%;box-sizing:border-box}
+  .dato{background:#f2f6fa;border:1px solid #dfe6ee;border-radius:6px;padding:.25rem .6rem;
+        font-family:ui-monospace,Consolas,monospace;font-size:13px}
+  .dato b{color:var(--acc)}
+  button{border:1px solid #c9d6e2;background:#fff;color:var(--acc);border-radius:6px;
+         padding:.3rem .7rem;font-size:13px;cursor:pointer}
+  button:hover{background:#f2f6fa}
+</style></head><body>
+
+<div class="barra">
+  <span class="dato">P = (<b id="px">·</b>, <b id="py">·</b>)</span>
+  <span class="dato">Q = (<b id="qx">·</b>, <b id="qy">·</b>)</span>
+  <span class="dato" style="border-color:#e2b8b0">Q − P = (<b id="vx" style="color:var(--rojo)">·</b>, <b id="vy" style="color:var(--rojo)">·</b>)</span>
+  <span class="dato">‖Q−P‖ = <b id="nv">·</b></span>
+  <button id="btnTras" title="Desplaza P y Q juntos, con el mismo vector">Trasladar P y Q juntos</button>
+</div>
+
+<svg id="lienzo" width="640" height="420" viewBox="0 0 640 420" aria-label="Plano cartesiano con dos puntos arrastrables"></svg>
+
+<script>
+(function(){
+"use strict";
+const svg = document.getElementById('lienzo');
+const W=640, H=420, UPP=35;                 // pixeles por unidad
+const OX=W/2, OY=H/2;
+const X = u => OX + u*UPP,  Y = v => OY - v*UPP;
+const IX = px => (px-OX)/UPP, IY = py => (OY-py)/UPP;
+const NS='http://www.w3.org/2000/svg';
+function el(tag, attrs){ const e=document.createElementNS(NS,tag);
+  for(const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+
+// --- rejilla y ejes ---
+const fondo = el('g',{});
+for(let u=Math.ceil(IX(0)); u<=IX(W); u++)
+  fondo.appendChild(el('line',{x1:X(u),y1:0,x2:X(u),y2:H,stroke:'#e4ebf2','stroke-width':1}));
+for(let v=Math.ceil(IY(H)); v<=IY(0); v++)
+  fondo.appendChild(el('line',{x1:0,y1:Y(v),x2:W,y2:Y(v),stroke:'#e4ebf2','stroke-width':1}));
+fondo.appendChild(el('line',{x1:0,y1:OY,x2:W,y2:OY,stroke:'#444','stroke-width':1.4}));
+fondo.appendChild(el('line',{x1:OX,y1:0,x2:OX,y2:H,stroke:'#444','stroke-width':1.4}));
+for(let u=Math.ceil(IX(0)); u<=IX(W); u++){
+  if(u===0) continue;
+  const t=el('text',{x:X(u),y:OY+14,'text-anchor':'middle','font-size':10,fill:'#667'});
+  t.textContent=u; fondo.appendChild(t);
+}
+for(let v=Math.ceil(IY(H)); v<=IY(0); v++){
+  if(v===0) continue;
+  const t=el('text',{x:OX-6,y:Y(v)+3,'text-anchor':'end','font-size':10,fill:'#667'});
+  t.textContent=v; fondo.appendChild(t);
+}
+svg.appendChild(fondo);
+
+// --- flecha del vector ---
+const defs=el('defs',{});
+const m=el('marker',{id:'flecha',viewBox:'0 0 10 10',refX:9,refY:5,
+  markerWidth:7,markerHeight:7,orient:'auto-start-reverse'});
+m.appendChild(el('path',{d:'M0,0 L10,5 L0,10 z',fill:'#C1502E'}));
+defs.appendChild(m); svg.appendChild(defs);
+
+const flecha = el('line',{stroke:'#C1502E','stroke-width':2.4,'marker-end':'url(#flecha)'});
+svg.appendChild(flecha);
+const etiV = el('text',{'font-size':13,fill:'#C1502E','font-weight':'bold'});
+etiV.textContent='Q − P'; svg.appendChild(etiV);
+
+// --- puntos arrastrables ---
+function punto(color, nombre){
+  const g=el('g',{cursor:'grab'});
+  g.appendChild(el('circle',{r:14,fill:'transparent'}));       // zona táctil amplia
+  g.appendChild(el('circle',{r:7,fill:color,stroke:'#fff','stroke-width':2}));
+  const t=el('text',{x:12,y:-10,'font-size':14,'font-weight':'bold',fill:color});
+  t.textContent=nombre; g.appendChild(t);
+  svg.appendChild(g); return g;
+}
+const gP = punto('#0E7C8C','P'), gQ = punto('#B07C10','Q');
+
+let P={x:-2,y:-1}, Q={x:3,y:2};
+const f1=v=>Math.round(v*4)/4;             // ajuste a cuartos de unidad
+
+function pinta(){
+  gP.setAttribute('transform',`translate(${X(P.x)},${Y(P.y)})`);
+  gQ.setAttribute('transform',`translate(${X(Q.x)},${Y(Q.y)})`);
+  flecha.setAttribute('x1',X(P.x)); flecha.setAttribute('y1',Y(P.y));
+  flecha.setAttribute('x2',X(Q.x)); flecha.setAttribute('y2',Y(Q.y));
+  etiV.setAttribute('x',(X(P.x)+X(Q.x))/2 + 8);
+  etiV.setAttribute('y',(Y(P.y)+Y(Q.y))/2 - 8);
+  const vx=Q.x-P.x, vy=Q.y-P.y;
+  const fmt=v=>(Math.round(v*100)/100).toString();
+  document.getElementById('px').textContent=fmt(P.x);
+  document.getElementById('py').textContent=fmt(P.y);
+  document.getElementById('qx').textContent=fmt(Q.x);
+  document.getElementById('qy').textContent=fmt(Q.y);
+  document.getElementById('vx').textContent=fmt(vx);
+  document.getElementById('vy').textContent=fmt(vy);
+  document.getElementById('nv').textContent=fmt(Math.hypot(vx,vy));
+}
+pinta();
+
+// --- arrastre con pointer events (raton y tactil) ---
+let activo=null;
+function pos(ev){ const r=svg.getBoundingClientRect();
+  const sx=W/r.width, sy=H/r.height;
+  return {x:f1(IX((ev.clientX-r.left)*sx)), y:f1(IY((ev.clientY-r.top)*sy))}; }
+function baja(pt){ return ev=>{ activo=pt; svg.setPointerCapture(ev.pointerId); ev.preventDefault(); }; }
+gP.addEventListener('pointerdown', baja(P));
+gQ.addEventListener('pointerdown', baja(Q));
+svg.addEventListener('pointermove', ev=>{
+  if(!activo) return;
+  const p=pos(ev); activo.x=p.x; activo.y=p.y; pinta();
+});
+svg.addEventListener('pointerup', ()=>{ activo=null; });
+svg.addEventListener('pointercancel', ()=>{ activo=null; });
+
+// --- traslacion conjunta: el vector NO cambia ---
+document.getElementById('btnTras').addEventListener('click', ()=>{
+  const dx=f1((Math.random()*3-1.5)), dy=f1((Math.random()*3-1.5));
+  const nP={x:P.x+dx,y:P.y+dy}, nQ={x:Q.x+dx,y:Q.y+dy};
+  const dentro=v=>v.x>-8.5&&v.x<8.5&&v.y>-5.5&&v.y<5.5;
+  if(dentro(nP)&&dentro(nQ)){ P=nP; Q=nQ; pinta(); }
+});
+})();
+</script>
+</body></html>

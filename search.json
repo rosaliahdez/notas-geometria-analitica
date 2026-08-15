@@ -1,0 +1,766 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Geometría Analítica",
+    "section": "",
+    "text": "Antes de empezar\nEstas notas acompañan el curso de Geometría Analítica (asignatura 6886) de la Licenciatura en Matemáticas de la Universidad de Sonora. No sustituyen a la clase ni a los libros de texto, son el hilo del que jalar entre una sesión y la siguiente.",
+    "crumbs": [
+      "Antes de empezar"
+    ]
+  },
+  {
+    "objectID": "index.html#qué-se-propone-este-curso",
+    "href": "index.html#qué-se-propone-este-curso",
+    "title": "Geometría Analítica",
+    "section": "Qué se propone este curso",
+    "text": "Qué se propone este curso\nLa geometría analítica nació de una idea sencilla y muy poderosa, que una figura geométrica puede describirse con una ecuación y que una ecuación puede dibujarse. Todo lo que haremos este semestre vive en ese ir y venir.\nConviene decirlo desde ahora, porque marca la diferencia entre aprobar el curso y entenderlo:\n\n\n\n\n\n\nImportanteLas dos direcciones no son la misma tarea\n\n\n\nPasar de la ecuación a la curva y pasar de la curva a la ecuación son habilidades distintas. Ser bueno en una no garantiza serlo en la otra, y sólo se aprenden practicando las dos por separado. Por eso, en los ejercicios y en las evaluaciones, siempre aparecerán ambas.",
+    "crumbs": [
+      "Antes de empezar"
+    ]
+  },
+  {
+    "objectID": "index.html#una-sola-herramienta-muchas-fórmulas",
+    "href": "index.html#una-sola-herramienta-muchas-fórmulas",
+    "title": "Geometría Analítica",
+    "section": "Una sola herramienta, muchas fórmulas",
+    "text": "Una sola herramienta, muchas fórmulas\nUn curso tradicional de geometría analítica presenta una docena de fórmulas independientes: la distancia entre dos puntos, el ángulo entre dos rectas, la distancia de un punto a una recta, la ecuación normal, los cosenos directores, la distancia de un punto a un plano, la distancia entre dos rectas que se cruzan…\nAquí vamos a hacer algo distinto. Casi todo eso sale de una sola operación, el producto punto: \\[\n\\langle u,v\\rangle \\;=\\; u_1v_1+u_2v_2 \\qquad\\text{(y su análogo en el espacio)},\n\\] junto con dos hechos que la conectan con la geometría: que \\(\\lVert u\\rVert^2=\\langle u,u\\rangle\\) y que \\(\\langle u,v\\rangle=\\lVert u\\rVert\\,\\lVert v\\rVert\\cos\\theta\\).\nNo es que las fórmulas clásicas estén mal. Es que son doce aplicaciones de un mismo teorema, y verlas así cuesta mucho menos memoria y da mucha más comprensión. Cada vez que aparezca una fórmula “nueva”, conviene preguntarse de cuál caso particular se trata.",
+    "crumbs": [
+      "Antes de empezar"
+    ]
+  },
+  {
+    "objectID": "index.html#cómo-están-hechas-estas-notas",
+    "href": "index.html#cómo-están-hechas-estas-notas",
+    "title": "Geometría Analítica",
+    "section": "Cómo están hechas estas notas",
+    "text": "Cómo están hechas estas notas\n\nLas figuras se mueven. Donde veas una figura interactiva, arrástrala. Pero antes de moverla, predice qué va a pasar. Una figura que confirma lo que ya sabías enseña poco; una que te contradice enseña muchísimo.\nLos teoremas del curso están numerados y demostrados. Son diez en todo el semestre. No son los únicos resultados que usaremos, pero sí los que hay que saber justificar.\nLos ejercicios vienen en dos direcciones, como se dijo arriba.\nEl invernadero es una sección opcional al final, con código de Python que corre dentro del navegador. No entra en ninguna evaluación y nadie tiene que abrirlo. Está ahí por si tienes curiosidad y ganas de experimentar.",
+    "crumbs": [
+      "Antes de empezar"
+    ]
+  },
+  {
+    "objectID": "index.html#notación",
+    "href": "index.html#notación",
+    "title": "Geometría Analítica",
+    "section": "Notación",
+    "text": "Notación\n\n\n\nSímbolo\nSignificado\n\n\n\n\n\\(A\\), \\(B\\), \\(P\\), \\(Q\\)\nPuntos (lugares)\n\n\n\\(u\\), \\(v\\), \\(n\\), \\(d\\)\nVectores (desplazamientos)\n\n\n\\(\\langle u,v\\rangle\\)\nProducto punto de \\(u\\) y \\(v\\)\n\n\n\\(\\lVert u\\rVert\\)\nNorma (longitud) del vector \\(u\\)\n\n\n\\(d(P,Q)\\)\nDistancia entre los puntos \\(P\\) y \\(Q\\)\n\n\n\\(\\mathbb{R}^2\\), \\(\\mathbb{R}^3\\)\nEl plano y el espacio coordenados\n\n\n\\(\\ell\\), \\(\\Pi\\)\nUna recta y un plano\n\n\n\nLa distinción entre puntos y vectores (que se escriben igual pero no son lo mismo) aparece en las primeras semanas del curso, y vale la pena tomarla en serio desde el principio.",
+    "crumbs": [
+      "Antes de empezar"
+    ]
+  },
+  {
+    "objectID": "index.html#bibliografía-del-curso",
+    "href": "index.html#bibliografía-del-curso",
+    "title": "Geometría Analítica",
+    "section": "Bibliografía del curso",
+    "text": "Bibliografía del curso\n\nTexto base: Ramírez Galarza, A. I. Geometría analítica. Una introducción a la geometría. Prensas de Ciencias, UNAM.\nEjercitario: Lehmann, C. H. Geometría analítica. Limusa. Tiene las mejores series de problemas que existen sobre este tema; su lenguaje es pre-vectorial, y traducirlo es un ejercicio excelente.\nPara ir más lejos: Bracho, J. Introducción analítica a las geometrías. Fondo de Cultura Económica.\n\n\nSi encuentras un error o algo que no se entiende, dilo. Mejora el material para quienes vengan después.",
+    "crumbs": [
+      "Antes de empezar"
+    ]
+  },
+  {
+    "objectID": "01-sistemas-de-coordenadas.html",
+    "href": "01-sistemas-de-coordenadas.html",
+    "title": "1  Sistemas de coordenadas",
+    "section": "",
+    "text": "1.1 El método de Descartes\nEn 1637, como apéndice de su Discurso del método, René Descartes publicó La Géométrie. La idea que contiene se ha vuelto tan familiar que cuesta ver lo audaz que fue: asignar números a los puntos del plano para poder tratar problemas de figuras con las herramientas del álgebra.\nAntes de eso, la geometría griega demostraba que dos rectas se cortan en un punto trazándolas. Después de Descartes, se demuestra resolviendo un sistema de ecuaciones. Los dos caminos son legítimos, pero el segundo tiene una ventaja decisiva: se puede calcular, y calcular es algo que se puede hacer sin ingenio, de forma sistemática y sin miedo a equivocarse por una figura mal dibujada.\nLo que hace un sistema de coordenadas, dicho con precisión, es establecer una correspondencia biunívoca entre los puntos de una figura geométrica y las parejas (o ternas) de números reales. Esa correspondencia es un diccionario, y como todo diccionario, permite traducir en las dos direcciones:",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "01-sistemas-de-coordenadas.html#el-método-de-descartes",
+    "href": "01-sistemas-de-coordenadas.html#el-método-de-descartes",
+    "title": "1  Sistemas de coordenadas",
+    "section": "",
+    "text": "NotaNota histórica — Dos inventores y un apéndice\n\n\n\n\n\nLa historia es más curiosa de lo que sugiere el nombre “plano cartesiano”. La idea la tuvieron dos personas, por separado y casi al mismo tiempo: Descartes la publicó en 1637, pero Pierre de Fermat (el mismo del famoso “último teorema”) la había desarrollado unos años antes en un manuscrito (Ad locos planos et solidos isagoge) que circuló entre matemáticos y sólo se imprimió tras su muerte. Como Descartes publicó primero, el plano lleva su nombre: cartesiano viene de Cartesius, la forma latinizada de Descartes.\nY hay otra sorpresa: La Géométrie no usa ejes perpendiculares fijos como los nuestros, ni la pareja \\((x,y)\\) tal como la escribimos. La maquinaria que usamos hoy (ejes, cuadrantes, la notación) se fue puliendo durante el siglo siguiente, en buena parte gracias a Euler. Lo que Descartes y Fermat aportaron fue la idea de fondo: que una curva puede ser una ecuación.\n\n\n\n\n\n\n\nObjeto geométrico\nObjeto algebraico\n\n\n\n\nUn punto\nUna pareja \\((x,y)\\)\n\n\nUna curva\nUna ecuación en \\(x\\) e \\(y\\)\n\n\n“Estas dos rectas se cortan”\n“Este sistema tiene solución”\n\n\n“Estos tres puntos son colineales”\n“Este determinante vale cero”\n\n\n\n\n\n\n\n\n\nTipLa pregunta que vale la pena hacerse todo el semestre\n\n\n\nCada vez que aparezca un objeto nuevo, pregúntate cuál es su traducción al otro idioma. Y cada vez que resuelvas algo con álgebra, pregúntate qué significa geométricamente el resultado. Ese ir y venir es, literalmente, el contenido del curso.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "01-sistemas-de-coordenadas.html#localización-la-recta-el-plano-el-espacio",
+    "href": "01-sistemas-de-coordenadas.html#localización-la-recta-el-plano-el-espacio",
+    "title": "1  Sistemas de coordenadas",
+    "section": "1.2 Localización: la recta, el plano, el espacio",
+    "text": "1.2 Localización: la recta, el plano, el espacio\n\n1.2.1 La recta real\nSi fijamos en una recta un punto llamado origen, un sentido positivo y una unidad de longitud, cada punto queda identificado por un número real y cada número real determina un punto. Es la primera correspondencia biunívoca, y la más simple.\n\n\n1.2.2 El plano\nDos rectas perpendiculares que se cortan en un origen común (los ejes) dividen el plano en cuatro cuadrantes y permiten localizar cualquier punto con una pareja ordenada \\((x,y)\\). La primera coordenada es la abscisa y la segunda la ordenada.\nQue la pareja sea ordenada no es un tecnicismo: \\((3,5)\\) y \\((5,3)\\) son puntos distintos. El conjunto de todas esas parejas se denota \\[\n\\mathbb{R}^2=\\{(x,y): x\\in\\mathbb{R},\\ y\\in\\mathbb{R}\\}.\n\\]\n\n\n\n\n\n\nNotaNota al margen — De dónde vienen «abscisa» y «ordenada»\n\n\n\n\n\nLas dos palabras son latín de taller geométrico. Abscisa viene de linea abscissa, “línea cortada”: el tramo que la coordenada corta sobre el eje horizontal. Ordenada viene de linea ordinatim applicata, “línea aplicada ordenadamente”: los segmentos paralelos que se levantan, en orden, desde el eje hasta la curva. Los términos ya se usaban en el estudio de las cónicas antes de Descartes; el plano cartesiano los heredó y los volvió coordenadas.\n\n\n\n\n\n1.2.3 El espacio\nCon tres ejes mutuamente perpendiculares, cada punto queda determinado por una terna \\((x,y,z)\\), y el espacio se denota \\(\\mathbb{R}^3\\). Los tres planos coordenados (\\(XY\\), \\(XZ\\), \\(YZ\\)) dividen el espacio en ocho octantes. Los cuatro de arriba se numeran del I al IV siguiendo a los cuadrantes del plano \\(XY\\), y los cuatro de abajo, del V al VIII, quedan justo debajo de ellos.\n\n\n\nLos ocho octantes. En turquesa, los números de las cajas del frente.\n\n\nUsaremos siempre el sistema derecho, aquel en el que, si los dedos de la mano derecha giran del eje \\(X\\) al eje \\(Y\\), el pulgar apunta en el sentido positivo del eje \\(Z\\). La orientación tendrá consecuencias reales cuando lleguemos al producto cruz.\nAl dibujar conservamos siempre la misma vista, para no tener que reinterpretar cada figura. El eje \\(X\\) apunta hacia quien mira, el eje \\(Y\\) hacia la derecha y el eje \\(Z\\) hacia arriba (sus partes positivas). Un modo rápido de ubicarse es mirar la esquina del salón donde se juntan dos paredes y el piso: las tres aristas que salen de ella son los tres ejes.\nPara dibujar un punto conviene puntear su trayectoria desde el origen, es decir, las unidades que avanzamos al frente, las que avanzamos a la derecha o a la izquierda y las que subimos. Sin esas líneas la perspectiva engaña; con ellas cualquiera puede reconstruir dónde vive el punto.\n\n\n\n\n\n\nAdvertenciaUn error muy frecuente al dibujar en el espacio\n\n\n\nEn el papel, el espacio se representa en perspectiva, y eso hace que dos puntos que se ven cerca puedan estar lejísimos. La figura en \\(\\mathbb{R}^3\\) orienta, pero no decide nada. En el espacio, más que en el plano, hay que confiar en el cálculo y usar el dibujo sólo como guía.\n\n\n\n\n\n\n\n\nTipConviene girar la figura\n\n\n\nEn geogebra.org/3d la escena se gira con el ratón. Ver el mismo punto desde varias perspectivas es la manera más rápida de dejar de confiar en una sola vista.\n\n\n\n\n1.2.4 Los planos coordenados y sus ecuaciones\nCada plano coordenado se describe con una ecuación de una sola variable, por el mismo razonamiento que en el plano hace del eje \\(X\\) la recta \\(y=0\\).\n\n\n\nLos tres planos coordenados.\n\n\n\n\n\nPlano coordenado\nEcuación\nDescripción\n\n\n\n\nplano \\(xy\\)\n\\(z=0\\)\nlos puntos de altura cero\n\n\nplano \\(xz\\)\n\\(y=0\\)\ncontiene a los ejes \\(x\\) y \\(z\\)\n\n\nplano \\(yz\\)\n\\(x=0\\)\ncontiene a los ejes \\(y\\) y \\(z\\)\n\n\n\nLos planos paralelos a los coordenados se describen igual. Los puntos con \\(y=3\\) forman el plano paralelo al \\(xz\\) que pasa por \\((0,3,0)\\), y los puntos con \\(z=-2\\) forman el plano paralelo al \\(xy\\), dos unidades abajo. La variable que no aparece en la ecuación es la que queda libre, y aquí quedan libres dos.\nSi imponemos dos condiciones a la vez, por ejemplo \\(y=3\\) y \\(z=2\\), el resultado es una recta paralela al eje \\(x\\), la intersección de dos planos. Cada ecuación recorta un grado de libertad, y a ese conteo volveremos al final del capítulo.\n\n\n\n\n\n\nImportanteLa misma ecuación, objetos distintos\n\n\n\nEn \\(\\mathbb{R}^2\\) la ecuación \\(x=0\\) deja libre una variable y describe una recta, el eje \\(Y\\). En \\(\\mathbb{R}^3\\) la misma ecuación deja libres dos variables y describe un plano, el plano \\(yz\\). Antes de responder qué describe una ecuación hay que saber dónde viven los puntos.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "01-sistemas-de-coordenadas.html#sec-punto-vector",
+    "href": "01-sistemas-de-coordenadas.html#sec-punto-vector",
+    "title": "1  Sistemas de coordenadas",
+    "section": "1.3 Puntos y vectores",
+    "text": "1.3 Puntos y vectores\nÉsta es la sección más importante del capítulo, y probablemente la que más rinde en todo el semestre. La idea es sencilla de enunciar y sorprendentemente fácil de olvidar:\n\nUn punto es un lugar. Un vector es un desplazamiento.\n\nAmbos se escriben como parejas de números, y ahí empieza la confusión. Pero son objetos de naturaleza distinta y no se pueden combinar de cualquier manera.\n\nDefinición 1.1 (Operaciones legítimas) Sean \\(P\\) y \\(Q\\) puntos, y \\(u\\), \\(v\\) vectores. Entonces:\n\n\\(Q-P\\) es un vector: el desplazamiento que lleva de \\(P\\) a \\(Q\\). Se escribe también \\(\\vec{PQ}\\).\n\\(P+v\\) es un punto: el resultado de desplazar \\(P\\) según \\(v\\).\n\\(u+v\\) y \\(\\lambda u\\) son vectores.\n\\(P+Q\\) no está definido.\n\n\nLa última línea suele producir incomodidad, así que vale la pena justificarla. Piensa en dos ciudades: Hermosillo y Guaymas. “El desplazamiento de Hermosillo a Guaymas” tiene un significado claro, independiente de dónde pongamos el origen del mapa. “Hermosillo más Guaymas”, en cambio, no significa nada: no hay ninguna ciudad que sea su suma. Y si insistiéramos en calcularla sumando coordenadas, el resultado dependería de dónde pusimos el origen, lo cual delata que no es un objeto geométrico.\n\n\n\n\n\n\nImportanteElegir un origen es una decisión, no un hecho\n\n\n\nCuando fijamos un origen \\(O\\), cada punto \\(P\\) queda asociado al vector \\(\\vec{OP}\\), y a partir de ahí es tentador tratarlos como lo mismo. Es cómodo y lo haremos constantemente. Pero conviene recordar que esa identificación la elegimos nosotros: la geometría no la trae puesta.\nEsta distinción reaparecerá con fuerza en Álgebra Lineal I, el semestre que entra, cuando se pregunten por qué las traslaciones no son transformaciones lineales. La respuesta está aquí.\n\n\n\n1.3.1 El punto medio, bien escrito\nTodo el mundo sabe que el punto medio de \\(P\\) y \\(Q\\) es \\(\\tfrac12(P+Q)\\). Pero acabamos de decir que \\(P+Q\\) no está definido. ¿Contradicción?\nNo: es cuestión de escribirlo bien. El punto medio es \\[\nM \\;=\\; P+\\tfrac{1}{2}\\,(Q-P),\n\\] que se lee “parto de \\(P\\) y avanzo la mitad del desplazamiento hacia \\(Q\\)”. Aquí todo es legítimo: \\(Q-P\\) es un vector, la mitad de un vector es un vector, y punto más vector es punto. Si desarrollas la expresión obtienes las mismas coordenadas de siempre, pero ahora sabes por qué funcionan.\nEse mismo argumento da, sin esfuerzo adicional, el punto que divide al segmento en cualquier razón: \\[\nP + t\\,(Q-P), \\qquad t\\in[0,1].\n\\]\nCuando \\(t\\) recorre todos los reales, y no sólo \\([0,1]\\), esta expresión describe toda la recta que pasa por \\(P\\) y \\(Q\\). Volveremos a ella en el capítulo siguiente; conviene que la reconozcas cuando aparezca.\n\n\n1.3.2 Figura interactiva\nArrastra los puntos \\(P\\) y \\(Q\\) y observa el vector \\(Q-P\\). Antes de arrastrar, predice: si mueves \\(P\\) y \\(Q\\) juntos, ¿cambia el vector? ¿Y si sólo mueves uno?\n\n\n\n\n\n\n\nNota¿Qué debiste observar?\n\n\n\n\n\nSi trasladas \\(P\\) y \\(Q\\) la misma cantidad, el vector \\(Q-P\\) no cambia: un desplazamiento no depende de dónde empiece, sólo de su magnitud y su dirección. Si mueves sólo uno, cambia. Esa invariancia es exactamente lo que distingue a un vector de un punto.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "01-sistemas-de-coordenadas.html#distancia-entre-dos-puntos",
+    "href": "01-sistemas-de-coordenadas.html#distancia-entre-dos-puntos",
+    "title": "1  Sistemas de coordenadas",
+    "section": "1.4 Distancia entre dos puntos",
+    "text": "1.4 Distancia entre dos puntos\nConstruimos la fórmula en dos tiempos. Primero medimos desde el origen, donde el triángulo rectángulo aparece de inmediato, y después movemos ese mismo triángulo a una posición cualquiera.\n\n1.4.1 Del origen a un punto\nSi \\(P=(x_1,y_1)\\) está en el primer cuadrante, el segmento \\(OP\\) es la hipotenusa de un triángulo rectángulo cuyos catetos son las coordenadas mismas de \\(P\\). El cateto horizontal está sobre el eje \\(X\\) y mide \\(x_1\\), el vertical mide \\(y_1\\), y el ángulo recto está en \\((x_1,0)\\).\n\n\n\n\n\nPor el teorema de Pitágoras, \\[\nd(O,P)=\\sqrt{x_1^{\\,2}+y_1^{\\,2}} .\n\\]\nEn los demás cuadrantes el razonamiento es igual, con catetos \\(\\lvert x_1\\rvert\\) y \\(\\lvert y_1\\rvert\\). Los valores absolutos desaparecen al elevar al cuadrado, y por eso no aparecen en la fórmula.\n\n\n1.4.2 El mismo triángulo, fuera del origen\nCuando ninguno de los dos puntos está en el origen, trasladamos el triángulo hasta que el vértice del ángulo recto quede en \\((x_2,y_1)\\). Los catetos dejan de ser coordenadas y pasan a ser diferencias de coordenadas.\n\n\n\n\n\n\n\n1.4.3 La misma construcción en el espacio\nEn el espacio conviene imaginar la caja que tiene a los dos puntos como vértices opuestos y las aristas paralelas a los ejes. El segmento que queremos medir es su diagonal, y para medirla aparecen dos triángulos rectángulos.\nEmpezamos otra vez desde el origen, con \\(P=(x_1,y_1,z_1)\\) y su proyección \\(P'=(x_1,y_1,0)\\) sobre el plano \\(XY\\).\n\n\n\n\n\n\nEl triángulo del piso tiene catetos \\(\\lvert x_1\\rvert\\) y \\(\\lvert y_1\\rvert\\), vive en el plano \\(XY\\) y su hipotenusa mide \\(\\overline{OP'}=\\sqrt{x_1^{\\,2}+y_1^{\\,2}}\\).\nEl triángulo vertical tiene catetos \\(\\overline{OP'}\\) y \\(\\lvert z_1\\rvert\\), vive en el plano vertical que contiene a \\(O\\), \\(P'\\) y \\(P\\), y su hipotenusa es \\(d(O,P)\\).\n\nEl segundo triángulo toma como cateto la hipotenusa del primero, de modo que \\[\nd(O,P)^2=\\overline{OP'}^{\\,2}+z_1^{\\,2}=x_1^{\\,2}+y_1^{\\,2}+z_1^{\\,2}.\n\\]\nPara dos puntos cualesquiera sacamos la caja del rincón del origen y la colocamos en otro lugar, igual que trasladamos el triángulo en el plano. Con \\(P=(x_1,y_1,z_1)\\) y \\(Q=(x_2,y_2,z_2)\\), el vértice auxiliar es \\(R=(x_2,y_2,z_1)\\), la proyección de \\(Q\\) sobre el piso que pasa por \\(P\\).\n\n\n\n\n\nLas aristas de la caja miden ahora \\(\\lvert x_2-x_1\\rvert\\), \\(\\lvert y_2-y_1\\rvert\\) y \\(\\lvert z_2-z_1\\rvert\\). La cuenta es la misma de antes, con diferencias de coordenadas en lugar de coordenadas.\n\nTeorema 1.1 (Distancia entre dos puntos) Si \\(P=(x_1,y_1)\\) y \\(Q=(x_2,y_2)\\) son puntos del plano, la distancia entre ellos es \\[\nd(P,Q)=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}.\n\\] En el espacio, con \\(P=(x_1,y_1,z_1)\\) y \\(Q=(x_2,y_2,z_2)\\), \\[\nd(P,Q)=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}.\n\\]\n\n\nDemostración. En el plano, los catetos del triángulo trasladado miden \\(\\lvert x_2-x_1\\rvert\\) y \\(\\lvert y_2-y_1\\rvert\\), y su hipotenusa es el segmento \\(PQ\\), así que el teorema de Pitágoras da \\[\nd(P,Q)^2=\\lvert x_2-x_1\\rvert^2+\\lvert y_2-y_1\\rvert^2=(x_2-x_1)^2+(y_2-y_1)^2 ,\n\\] y tomamos la raíz positiva porque una distancia no es negativa.\nEn el espacio aplicamos el mismo teorema dos veces, como en la construcción anterior. El triángulo del piso, de catetos \\(\\lvert x_2-x_1\\rvert\\) y \\(\\lvert y_2-y_1\\rvert\\), da \\(\\overline{PR}^{\\,2}=(x_2-x_1)^2+(y_2-y_1)^2\\). El triángulo vertical, de catetos \\(\\overline{PR}\\) y \\(\\lvert z_2-z_1\\rvert\\), da \\[\nd(P,Q)^2=\\overline{PR}^{\\,2}+(z_2-z_1)^2=(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2 . \\qquad\\square\n\\]\n\nVale la pena notar dos cosas. La primera es que la fórmula no es una definición, es una consecuencia de Pitágoras, es decir, de la geometría euclidiana. La segunda es que la fórmula sólo tiene esa forma porque los ejes son perpendiculares y las unidades iguales en ambos. Con ejes oblicuos la distancia se calcula de otro modo.\nConviene además revisar los casos límite, que siempre son una buena prueba de que una fórmula está bien escrita. Si \\(P\\) es el origen, entonces \\(x_1=y_1=z_1=0\\) y recuperamos la distancia desde el origen. Si \\(z_1=z_2\\), el tercer sumando se anula y recuperamos la fórmula del plano.\n\n\n\n\n\n\nNotaNota histórica — Un teorema más viejo que Pitágoras\n\n\n\n\n\nEl teorema que sostiene toda esta sección es bastante más antiguo que el personaje que le da nombre. Una tablilla babilónica de arcilla conocida como Plimpton 322, escrita alrededor del año 1800 a.C. (unos doce siglos antes de Pitágoras), contiene una lista de ternas de números que cumplen \\(a^2+b^2=c^2\\), como \\((3,4,5)\\) y otras mucho menos obvias. Los babilonios conocían la relación; la tradición griega aportó lo que convierte una observación en teorema, la demostración. Esa diferencia, saber que algo funciona contra saber por qué funciona, es exactamente la que este curso quiere que aprendas a distinguir.\n\n\n\n\n\n1.4.4 La distancia es la norma de un vector\nObserva que si escribimos \\(v=Q-P=(x_2-x_1,\\,y_2-y_1)\\), entonces \\[\nd(P,Q)=\\sqrt{v_1^2+v_2^2}=\\lVert v\\rVert .\n\\]\nEsto no es una coincidencia ni una notación alternativa: la distancia entre dos puntos es la longitud del desplazamiento que lleva de uno a otro. En cuanto lo veas así, la fórmula deja de ser algo que memorizar.\n\n\n1.4.5 Tres propiedades de la distancia\nPara cualesquiera puntos \\(P\\), \\(Q\\) y \\(R\\) se cumple:\n\n\\(d(P,Q)\\ \\ge\\ 0\\), y \\(d(P,Q)=0\\) si y sólo si \\(P=Q\\).\n\\(d(P,Q)=d(Q,P)\\), la simetría.\n\\(d(P,Q)\\ \\le\\ d(P,R)+d(R,Q)\\), la desigualdad del triángulo.\n\nLas tres son creíbles antes de calcular nada. Una longitud no puede ser negativa, y la única manera de recorrer distancia cero es no moverse. El camino de ida mide lo mismo que el de vuelta. Y pasar por un punto intermedio \\(R\\) no puede acortar el trayecto de \\(P\\) a \\(Q\\); en el mejor de los casos lo iguala, exactamente cuando \\(R\\) está en el segmento \\(PQ\\).\nLas dos primeras se verifican en un renglón. Una raíz de suma de cuadrados nunca es negativa, y vale cero únicamente cuando todos los cuadrados son cero, es decir cuando las coordenadas coinciden una a una. Y como \\((x_2-x_1)^2=(x_1-x_2)^2\\), elevar al cuadrado elimina el signo y intercambiar \\(P\\) con \\(Q\\) no cambia el valor.\nEn el espacio las verificaciones son las mismas, con un sumando más. Esa es la ventaja de construir \\(\\mathbb{R}^3\\) en paralelo con \\(\\mathbb{R}^2\\): casi nada se demuestra otra vez, basta revisar que el argumento anterior siga funcionando con una coordenada más.\nLa tercera propiedad es la única que pide trabajo, y para ella conviene tener antes el producto punto.\n\nTeorema 1.2 (Desigualdad del triángulo) Para cualesquiera puntos \\(P\\), \\(Q\\), \\(R\\): \\[\nd(P,Q)\\ \\le\\ d(P,R)+d(R,Q),\n\\] con igualdad si y sólo si \\(R\\) pertenece al segmento \\(PQ\\).\n\n\nDemostración. Escribiendo \\(u=R-P\\) y \\(v=Q-R\\), se tiene \\(Q-P=u+v\\), de modo que el enunciado equivale a \\[\n\\lVert u+v\\rVert \\le \\lVert u\\rVert+\\lVert v\\rVert .\n\\] Elevando al cuadrado, y usando que \\(\\lVert w\\rVert^2=\\langle w,w\\rangle\\) (que veremos en Sección 1.5), \\[\n\\lVert u+v\\rVert^2=\\lVert u\\rVert^2+2\\langle u,v\\rangle+\\lVert v\\rVert^2 ,\n\\] mientras que \\[\n(\\lVert u\\rVert+\\lVert v\\rVert)^2=\\lVert u\\rVert^2+2\\lVert u\\rVert\\lVert v\\rVert+\\lVert v\\rVert^2 .\n\\] Basta entonces con que \\(\\langle u,v\\rangle\\le\\lVert u\\rVert\\lVert v\\rVert\\), que es inmediato de Teorema 1.3 porque \\(\\cos\\theta\\le 1\\). La igualdad ocurre exactamente cuando \\(\\cos\\theta=1\\), es decir, cuando \\(u\\) y \\(v\\) apuntan en el mismo sentido, o sea cuando \\(R\\) está entre \\(P\\) y \\(Q\\). \\(\\square\\)\n\n\n\n\n\n\n\nEsta demostración usa un resultado de la sección siguiente. No es circular, porque Teorema 1.3 no usa la desigualdad del triángulo, pero conviene leer ambas secciones antes de darla por entendida.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "01-sistemas-de-coordenadas.html#sec-producto-punto",
+    "href": "01-sistemas-de-coordenadas.html#sec-producto-punto",
+    "title": "1  Sistemas de coordenadas",
+    "section": "1.5 El producto punto y el ángulo",
+    "text": "1.5 El producto punto y el ángulo\nAquí aparece la herramienta que sostiene el resto del curso.\n\nDefinición 1.2 (Producto punto) Para \\(u=(u_1,u_2)\\) y \\(v=(v_1,v_2)\\) en el plano, \\[\n\\langle u,v\\rangle \\;=\\; u_1v_1+u_2v_2 .\n\\] En el espacio se añade el término correspondiente: \\(\\langle u,v\\rangle=u_1v_1+u_2v_2+u_3v_3\\).\n\nDe la definición se siguen de inmediato tres propiedades, todas verificables en un renglón:\n\nSimetría: \\(\\langle u,v\\rangle=\\langle v,u\\rangle\\).\nLinealidad: \\(\\langle \\lambda u+w,\\,v\\rangle=\\lambda\\langle u,v\\rangle+\\langle w,v\\rangle\\).\nPositividad: \\(\\langle u,u\\rangle=u_1^2+u_2^2=\\lVert u\\rVert^2\\ \\ge 0\\), con igualdad sólo si \\(u=0\\).\n\nLa tercera es la que conecta el producto punto con la longitud: \\(\\lVert u\\rVert=\\sqrt{\\langle u,u\\rangle}\\).\n\nTeorema 1.3 (El producto punto mide ángulos) Si \\(u\\) y \\(v\\) son vectores no nulos y \\(\\theta\\in[0,\\pi]\\) es el ángulo entre ellos, entonces \\[\n\\langle u,v\\rangle=\\lVert u\\rVert\\,\\lVert v\\rVert\\cos\\theta .\n\\]\n\n\nDemostración. Coloca \\(u\\) y \\(v\\) con el mismo origen. El tercer lado del triángulo que forman es el vector \\(v-u\\), y la ley de cosenos da \\[\n\\lVert v-u\\rVert^2=\\lVert u\\rVert^2+\\lVert v\\rVert^2-2\\lVert u\\rVert\\lVert v\\rVert\\cos\\theta .\n\\] Por otro lado, desarrollando con las propiedades del producto punto, \\[\n\\lVert v-u\\rVert^2=\\langle v-u,\\,v-u\\rangle=\\lVert v\\rVert^2-2\\langle u,v\\rangle+\\lVert u\\rVert^2 .\n\\] Igualando las dos expresiones y cancelando \\(\\lVert u\\rVert^2+\\lVert v\\rVert^2\\) queda \\[\n-2\\langle u,v\\rangle=-2\\lVert u\\rVert\\lVert v\\rVert\\cos\\theta ,\n\\] de donde se sigue el resultado. □\n\nDos consecuencias que usaremos sin parar:\n\n\n\n\n\n\nTipPerpendicularidad\n\n\n\nComo \\(\\cos\\theta=0\\) exactamente cuando \\(\\theta=\\pi/2\\): \\[\nu\\perp v \\iff \\langle u,v\\rangle=0 .\n\\] Comprobar que dos vectores son perpendiculares se reduce a una multiplicación y una suma. Es difícil exagerar lo útil que resulta.\n\n\nY despejando el coseno, \\[\n\\cos\\theta=\\frac{\\langle u,v\\rangle}{\\lVert u\\rVert\\,\\lVert v\\rVert},\n\\] lo que permite calcular cualquier ángulo entre objetos rectilíneos (rectas, planos, aristas) sin transportador y sin trigonometría adicional.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "01-sistemas-de-coordenadas.html#inclinación-pendiente-y-ángulo-entre-rectas",
+    "href": "01-sistemas-de-coordenadas.html#inclinación-pendiente-y-ángulo-entre-rectas",
+    "title": "1  Sistemas de coordenadas",
+    "section": "1.6 Inclinación, pendiente y ángulo entre rectas",
+    "text": "1.6 Inclinación, pendiente y ángulo entre rectas\nLa inclinación de una recta no vertical es el ángulo \\(\\alpha\\in[0,\\pi)\\) que forma con el semieje positivo de las \\(x\\), medido en sentido contrario a las manecillas. Su pendiente es \\(m=\\tan\\alpha\\).\nSi la recta pasa por \\(P=(x_1,y_1)\\) y \\(Q=(x_2,y_2)\\) con \\(x_1\\ne x_2\\), el vector \\(Q-P=(x_2-x_1,\\,y_2-y_1)\\) apunta en su dirección, y por tanto \\[\nm=\\frac{y_2-y_1}{x_2-x_1}.\n\\] La pendiente es, entonces, la razón entre las dos componentes del vector director. Las rectas verticales no tienen pendiente precisamente porque esa razón no está definida; en cambio, sí tienen vector director \\((0,1)\\), lo cual es un primer indicio de que el lenguaje vectorial es más robusto que el de pendientes.\nPara el ángulo entre dos rectas hay dos caminos, y conviene conocer los dos:\nCon vectores directores. Si \\(d_1\\) y \\(d_2\\) son vectores directores de las rectas, \\[\n\\cos\\theta=\\frac{\\lvert\\langle d_1,d_2\\rangle\\rvert}{\\lVert d_1\\rVert\\,\\lVert d_2\\rVert}\n\\] (el valor absoluto selecciona el ángulo agudo entre las dos rectas). Este método nunca falla: funciona también con rectas verticales y en el espacio.\nCon pendientes. Si las rectas tienen pendientes \\(m_1\\) y \\(m_2\\) y no son perpendiculares, \\[\n\\tan\\theta=\\left\\lvert\\frac{m_2-m_1}{1+m_1m_2}\\right\\rvert .\n\\] Es la fórmula clásica, cómoda cuando ya tienes las pendientes a la mano, pero exige tratar aparte los casos vertical y perpendicular.\n\n\n\n\n\n\nNotaParalelismo y perpendicularidad, en los dos lenguajes\n\n\n\n\n\n\n\n\n\nCon pendientes\nCon vectores\n\n\n\n\nParalelas\n\\(m_1=m_2\\)\n\\(d_1=\\lambda d_2\\)\n\n\nPerpendiculares\n\\(m_1m_2=-1\\)\n\\(\\langle d_1,d_2\\rangle=0\\)\n\n\n\nLa condición \\(m_1m_2=-1\\) falla cuando una recta es vertical y la otra horizontal, aunque sean perpendiculares. La condición \\(\\langle d_1,d_2\\rangle=0\\) no falla nunca. Conviene saber esto antes de un examen.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "01-sistemas-de-coordenadas.html#lugares-geométricos",
+    "href": "01-sistemas-de-coordenadas.html#lugares-geométricos",
+    "title": "1  Sistemas de coordenadas",
+    "section": "1.7 Lugares geométricos",
+    "text": "1.7 Lugares geométricos\nLlegamos al concepto que da nombre a buena parte del curso.\n\nDefinición 1.3 (Lugar geométrico) Un lugar geométrico es el conjunto de todos los puntos que cumplen una condición dada, y solamente ellos.\n\nLas dos palabras que hacen el trabajo son “todos” y “solamente”. Cuando afirmamos que cierta ecuación describe un lugar geométrico, estamos afirmando dos cosas a la vez:\n\nTodo punto que cumple la condición satisface la ecuación.\nTodo punto que satisface la ecuación cumple la condición.\n\nSaltarse la segunda es el error clásico. Cuando elevamos al cuadrado, por ejemplo, podemos introducir soluciones que no cumplían la condición original.\n\n1.7.1 El procedimiento, en cuatro pasos\nTraducir una condición verbal a una ecuación siempre sigue el mismo esquema:\n\nLlama \\(P=(x,y)\\) al punto genérico que cumple la condición.\nEscribe la condición como una igualdad entre distancias, ángulos o áreas.\nSustituye cada elemento por su expresión en coordenadas.\nSimplifica, cuidando de no perder ni ganar soluciones.\n\n\n\n1.7.2 Ejemplo trabajado\n\nHalla el lugar geométrico de los puntos que equidistan de \\(A=(-2,1)\\) y \\(B=(4,3)\\).\n\nPaso 1. Sea \\(P=(x,y)\\) un punto cualquiera del lugar.\nPaso 2. La condición es \\(d(P,A)=d(P,B)\\).\nPaso 3. En coordenadas, \\[\n\\sqrt{(x+2)^2+(y-1)^2}=\\sqrt{(x-4)^2+(y-3)^2}.\n\\]\nPaso 4. Ambos lados son no negativos, así que elevar al cuadrado es una operación reversible aquí y no introduce soluciones falsas: \\[\n(x+2)^2+(y-1)^2=(x-4)^2+(y-3)^2 .\n\\] Desarrollando, \\[\nx^2+4x+4+y^2-2y+1 \\;=\\; x^2-8x+16+y^2-6y+9 ,\n\\] y cancelando \\(x^2\\) e \\(y^2\\), \\[\n4x+5-2y=-8x+25-6y \\;\\Longrightarrow\\; 12x+4y-20=0 \\;\\Longrightarrow\\; 3x+y-5=0 .\n\\]\nEl lugar es una recta. Y no cualquiera: es la mediatriz del segmento \\(AB\\). Vale la pena comprobar dos cosas que la geometría predice y el álgebra debe confirmar: que el punto medio \\(M=(1,2)\\) satisface la ecuación, y que el vector \\((3,1)\\), formado por los coeficientes de la ecuación, es paralelo a \\(B-A=(6,2)\\), es decir, perpendicular a la recta.\n\n\n\n\n\n\nImportanteEse último hecho no es casualidad\n\n\n\nLos coeficientes de \\(x\\) e \\(y\\) en la ecuación general de una recta forman un vector perpendicular a ella. Es uno de los resultados que más rendimiento dan en todo el curso, y lo desarrollaremos en el Capítulo 2. Si lo ves aquí por primera vez, guárdalo.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "01-sistemas-de-coordenadas.html#curvas-y-superficies-qué-esperar",
+    "href": "01-sistemas-de-coordenadas.html#curvas-y-superficies-qué-esperar",
+    "title": "1  Sistemas de coordenadas",
+    "section": "1.8 Curvas y superficies: qué esperar",
+    "text": "1.8 Curvas y superficies: qué esperar\nTerminamos con un mapa de lo que viene, porque ayuda a saber dónde se está parado.\nEn el plano, una ecuación \\(F(x,y)=0\\) describe normalmente una curva: una condición sobre dos variables deja un grado de libertad. En el espacio, una ecuación \\(F(x,y,z)=0\\) describe normalmente una superficie: una condición sobre tres variables deja dos grados de libertad.\nDe ahí se sigue algo que suele sorprender: una curva en el espacio necesita dos ecuaciones, no una. Una sola ecuación no puede recortar el espacio hasta dejar sólo una dimensión.\n\n\n\nEn \\(\\mathbb{R}^2\\)\nEn \\(\\mathbb{R}^3\\)\n\n\n\n\n\\(F(x,y)=0\\) → una curva\n\\(F(x,y,z)=0\\) → una superficie\n\n\nPunto: dos ecuaciones\nCurva: dos ecuaciones\n\n\n\nPunto: tres ecuaciones\n\n\n\nEste conteo de grados de libertad (que en su versión formal se llama codimensión) explicará más adelante por qué una recta en el espacio se describe con dos planos o con una parametrización, pero nunca con una sola ecuación lineal. No es un capricho de la notación: es aritmética de dimensiones.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "01-sistemas-de-coordenadas.html#ejercicios",
+    "href": "01-sistemas-de-coordenadas.html#ejercicios",
+    "title": "1  Sistemas de coordenadas",
+    "section": "Ejercicios",
+    "text": "Ejercicios\n\nDe la condición a la ecuación\n1.1 Halla el lugar geométrico de los puntos cuya distancia al punto \\((3,0)\\) es igual a \\(5\\).\n1.2 Halla el lugar geométrico de los puntos que equidistan de \\((0,4)\\) y del eje \\(X\\).\n1.3 Halla el lugar geométrico de los puntos \\(P\\) tales que la suma de sus distancias a \\((-3,0)\\) y \\((3,0)\\) vale \\(10\\). Simplifica todo lo que puedas. (Aparecerá otra vez en el capítulo de cónicas; guarda tu resultado.)\n1.4 Un segmento de longitud \\(6\\) se desliza de modo que un extremo permanece sobre el eje \\(X\\) y el otro sobre el eje \\(Y\\). Halla el lugar geométrico que describe su punto medio.\n\n\nDe la ecuación a la figura\n1.5 Describe con palabras, sin graficar, el lugar geométrico \\(x^2+y^2-6x+8y=0\\). ¿Pasa por el origen?\n1.6 ¿Qué representa la ecuación \\((x-1)^2+(y+2)^2=0\\)? ¿Y \\((x-1)^2+(y+2)^2=-4\\)? Justifica.\n1.7 Describe el conjunto de \\(\\mathbb{R}^3\\) dado por \\(z=2\\). ¿Y el dado por \\(x=0\\) y \\(z=2\\)?\n1.8 ¿En qué octante vive cada uno de los puntos \\((1,2,3)\\), \\((2,-1,3)\\) y \\((-1,-2,-3)\\)? ¿Y dónde vive \\((0,0,5)\\)?\n1.9 Escribe la ecuación del plano paralelo al plano \\(xz\\) que pasa por \\((0,-4,0)\\), y la del plano paralelo al \\(xy\\) que pasa por \\((0,0,7)\\).\n\n\nPuntos, vectores y distancia\n1.10 Sean \\(P=(1,-2)\\), \\(R=(5,1)\\) y \\(Q=(-3,4)\\).\n\nCalcula \\(R-P\\) y \\(Q-R\\). Verifica que \\((R-P)+(Q-R)=Q-P\\) y explica geométricamente por qué debía salir eso.\nCalcula \\(d(P,R)\\), \\(d(R,Q)\\) y \\(d(P,Q)\\), y comprueba la desigualdad del triángulo.\nHalla el punto medio de \\(PQ\\) escribiéndolo en la forma \\(P+t(Q-P)\\).\n\n1.11 Determina si el triángulo de vértices \\(A=(0,0)\\), \\(B=(4,2)\\), \\(C=(1,5)\\) tiene algún ángulo recto. Hazlo con productos punto y explica qué calculaste exactamente.\n1.12 Halla un valor de \\(k\\) para el cual los vectores \\((2,k)\\) y \\((k+1,3)\\) sean perpendiculares. ¿Hay más de uno?\n1.13 Calcula \\(d\\bigl(O,(2,6,3)\\bigr)\\) y \\(d\\bigl((2,-1,3),(0,1,2)\\bigr)\\). En los dos casos el resultado es un entero; identifica los dos triángulos rectángulos que intervienen en el primero.\n1.14 Demuestra que los puntos \\((1,1)\\), \\((4,2)\\) y \\((7,3)\\) son colineales, de dos maneras distintas: con pendientes y con vectores. ¿Cuál de las dos seguiría funcionando si los puntos estuvieran en \\(\\mathbb{R}^3\\)?\n\n\nPara pensar despacio\n1.15 Explica, con tus palabras y en no más de media página, por qué \\(P+Q\\) no está definido para puntos pero \\(P+v\\) sí lo está para un punto y un vector. Incluye un ejemplo que muestre qué sale mal si se insiste en sumar dos puntos.\n1.16 Demuestra que en cualquier triángulo, el segmento que une los puntos medios de dos lados es paralelo al tercer lado y mide la mitad. Usa vectores: la demostración cabe en tres renglones y no requiere ninguna figura.\n1.17 La desigualdad del triángulo dice que \\(d(P,Q)\\le d(P,R)+d(R,Q)\\). Enuncia con precisión en qué caso se da la igualdad y demuéstralo a partir de Teorema 1.3.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "02-la-recta-en-el-plano.html",
+    "href": "02-la-recta-en-el-plano.html",
+    "title": "2  La recta en el plano",
+    "section": "",
+    "text": "2.1 Vector director y forma paramétrica\nLa recta como \\(\\{P+td\\}\\). Del parámetro a la pendiente. Inclinación y pendiente como caso particular de una dirección.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La recta en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "02-la-recta-en-el-plano.html#el-giro-de-noventa-grados-y-el-vector-normal",
+    "href": "02-la-recta-en-el-plano.html#el-giro-de-noventa-grados-y-el-vector-normal",
+    "title": "2  La recta en el plano",
+    "section": "2.2 El giro de noventa grados y el vector normal",
+    "text": "2.2 El giro de noventa grados y el vector normal\nEl giro \\(d=(d_1,d_2)\\mapsto n=(-d_2,d_1)\\), y la comprobación de que \\(\\langle n,d\\rangle=0\\). La recta como \\(\\langle n,X\\rangle=c\\), y de ahí por qué los coeficientes de \\(Ax+By=C\\) son el vector normal.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La recta en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "02-la-recta-en-el-plano.html#las-formas-de-la-ecuación",
+    "href": "02-la-recta-en-el-plano.html#las-formas-de-la-ecuación",
+    "title": "2  La recta en el plano",
+    "section": "2.3 Las formas de la ecuación",
+    "text": "2.3 Las formas de la ecuación\nPendiente-ordenada, punto-pendiente, general, simétrica, paramétrica y normal: la misma recta en seis disfraces, y cuándo conviene cada uno.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La recta en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "02-la-recta-en-el-plano.html#distancia-de-un-punto-a-una-recta",
+    "href": "02-la-recta-en-el-plano.html#distancia-de-un-punto-a-una-recta",
+    "title": "2  La recta en el plano",
+    "section": "2.4 Distancia de un punto a una recta",
+    "text": "2.4 Distancia de un punto a una recta\nTeorema 3 del curso. Si \\(\\lVert n\\rVert=1\\), entonces \\(d(Q,\\ell)=\\lvert\\langle n,Q\\rangle-p\\rvert\\). La forma normal de Lehmann como caso particular de esta expresión.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La recta en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "02-la-recta-en-el-plano.html#haces-de-rectas",
+    "href": "02-la-recta-en-el-plano.html#haces-de-rectas",
+    "title": "2  La recta en el plano",
+    "section": "2.5 Haces de rectas",
+    "text": "2.5 Haces de rectas\nLa familia \\(\\ell_1+\\lambda\\ell_2=0\\) y el punto común.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La recta en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "02-la-recta-en-el-plano.html#rectas-y-puntos-notables-del-triángulo",
+    "href": "02-la-recta-en-el-plano.html#rectas-y-puntos-notables-del-triángulo",
+    "title": "2  La recta en el plano",
+    "section": "2.6 Rectas y puntos notables del triángulo",
+    "text": "2.6 Rectas y puntos notables del triángulo\nTeorema 4 del curso. Concurrencia de las medianas; el baricentro como promedio.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La recta en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "02-la-recta-en-el-plano.html#aplicación-método-gráfico-de-la-programación-lineal",
+    "href": "02-la-recta-en-el-plano.html#aplicación-método-gráfico-de-la-programación-lineal",
+    "title": "2  La recta en el plano",
+    "section": "2.7 Aplicación: método gráfico de la programación lineal",
+    "text": "2.7 Aplicación: método gráfico de la programación lineal\nRegión factible como intersección de semiplanos; el óptimo en un vértice.",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La recta en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "02-la-recta-en-el-plano.html#ejercicios",
+    "href": "02-la-recta-en-el-plano.html#ejercicios",
+    "title": "2  La recta en el plano",
+    "section": "Ejercicios",
+    "text": "Ejercicios",
+    "crumbs": [
+      "Parte I — El plano",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La recta en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "03-vectores-en-el-espacio.html",
+    "href": "03-vectores-en-el-espacio.html",
+    "title": "3  Vectores en el espacio",
+    "section": "",
+    "text": "3.1 Vectores en \\(\\mathbb{R}^3\\)\nDefinición e interpretación geométrica. Suma y multiplicación por un escalar. Base canónica. Norma de un vector y su relación con la distancia euclidiana.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Vectores en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "03-vectores-en-el-espacio.html#el-producto-punto-en-el-espacio",
+    "href": "03-vectores-en-el-espacio.html#el-producto-punto-en-el-espacio",
+    "title": "3  Vectores en el espacio",
+    "section": "3.2 El producto punto en el espacio",
+    "text": "3.2 El producto punto en el espacio\nLa misma definición que en el plano. Ángulo, paralelismo y perpendicularidad. Cosenos y números directores presentados como lo que son: las componentes del vector unitario.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Vectores en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "03-vectores-en-el-espacio.html#proyección-de-un-vector-sobre-otro",
+    "href": "03-vectores-en-el-espacio.html#proyección-de-un-vector-sobre-otro",
+    "title": "3  Vectores en el espacio",
+    "section": "3.3 Proyección de un vector sobre otro",
+    "text": "3.3 Proyección de un vector sobre otro\nDescomposición de un vector en componente paralela y componente perpendicular. Es la herramienta con la que se calculan todas las distancias del capítulo siguiente.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Vectores en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "03-vectores-en-el-espacio.html#el-determinante-como-área-orientada",
+    "href": "03-vectores-en-el-espacio.html#el-determinante-como-área-orientada",
+    "title": "3  Vectores en el espacio",
+    "section": "3.4 El determinante como área orientada",
+    "text": "3.4 El determinante como área orientada\nEl determinante \\(2\\times2\\), el signo y su significado geométrico. Nada de reglas mnemotécnicas.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Vectores en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "03-vectores-en-el-espacio.html#producto-cruz",
+    "href": "03-vectores-en-el-espacio.html#producto-cruz",
+    "title": "3  Vectores en el espacio",
+    "section": "3.5 Producto cruz",
+    "text": "3.5 Producto cruz\nDefinición, anticonmutatividad y perpendicularidad al plano generado. Por qué es una anomalía de \\(\\mathbb{R}^3\\) sin análogo en el plano ni en dimensión cuatro.\nTeorema 6 del curso. \\(\\lVert u\\times v\\rVert\\) es el área del paralelogramo generado por \\(u\\) y \\(v\\).",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Vectores en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "03-vectores-en-el-espacio.html#volumen-y-coplanaridad",
+    "href": "03-vectores-en-el-espacio.html#volumen-y-coplanaridad",
+    "title": "3  Vectores en el espacio",
+    "section": "3.6 Volumen y coplanaridad",
+    "text": "3.6 Volumen y coplanaridad\nDeterminante \\(3\\times3\\) como volumen del paralelepípedo. Triple producto escalar y criterio de coplanaridad.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Vectores en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "03-vectores-en-el-espacio.html#ejercicios",
+    "href": "03-vectores-en-el-espacio.html#ejercicios",
+    "title": "3  Vectores en el espacio",
+    "section": "Ejercicios",
+    "text": "Ejercicios",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Vectores en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "04-planos-y-rectas-en-el-espacio.html",
+    "href": "04-planos-y-rectas-en-el-espacio.html",
+    "title": "4  Planos y rectas en el espacio",
+    "section": "",
+    "text": "4.1 Una ecuación lineal, dos dimensiones ambiente\nTeorema 5 del curso. La ecuación \\(\\langle n,X\\rangle=c\\) describe una recta en el plano y un plano en el espacio. Dimensión y codimensión. De ahí se sigue por qué una recta en \\(\\mathbb{R}^3\\) necesita dos ecuaciones o una parametrización, y no es un capricho de la notación sino aritmética de dimensiones.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Planos y rectas en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "04-planos-y-rectas-en-el-espacio.html#formas-de-la-ecuación-del-plano",
+    "href": "04-planos-y-rectas-en-el-espacio.html#formas-de-la-ecuación-del-plano",
+    "title": "4  Planos y rectas en el espacio",
+    "section": "4.2 Formas de la ecuación del plano",
+    "text": "4.2 Formas de la ecuación del plano\nGeneral, simétrica y normal. Ecuación vectorial.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Planos y rectas en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "04-planos-y-rectas-en-el-espacio.html#formas-de-las-ecuaciones-de-la-recta",
+    "href": "04-planos-y-rectas-en-el-espacio.html#formas-de-las-ecuaciones-de-la-recta",
+    "title": "4  Planos y rectas en el espacio",
+    "section": "4.3 Formas de las ecuaciones de la recta",
+    "text": "4.3 Formas de las ecuaciones de la recta\nBiplanar, paramétrica y simétrica.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Planos y rectas en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "04-planos-y-rectas-en-el-espacio.html#ángulos",
+    "href": "04-planos-y-rectas-en-el-espacio.html#ángulos",
+    "title": "4  Planos y rectas en el espacio",
+    "section": "4.4 Ángulos",
+    "text": "4.4 Ángulos\nEntre dos rectas, entre dos planos, y entre recta y plano: los tres con producto punto, en una sola sesión.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Planos y rectas en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "04-planos-y-rectas-en-el-espacio.html#intersecciones",
+    "href": "04-planos-y-rectas-en-el-espacio.html#intersecciones",
+    "title": "4  Planos y rectas en el espacio",
+    "section": "4.5 Intersecciones",
+    "text": "4.5 Intersecciones\nRecta con plano, plano con plano, y los casos degenerados.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Planos y rectas en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "04-planos-y-rectas-en-el-espacio.html#las-seis-distancias-de-una-sola-vez",
+    "href": "04-planos-y-rectas-en-el-espacio.html#las-seis-distancias-de-una-sola-vez",
+    "title": "4  Planos y rectas en el espacio",
+    "section": "4.6 Las seis distancias, de una sola vez",
+    "text": "4.6 Las seis distancias, de una sola vez\nPunto-plano, plano-plano, recta-plano, recta-recta y punto-recta. Todas son la misma proyección sobre el vector adecuado.",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Planos y rectas en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "04-planos-y-rectas-en-el-espacio.html#ejercicios",
+    "href": "04-planos-y-rectas-en-el-espacio.html#ejercicios",
+    "title": "4  Planos y rectas en el espacio",
+    "section": "Ejercicios",
+    "text": "Ejercicios",
+    "crumbs": [
+      "Parte II — El espacio",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Planos y rectas en el espacio</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html",
+    "href": "05-conicas.html",
+    "title": "5  Cónicas en el plano",
+    "section": "",
+    "text": "5.1 Isometrías del plano\nTraslación, rotación y reflexión. Qué se conserva. El significado de “propiedad geométrica euclidiana”: la que no cambia bajo isometrías.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html#traslación-de-sistemas-de-coordenadas",
+    "href": "05-conicas.html#traslación-de-sistemas-de-coordenadas",
+    "title": "5  Cónicas en el plano",
+    "section": "5.2 Traslación de sistemas de coordenadas",
+    "text": "5.2 Traslación de sistemas de coordenadas",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html#la-circunferencia",
+    "href": "05-conicas.html#la-circunferencia",
+    "title": "5  Cónicas en el plano",
+    "section": "5.3 La circunferencia",
+    "text": "5.3 La circunferencia\nFormas canónica y general. Completar cuadrados como traducción entre registros, no como truco. Circunferencia determinada por tres condiciones. Tangentes y propiedades.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html#la-elipse",
+    "href": "05-conicas.html#la-elipse",
+    "title": "5  Cónicas en el plano",
+    "section": "5.4 La elipse",
+    "text": "5.4 La elipse\nDefinición bifocal y deducción completa de la ecuación canónica. Elementos: centro, focos, vértices, ejes, lado recto. Excentricidad: qué determina la forma y qué determina el tamaño. Propiedad focal de reflexión, demostrada sin cálculo por el argumento de camino mínimo.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html#la-parábola",
+    "href": "05-conicas.html#la-parábola",
+    "title": "5  Cónicas en el plano",
+    "section": "5.5 La parábola",
+    "text": "5.5 La parábola\nDefinición foco-directriz, ecuación y propiedades.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html#la-hipérbola",
+    "href": "05-conicas.html#la-hipérbola",
+    "title": "5  Cónicas en el plano",
+    "section": "5.6 La hipérbola",
+    "text": "5.6 La hipérbola\nDefinición bifocal con diferencia, ecuación, asíntotas y propiedades.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html#una-sola-definición-para-las-tres",
+    "href": "05-conicas.html#una-sola-definición-para-las-tres",
+    "title": "5  Cónicas en el plano",
+    "section": "5.7 Una sola definición para las tres",
+    "text": "5.7 Una sola definición para las tres\nTeorema 7 del curso. Equivalencia entre la definición bifocal y la foco-directriz. La excentricidad como único parámetro de forma.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html#las-cónicas-como-secciones-del-cono",
+    "href": "05-conicas.html#las-cónicas-como-secciones-del-cono",
+    "title": "5  Cónicas en el plano",
+    "section": "5.8 Las cónicas como secciones del cono",
+    "text": "5.8 Las cónicas como secciones del cono\nTeorema 8 del curso. Esferas de Dandelin. El único ingrediente es que los segmentos tangentes desde un punto exterior a una esfera son iguales. Es la respuesta a por qué se llaman cónicas.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html#rotación-de-ejes",
+    "href": "05-conicas.html#rotación-de-ejes",
+    "title": "5  Cónicas en el plano",
+    "section": "5.9 Rotación de ejes",
+    "text": "5.9 Rotación de ejes\nTeorema 9 del curso. La rotación preserva normas y productos punto. Derivación trigonométrica; la linealidad descubierta; y la tabla de cuatro coeficientes que en Álgebra Lineal I se llamará matriz.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html#clasificación-de-la-ecuación-general-de-segundo-grado",
+    "href": "05-conicas.html#clasificación-de-la-ecuación-general-de-segundo-grado",
+    "title": "5  Cónicas en el plano",
+    "section": "5.10 Clasificación de la ecuación general de segundo grado",
+    "text": "5.10 Clasificación de la ecuación general de segundo grado\nTeorema 10 del curso. Invariancia de \\(B^2-4AC\\) y de \\(A+C\\) bajo rotación. Clasificación y casos degenerados. La idea de fondo: el tipo de cónica no depende del sistema de coordenadas.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "05-conicas.html#ejercicios",
+    "href": "05-conicas.html#ejercicios",
+    "title": "5  Cónicas en el plano",
+    "section": "Ejercicios",
+    "text": "Ejercicios",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Cónicas en el plano</span>"
+    ]
+  },
+  {
+    "objectID": "06-superficies-cuadricas.html",
+    "href": "06-superficies-cuadricas.html",
+    "title": "6  Superficies cuádricas",
+    "section": "",
+    "text": "6.1 Representación paramétrica y representación cartesiana",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Superficies cuádricas</span>"
+    ]
+  },
+  {
+    "objectID": "06-superficies-cuadricas.html#el-método-de-trazas",
+    "href": "06-superficies-cuadricas.html#el-método-de-trazas",
+    "title": "6  Superficies cuádricas",
+    "section": "6.2 El método de trazas",
+    "text": "6.2 El método de trazas\nUna superficie se entiende como la familia de sus secciones planas: cortar con \\(x=k\\), \\(y=k\\), \\(z=k\\) y reconstruir. Es el análogo tridimensional de descomponer una figura plana en sus elementos.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Superficies cuádricas</span>"
+    ]
+  },
+  {
+    "objectID": "06-superficies-cuadricas.html#superficies-de-revolución",
+    "href": "06-superficies-cuadricas.html#superficies-de-revolución",
+    "title": "6  Superficies cuádricas",
+    "section": "6.3 Superficies de revolución",
+    "text": "6.3 Superficies de revolución\nCómo se genera la ecuación a partir de la curva generatriz.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Superficies cuádricas</span>"
+    ]
+  },
+  {
+    "objectID": "06-superficies-cuadricas.html#superficies-regladas",
+    "href": "06-superficies-cuadricas.html#superficies-regladas",
+    "title": "6  Superficies cuádricas",
+    "section": "6.4 Superficies regladas",
+    "text": "6.4 Superficies regladas\nEl hiperboloide de una hoja y sus dos familias de rectas.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Superficies cuádricas</span>"
+    ]
+  },
+  {
+    "objectID": "06-superficies-cuadricas.html#la-esfera",
+    "href": "06-superficies-cuadricas.html#la-esfera",
+    "title": "6  Superficies cuádricas",
+    "section": "6.5 La esfera",
+    "text": "6.5 La esfera\nEcuación, esfera por cuatro puntos, propiedades. Intersección con rectas y planos; rectas y planos tangentes.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Superficies cuádricas</span>"
+    ]
+  },
+  {
+    "objectID": "06-superficies-cuadricas.html#el-catálogo-de-cuádricas",
+    "href": "06-superficies-cuadricas.html#el-catálogo-de-cuádricas",
+    "title": "6  Superficies cuádricas",
+    "section": "6.6 El catálogo de cuádricas",
+    "text": "6.6 El catálogo de cuádricas\nElipsoide y sus tipos. Hiperboloide de una y de dos hojas. Cono elíptico. Paraboloide elíptico y paraboloide hiperbólico. La transición continua entre hiperboloide de una hoja, cono e hiperboloide de dos hojas.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Superficies cuádricas</span>"
+    ]
+  },
+  {
+    "objectID": "06-superficies-cuadricas.html#la-ecuación-general-de-segundo-grado-con-tres-incógnitas",
+    "href": "06-superficies-cuadricas.html#la-ecuación-general-de-segundo-grado-con-tres-incógnitas",
+    "title": "6  Superficies cuádricas",
+    "section": "6.7 La ecuación general de segundo grado con tres incógnitas",
+    "text": "6.7 La ecuación general de segundo grado con tres incógnitas\nQué se puede decir sin álgebra lineal, y qué queda pendiente para después.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Superficies cuádricas</span>"
+    ]
+  },
+  {
+    "objectID": "06-superficies-cuadricas.html#ejercicios",
+    "href": "06-superficies-cuadricas.html#ejercicios",
+    "title": "6  Superficies cuádricas",
+    "section": "Ejercicios",
+    "text": "Ejercicios",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Superficies cuádricas</span>"
+    ]
+  },
+  {
+    "objectID": "07-otros-sistemas-de-coordenadas.html",
+    "href": "07-otros-sistemas-de-coordenadas.html",
+    "title": "7  Otros sistemas de coordenadas",
+    "section": "",
+    "text": "7.1 Coordenadas polares\nDefinición y conversión con las cartesianas. La no unicidad de la representación. Curvas polares básicas.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Otros sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "07-otros-sistemas-de-coordenadas.html#la-ecuación-polar-focal",
+    "href": "07-otros-sistemas-de-coordenadas.html#la-ecuación-polar-focal",
+    "title": "7  Otros sistemas de coordenadas",
+    "section": "7.2 La ecuación polar focal",
+    "text": "7.2 La ecuación polar focal\n\\[\nr(\\theta)=\\frac{\\ell}{1+e\\cos\\theta}\n\\]\nUna sola ecuación, un solo parámetro, las tres cónicas. Es el cierre del curso: el mismo \\(e\\) que se movió con un deslizador en el capítulo de cónicas, y la ecuación con la que Kepler describió las órbitas.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Otros sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "07-otros-sistemas-de-coordenadas.html#coordenadas-cilíndricas",
+    "href": "07-otros-sistemas-de-coordenadas.html#coordenadas-cilíndricas",
+    "title": "7  Otros sistemas de coordenadas",
+    "section": "7.3 Coordenadas cilíndricas",
+    "text": "7.3 Coordenadas cilíndricas\nDefinición, conversión y superficies con ecuación simple en este sistema.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Otros sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "07-otros-sistemas-de-coordenadas.html#coordenadas-esféricas",
+    "href": "07-otros-sistemas-de-coordenadas.html#coordenadas-esféricas",
+    "title": "7  Otros sistemas de coordenadas",
+    "section": "7.4 Coordenadas esféricas",
+    "text": "7.4 Coordenadas esféricas\nDefinición, conversión y superficies con ecuación simple en este sistema.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Otros sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "07-otros-sistemas-de-coordenadas.html#qué-sistema-conviene-en-cada-caso",
+    "href": "07-otros-sistemas-de-coordenadas.html#qué-sistema-conviene-en-cada-caso",
+    "title": "7  Otros sistemas de coordenadas",
+    "section": "7.5 Qué sistema conviene en cada caso",
+    "text": "7.5 Qué sistema conviene en cada caso\nElegir bien las coordenadas convierte una ecuación complicada en una trivial. Cuáles de estos sistemas reaparecen en Cálculo III y IV, y para qué.",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Otros sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "07-otros-sistemas-de-coordenadas.html#ejercicios",
+    "href": "07-otros-sistemas-de-coordenadas.html#ejercicios",
+    "title": "7  Otros sistemas de coordenadas",
+    "section": "Ejercicios",
+    "text": "Ejercicios",
+    "crumbs": [
+      "Parte III — Curvas y superficies de segundo grado",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Otros sistemas de coordenadas</span>"
+    ]
+  },
+  {
+    "objectID": "invernadero.html",
+    "href": "invernadero.html",
+    "title": "El invernadero",
+    "section": "",
+    "text": "Qué es esto\nCada página del invernadero contiene código en Python, un lenguaje de programación que vas a estudiar formalmente el próximo semestre en Programación de Computadoras. No necesitas saber programar para usar estas páginas: el código ya está escrito, y lo único que se te pide modificar es la línea que contiene la matemática —una ecuación, un parámetro, una condición—.\nPiensa en cada cuaderno como un experimento preparado: el aparato ya está montado; tú decides qué medir.",
+    "crumbs": [
+      "El invernadero (opcional)",
+      "El invernadero"
+    ]
+  },
+  {
+    "objectID": "invernadero.html#aviso-técnico",
+    "href": "invernadero.html#aviso-técnico",
+    "title": "El invernadero",
+    "section": "Aviso técnico",
+    "text": "Aviso técnico\nLas páginas de esta sección ejecutan Python dentro de tu navegador (no hay que instalar nada), pero para lograrlo descargan el intérprete la primera vez: varios megabytes. Por eso:\n\nConviene abrirlas desde una computadora con buena conexión, no desde datos móviles.\nLa primera celda tarda unos segundos en despertar. Es normal.\nEl resto del libro no paga este costo: sólo estas páginas lo hacen, y sólo cuando las abres.",
+    "crumbs": [
+      "El invernadero (opcional)",
+      "El invernadero"
+    ]
+  },
+  {
+    "objectID": "invernadero.html#los-cuadernos",
+    "href": "invernadero.html#los-cuadernos",
+    "title": "El invernadero",
+    "section": "Los cuadernos",
+    "text": "Los cuadernos\n\n\n\nCuaderno\nQué se experimenta\nRelacionado con\n\n\n\n\nFamilias de rectas\nUn parámetro que recorre un haz\n2  La recta en el plano\n\n\nDibuja tu propia cónica (próximamente)\nLa condición focal, trazada por la máquina\n5  Cónicas en el plano\n\n\nEl discriminante no cambia (próximamente)\nVerificación simbólica de la invariancia de \\(B^2-4AC\\)\n5  Cónicas en el plano\n\n\nEl ángulo que anula el término cruzado (próximamente)\n\\(\\cot 2\\theta=(A-C)/B\\) probado en casos aleatorios\n5  Cónicas en el plano\n\n\nTrazas de una cuádrica (próximamente)\nCortar con planos y mirar las secciones\n6  Superficies cuádricas\n\n\nCónicas en polares (próximamente)\nMover \\(e\\) y ver las tres curvas\n7  Otros sistemas de coordenadas",
+    "crumbs": [
+      "El invernadero (opcional)",
+      "El invernadero"
+    ]
+  },
+  {
+    "objectID": "invernadero.html#una-regla-de-la-casa",
+    "href": "invernadero.html#una-regla-de-la-casa",
+    "title": "El invernadero",
+    "section": "Una regla de la casa",
+    "text": "Una regla de la casa\nLa misma del resto del curso: antes de ejecutar, predice. Escribe en un papel qué esperas que salga. Si sale lo que esperabas, entendiste; si no, encontraste algo que vale la pena — y eso es mejor.",
+    "crumbs": [
+      "El invernadero (opcional)",
+      "El invernadero"
+    ]
+  },
+  {
+    "objectID": "invernadero/01-familias-de-rectas.html",
+    "href": "invernadero/01-familias-de-rectas.html",
+    "title": "Familias de rectas",
+    "section": "",
+    "text": "El experimento\nEn clase vimos que la expresión \\[\n\\ell_1+\\lambda\\,\\ell_2=0\n\\] describe, al variar \\(\\lambda\\), una familia de rectas que pasan todas por el punto común de \\(\\ell_1\\) y \\(\\ell_2\\). En el pizarrón sólo alcanzamos a dibujar tres o cuatro. Aquí puedes dibujar cincuenta.\nEl código siguiente dibuja miembros del haz generado por \\[\n\\ell_1:\\; x+y-2=0 \\qquad\\text{y}\\qquad \\ell_2:\\; 2x-y-1=0 .\n\\]\nAntes de ejecutar, predice: ¿por qué punto van a pasar todas las rectas de la familia? (Puedes calcularlo: es la intersección de \\(\\ell_1\\) y \\(\\ell_2\\).)",
+    "crumbs": [
+      "El invernadero (opcional)",
+      "Familias de rectas"
+    ]
+  },
+  {
+    "objectID": "invernadero/01-familias-de-rectas.html#el-experimento",
+    "href": "invernadero/01-familias-de-rectas.html#el-experimento",
+    "title": "Familias de rectas",
+    "section": "",
+    "text": "import numpy as np\nimport matplotlib.pyplot as plt\n\n# --- La unica parte matematica: las dos rectas del haz -------------\n# ax + by + c = 0, escritas como (a, b, c)\nl1 = (1,  1, -2)     # x + y - 2 = 0\nl2 = (2, -1, -1)     # 2x - y - 1 = 0\n# --------------------------------------------------------------------\n\nx = np.linspace(-4, 6, 100)\nfig, ax = plt.subplots(figsize=(6, 6))\n\nfor lam in np.linspace(-8, 8, 41):\n    a = l1[0] + lam*l2[0]\n    b = l1[1] + lam*l2[1]\n    c = l1[2] + lam*l2[2]\n    if abs(b) &gt; 1e-9:                      # recta no vertical\n        ax.plot(x, (-a*x - c)/b, lw=0.8, alpha=0.6)\n\nax.set_xlim(-4, 6); ax.set_ylim(-4, 6)\nax.axhline(0, color='k', lw=0.8); ax.axvline(0, color='k', lw=0.8)\nax.set_aspect('equal'); ax.grid(alpha=0.3)\nax.set_title('El haz  $\\\\ell_1 + \\\\lambda\\\\, \\\\ell_2 = 0$')\nplt.show()",
+    "crumbs": [
+      "El invernadero (opcional)",
+      "Familias de rectas"
+    ]
+  },
+  {
+    "objectID": "invernadero/01-familias-de-rectas.html#qué-mirar",
+    "href": "invernadero/01-familias-de-rectas.html#qué-mirar",
+    "title": "Familias de rectas",
+    "section": "Qué mirar",
+    "text": "Qué mirar\n\nTodas las rectas se cortan en un solo punto. Verifica que es la solución del sistema \\(\\ell_1=0\\), \\(\\ell_2=0\\).\nModifica los coeficientes de l2 en el código y vuelve a ejecutar. ¿El punto común se movió? ¿Hacia dónde?\nHay una recta del haz que falta en el dibujo, por más valores de \\(\\lambda\\) que pongas. ¿Cuál es y por qué ningún \\(\\lambda\\) finito la produce? (Pista: ¿qué recta obtienes “cuando \\(\\lambda\\to\\infty\\)”?)\n\n\n\n\n\n\n\nTipSobre la pregunta 3\n\n\n\n\n\nLa propia \\(\\ell_2\\) no pertenece a la familia \\(\\ell_1+\\lambda\\ell_2\\) para ningún \\(\\lambda\\) finito: al crecer \\(\\lambda\\), la recta de la familia se parece cada vez más a \\(\\ell_2\\), pero nunca la alcanza. Por eso algunos textos escriben el haz como \\(\\mu\\,\\ell_1+\\lambda\\,\\ell_2=0\\) con dos parámetros, que sí incluye a ambas generadoras.\n\n\n\n\n\n\n\n\n\nNota para la edición del libro (no para el estudiante): cuando se instale la extensión quarto-live (quarto add r-wasm/quarto-live y activar el filtro live en _quarto.yml), cambiar el bloque ```python de esta página por ```{pyodide} para que la celda sea ejecutable en el navegador. Mientras tanto el código se muestra pero no se ejecuta, y el libro renderiza sin ninguna dependencia de Python.",
+    "crumbs": [
+      "El invernadero (opcional)",
+      "Familias de rectas"
+    ]
+  }
+]

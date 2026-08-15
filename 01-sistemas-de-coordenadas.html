@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Sistemas de coordenadas – Geometría Analítica</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02-la-recta-en-el-plano.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4acf08dabb96f81709fcc0b58b9b893f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-sistemas-de-coordenadas.html">Parte I — El plano</a></li><li class="breadcrumb-item"><a href="./01-sistemas-de-coordenadas.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistemas de coordenadas</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Geometría Analítica</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rosaliahdez/notas-geometria-analitica" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antes de empezar</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — El plano</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-sistemas-de-coordenadas.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistemas de coordenadas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-la-recta-en-el-plano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La recta en el plano</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte II — El espacio</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-vectores-en-el-espacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vectores en el espacio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-planos-y-rectas-en-el-espacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planos y rectas en el espacio</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte III — Curvas y superficies de segundo grado</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-conicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cónicas en el plano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-superficies-cuadricas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Superficies cuádricas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-otros-sistemas-de-coordenadas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Otros sistemas de coordenadas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">El invernadero (opcional)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./invernadero.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">El invernadero</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./invernadero/01-familias-de-rectas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Familias de rectas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#el-método-de-descartes" id="toc-el-método-de-descartes" class="nav-link active" data-scroll-target="#el-método-de-descartes"><span class="header-section-number">1.1</span> El método de Descartes</a></li>
+  <li><a href="#localización-la-recta-el-plano-el-espacio" id="toc-localización-la-recta-el-plano-el-espacio" class="nav-link" data-scroll-target="#localización-la-recta-el-plano-el-espacio"><span class="header-section-number">1.2</span> Localización: la recta, el plano, el espacio</a>
+  <ul class="collapse">
+  <li><a href="#la-recta-real" id="toc-la-recta-real" class="nav-link" data-scroll-target="#la-recta-real"><span class="header-section-number">1.2.1</span> La recta real</a></li>
+  <li><a href="#el-plano" id="toc-el-plano" class="nav-link" data-scroll-target="#el-plano"><span class="header-section-number">1.2.2</span> El plano</a></li>
+  <li><a href="#el-espacio" id="toc-el-espacio" class="nav-link" data-scroll-target="#el-espacio"><span class="header-section-number">1.2.3</span> El espacio</a></li>
+  <li><a href="#los-planos-coordenados-y-sus-ecuaciones" id="toc-los-planos-coordenados-y-sus-ecuaciones" class="nav-link" data-scroll-target="#los-planos-coordenados-y-sus-ecuaciones"><span class="header-section-number">1.2.4</span> Los planos coordenados y sus ecuaciones</a></li>
+  </ul></li>
+  <li><a href="#sec-punto-vector" id="toc-sec-punto-vector" class="nav-link" data-scroll-target="#sec-punto-vector"><span class="header-section-number">1.3</span> Puntos y vectores</a>
+  <ul class="collapse">
+  <li><a href="#el-punto-medio-bien-escrito" id="toc-el-punto-medio-bien-escrito" class="nav-link" data-scroll-target="#el-punto-medio-bien-escrito"><span class="header-section-number">1.3.1</span> El punto medio, bien escrito</a></li>
+  <li><a href="#figura-interactiva" id="toc-figura-interactiva" class="nav-link" data-scroll-target="#figura-interactiva"><span class="header-section-number">1.3.2</span> Figura interactiva</a></li>
+  </ul></li>
+  <li><a href="#distancia-entre-dos-puntos" id="toc-distancia-entre-dos-puntos" class="nav-link" data-scroll-target="#distancia-entre-dos-puntos"><span class="header-section-number">1.4</span> Distancia entre dos puntos</a>
+  <ul class="collapse">
+  <li><a href="#del-origen-a-un-punto" id="toc-del-origen-a-un-punto" class="nav-link" data-scroll-target="#del-origen-a-un-punto"><span class="header-section-number">1.4.1</span> Del origen a un punto</a></li>
+  <li><a href="#el-mismo-triángulo-fuera-del-origen" id="toc-el-mismo-triángulo-fuera-del-origen" class="nav-link" data-scroll-target="#el-mismo-triángulo-fuera-del-origen"><span class="header-section-number">1.4.2</span> El mismo triángulo, fuera del origen</a></li>
+  <li><a href="#la-misma-construcción-en-el-espacio" id="toc-la-misma-construcción-en-el-espacio" class="nav-link" data-scroll-target="#la-misma-construcción-en-el-espacio"><span class="header-section-number">1.4.3</span> La misma construcción en el espacio</a></li>
+  <li><a href="#la-distancia-es-la-norma-de-un-vector" id="toc-la-distancia-es-la-norma-de-un-vector" class="nav-link" data-scroll-target="#la-distancia-es-la-norma-de-un-vector"><span class="header-section-number">1.4.4</span> La distancia es la norma de un vector</a></li>
+  <li><a href="#tres-propiedades-de-la-distancia" id="toc-tres-propiedades-de-la-distancia" class="nav-link" data-scroll-target="#tres-propiedades-de-la-distancia"><span class="header-section-number">1.4.5</span> Tres propiedades de la distancia</a></li>
+  </ul></li>
+  <li><a href="#sec-producto-punto" id="toc-sec-producto-punto" class="nav-link" data-scroll-target="#sec-producto-punto"><span class="header-section-number">1.5</span> El producto punto y el ángulo</a></li>
+  <li><a href="#inclinación-pendiente-y-ángulo-entre-rectas" id="toc-inclinación-pendiente-y-ángulo-entre-rectas" class="nav-link" data-scroll-target="#inclinación-pendiente-y-ángulo-entre-rectas"><span class="header-section-number">1.6</span> Inclinación, pendiente y ángulo entre rectas</a></li>
+  <li><a href="#lugares-geométricos" id="toc-lugares-geométricos" class="nav-link" data-scroll-target="#lugares-geométricos"><span class="header-section-number">1.7</span> Lugares geométricos</a>
+  <ul class="collapse">
+  <li><a href="#el-procedimiento-en-cuatro-pasos" id="toc-el-procedimiento-en-cuatro-pasos" class="nav-link" data-scroll-target="#el-procedimiento-en-cuatro-pasos"><span class="header-section-number">1.7.1</span> El procedimiento, en cuatro pasos</a></li>
+  <li><a href="#ejemplo-trabajado" id="toc-ejemplo-trabajado" class="nav-link" data-scroll-target="#ejemplo-trabajado"><span class="header-section-number">1.7.2</span> Ejemplo trabajado</a></li>
+  </ul></li>
+  <li><a href="#curvas-y-superficies-qué-esperar" id="toc-curvas-y-superficies-qué-esperar" class="nav-link" data-scroll-target="#curvas-y-superficies-qué-esperar"><span class="header-section-number">1.8</span> Curvas y superficies: qué esperar</a></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a>
+  <ul class="collapse">
+  <li><a href="#de-la-condición-a-la-ecuación" id="toc-de-la-condición-a-la-ecuación" class="nav-link" data-scroll-target="#de-la-condición-a-la-ecuación">De la condición a la ecuación</a></li>
+  <li><a href="#de-la-ecuación-a-la-figura" id="toc-de-la-ecuación-a-la-figura" class="nav-link" data-scroll-target="#de-la-ecuación-a-la-figura">De la ecuación a la figura</a></li>
+  <li><a href="#puntos-vectores-y-distancia" id="toc-puntos-vectores-y-distancia" class="nav-link" data-scroll-target="#puntos-vectores-y-distancia">Puntos, vectores y distancia</a></li>
+  <li><a href="#para-pensar-despacio" id="toc-para-pensar-despacio" class="nav-link" data-scroll-target="#para-pensar-despacio">Para pensar despacio</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rosaliahdez/notas-geometria-analitica/edit/main/01-sistemas-de-coordenadas.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/rosaliahdez/notas-geometria-analitica/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-sistemas-de-coordenadas.html">Parte I — El plano</a></li><li class="breadcrumb-item"><a href="./01-sistemas-de-coordenadas.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistemas de coordenadas</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-coordenadas" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sistemas de coordenadas</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Unidad 1 del curso.</strong> Semana 1, con secciones que se retoman en las semanas 2 y 3.</p>
+</div>
+</div>
+</div>
+<section id="el-método-de-descartes" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="el-método-de-descartes"><span class="header-section-number">1.1</span> El método de Descartes</h2>
+<p>En 1637, como apéndice de su <em>Discurso del método</em>, René Descartes publicó <em>La Géométrie</em>. La idea que contiene se ha vuelto tan familiar que cuesta ver lo audaz que fue: <strong>asignar números a los puntos del plano</strong> para poder tratar problemas de figuras con las herramientas del álgebra.</p>
+<p>Antes de eso, la geometría griega demostraba que dos rectas se cortan en un punto trazándolas. Después de Descartes, se demuestra resolviendo un sistema de ecuaciones. Los dos caminos son legítimos, pero el segundo tiene una ventaja decisiva: <strong>se puede calcular</strong>, y calcular es algo que se puede hacer sin ingenio, de forma sistemática y sin miedo a equivocarse por una figura mal dibujada.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Nota histórica — Dos inventores y un apéndice">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Nota histórica — Dos inventores y un apéndice
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La historia es más curiosa de lo que sugiere el nombre “plano cartesiano”. La idea la tuvieron <strong>dos personas, por separado y casi al mismo tiempo</strong>: Descartes la publicó en 1637, pero Pierre de <strong>Fermat</strong> (el mismo del famoso “último teorema”) la había desarrollado unos años antes en un manuscrito (<em>Ad locos planos et solidos isagoge</em>) que circuló entre matemáticos y sólo se imprimió tras su muerte. Como Descartes publicó primero, el plano lleva su nombre: <em>cartesiano</em> viene de <strong>Cartesius</strong>, la forma latinizada de Descartes.</p>
+<p>Y hay otra sorpresa: <em>La Géométrie</em> no usa ejes perpendiculares fijos como los nuestros, ni la pareja <span class="math inline">\((x,y)\)</span> tal como la escribimos. La maquinaria que usamos hoy (ejes, cuadrantes, la notación) se fue puliendo durante el siglo siguiente, en buena parte gracias a <strong>Euler</strong>. Lo que Descartes y Fermat aportaron fue la idea de fondo: que una curva puede <em>ser</em> una ecuación.</p>
+</div>
+</div>
+</div>
+<p>Lo que hace un sistema de coordenadas, dicho con precisión, es establecer una <strong>correspondencia biunívoca</strong> entre los puntos de una figura geométrica y las parejas (o ternas) de números reales. Esa correspondencia es un <strong>diccionario</strong>, y como todo diccionario, permite traducir en las dos direcciones:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Objeto geométrico</th>
+<th>Objeto algebraico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Un punto</td>
+<td>Una pareja <span class="math inline">\((x,y)\)</span></td>
+</tr>
+<tr class="even">
+<td>Una curva</td>
+<td>Una ecuación en <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span></td>
+</tr>
+<tr class="odd">
+<td>“Estas dos rectas se cortan”</td>
+<td>“Este sistema tiene solución”</td>
+</tr>
+<tr class="even">
+<td>“Estos tres puntos son colineales”</td>
+<td>“Este determinante vale cero”</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled" title="La pregunta que vale la pena hacerse todo el semestre">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>La pregunta que vale la pena hacerse todo el semestre
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cada vez que aparezca un objeto nuevo, pregúntate cuál es su <strong>traducción</strong> al otro idioma. Y cada vez que resuelvas algo con álgebra, pregúntate <strong>qué significa geométricamente</strong> el resultado. Ese ir y venir es, literalmente, el contenido del curso.</p>
+</div>
+</div>
+</section>
+<section id="localización-la-recta-el-plano-el-espacio" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="localización-la-recta-el-plano-el-espacio"><span class="header-section-number">1.2</span> Localización: la recta, el plano, el espacio</h2>
+<section id="la-recta-real" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="la-recta-real"><span class="header-section-number">1.2.1</span> La recta real</h3>
+<p>Si fijamos en una recta un punto llamado <strong>origen</strong>, un <strong>sentido</strong> positivo y una <strong>unidad de longitud</strong>, cada punto queda identificado por un número real y cada número real determina un punto. Es la primera correspondencia biunívoca, y la más simple.</p>
+</section>
+<section id="el-plano" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="el-plano"><span class="header-section-number">1.2.2</span> El plano</h3>
+<p>Dos rectas perpendiculares que se cortan en un origen común (los <strong>ejes</strong>) dividen el plano en cuatro <strong>cuadrantes</strong> y permiten localizar cualquier punto con una pareja ordenada <span class="math inline">\((x,y)\)</span>. La primera coordenada es la <strong>abscisa</strong> y la segunda la <strong>ordenada</strong>.</p>
+<p>Que la pareja sea <em>ordenada</em> no es un tecnicismo: <span class="math inline">\((3,5)\)</span> y <span class="math inline">\((5,3)\)</span> son puntos distintos. El conjunto de todas esas parejas se denota <span class="math display">\[
+\mathbb{R}^2=\{(x,y): x\in\mathbb{R},\ y\in\mathbb{R}\}.
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Nota al margen — De dónde vienen «abscisa» y «ordenada»">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Nota al margen — De dónde vienen «abscisa» y «ordenada»
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Las dos palabras son latín de taller geométrico. <em>Abscisa</em> viene de <strong>linea abscissa</strong>, “línea cortada”: el tramo que la coordenada corta sobre el eje horizontal. <em>Ordenada</em> viene de <strong>linea ordinatim applicata</strong>, “línea aplicada ordenadamente”: los segmentos paralelos que se levantan, en orden, desde el eje hasta la curva. Los términos ya se usaban en el estudio de las cónicas <em>antes</em> de Descartes; el plano cartesiano los heredó y los volvió coordenadas.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="el-espacio" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="el-espacio"><span class="header-section-number">1.2.3</span> El espacio</h3>
+<p>Con tres ejes mutuamente perpendiculares, cada punto queda determinado por una terna <span class="math inline">\((x,y,z)\)</span>, y el espacio se denota <span class="math inline">\(\mathbb{R}^3\)</span>. Los tres planos coordenados (<span class="math inline">\(XY\)</span>, <span class="math inline">\(XZ\)</span>, <span class="math inline">\(YZ\)</span>) dividen el espacio en ocho <strong>octantes</strong>. Los cuatro de arriba se numeran del I al IV siguiendo a los cuadrantes del plano <span class="math inline">\(XY\)</span>, y los cuatro de abajo, del V al VIII, quedan justo debajo de ellos.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/espacio-octantes.svg" class="img-fluid figure-img" style="width:52.0%"></p>
+<figcaption>Los ocho octantes. En turquesa, los números de las cajas del frente.</figcaption>
+</figure>
+</div>
+<p>Usaremos siempre el sistema <strong>derecho</strong>, aquel en el que, si los dedos de la mano derecha giran del eje <span class="math inline">\(X\)</span> al eje <span class="math inline">\(Y\)</span>, el pulgar apunta en el sentido positivo del eje <span class="math inline">\(Z\)</span>. La orientación tendrá consecuencias reales cuando lleguemos al producto cruz.</p>
+<p>Al dibujar conservamos siempre la misma vista, para no tener que reinterpretar cada figura. El eje <span class="math inline">\(X\)</span> apunta hacia quien mira, el eje <span class="math inline">\(Y\)</span> hacia la derecha y el eje <span class="math inline">\(Z\)</span> hacia arriba (sus partes positivas). Un modo rápido de ubicarse es mirar la esquina del salón donde se juntan dos paredes y el piso: las tres aristas que salen de ella son los tres ejes.</p>
+<p>Para dibujar un punto conviene <strong>puntear su trayectoria</strong> desde el origen, es decir, las unidades que avanzamos al frente, las que avanzamos a la derecha o a la izquierda y las que subimos. Sin esas líneas la perspectiva engaña; con ellas cualquiera puede reconstruir dónde vive el punto.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Un error muy frecuente al dibujar en el espacio">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Un error muy frecuente al dibujar en el espacio
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En el papel, el espacio se representa en perspectiva, y eso hace que dos puntos que se ven cerca puedan estar lejísimos. <strong>La figura en <span class="math inline">\(\mathbb{R}^3\)</span> orienta, pero no decide nada.</strong> En el espacio, más que en el plano, hay que confiar en el cálculo y usar el dibujo sólo como guía.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Conviene girar la figura">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Conviene girar la figura
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En <a href="https://www.geogebra.org/3d">geogebra.org/3d</a> la escena se gira con el ratón. Ver el mismo punto desde varias perspectivas es la manera más rápida de dejar de confiar en una sola vista.</p>
+</div>
+</div>
+</section>
+<section id="los-planos-coordenados-y-sus-ecuaciones" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="los-planos-coordenados-y-sus-ecuaciones"><span class="header-section-number">1.2.4</span> Los planos coordenados y sus ecuaciones</h3>
+<p>Cada plano coordenado se describe con una ecuación de una sola variable, por el mismo razonamiento que en el plano hace del eje <span class="math inline">\(X\)</span> la recta <span class="math inline">\(y=0\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/espacio-planos-coordenados.svg" class="img-fluid figure-img" style="width:52.0%"></p>
+<figcaption>Los tres planos coordenados.</figcaption>
+</figure>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Plano coordenado</th>
+<th>Ecuación</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>plano <span class="math inline">\(xy\)</span></td>
+<td><span class="math inline">\(z=0\)</span></td>
+<td>los puntos de altura cero</td>
+</tr>
+<tr class="even">
+<td>plano <span class="math inline">\(xz\)</span></td>
+<td><span class="math inline">\(y=0\)</span></td>
+<td>contiene a los ejes <span class="math inline">\(x\)</span> y <span class="math inline">\(z\)</span></td>
+</tr>
+<tr class="odd">
+<td>plano <span class="math inline">\(yz\)</span></td>
+<td><span class="math inline">\(x=0\)</span></td>
+<td>contiene a los ejes <span class="math inline">\(y\)</span> y <span class="math inline">\(z\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Los planos <strong>paralelos</strong> a los coordenados se describen igual. Los puntos con <span class="math inline">\(y=3\)</span> forman el plano paralelo al <span class="math inline">\(xz\)</span> que pasa por <span class="math inline">\((0,3,0)\)</span>, y los puntos con <span class="math inline">\(z=-2\)</span> forman el plano paralelo al <span class="math inline">\(xy\)</span>, dos unidades abajo. La variable que no aparece en la ecuación es la que queda libre, y aquí quedan libres dos.</p>
+<p>Si imponemos <strong>dos</strong> condiciones a la vez, por ejemplo <span class="math inline">\(y=3\)</span> y <span class="math inline">\(z=2\)</span>, el resultado es una <strong>recta</strong> paralela al eje <span class="math inline">\(x\)</span>, la intersección de dos planos. Cada ecuación recorta un grado de libertad, y a ese conteo volveremos al final del capítulo.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="La misma ecuación, objetos distintos">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>La misma ecuación, objetos distintos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En <span class="math inline">\(\mathbb{R}^2\)</span> la ecuación <span class="math inline">\(x=0\)</span> deja libre una variable y describe una <strong>recta</strong>, el eje <span class="math inline">\(Y\)</span>. En <span class="math inline">\(\mathbb{R}^3\)</span> la misma ecuación deja libres dos variables y describe un <strong>plano</strong>, el plano <span class="math inline">\(yz\)</span>. Antes de responder qué describe una ecuación hay que saber dónde viven los puntos.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-punto-vector" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sec-punto-vector"><span class="header-section-number">1.3</span> Puntos y vectores</h2>
+<p>Ésta es la sección más importante del capítulo, y probablemente la que más rinde en todo el semestre. La idea es sencilla de enunciar y sorprendentemente fácil de olvidar:</p>
+<blockquote class="blockquote">
+<p>Un <strong>punto</strong> es un lugar. Un <strong>vector</strong> es un desplazamiento.</p>
+</blockquote>
+<p>Ambos se escriben como parejas de números, y ahí empieza la confusión. Pero son objetos de naturaleza distinta y no se pueden combinar de cualquier manera.</p>
+<div id="def-punto-vector" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 1.1 (Operaciones legítimas)</strong></span> Sean <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> puntos, y <span class="math inline">\(u\)</span>, <span class="math inline">\(v\)</span> vectores. Entonces:</p>
+<ul>
+<li><span class="math inline">\(Q-P\)</span> es un <strong>vector</strong>: el desplazamiento que lleva de <span class="math inline">\(P\)</span> a <span class="math inline">\(Q\)</span>. Se escribe también <span class="math inline">\(\vec{PQ}\)</span>.</li>
+<li><span class="math inline">\(P+v\)</span> es un <strong>punto</strong>: el resultado de desplazar <span class="math inline">\(P\)</span> según <span class="math inline">\(v\)</span>.</li>
+<li><span class="math inline">\(u+v\)</span> y <span class="math inline">\(\lambda u\)</span> son <strong>vectores</strong>.</li>
+<li><span class="math inline">\(P+Q\)</span> <strong>no está definido</strong>.</li>
+</ul>
+</div>
+<p>La última línea suele producir incomodidad, así que vale la pena justificarla. Piensa en dos ciudades: Hermosillo y Guaymas. “El desplazamiento de Hermosillo a Guaymas” tiene un significado claro, independiente de dónde pongamos el origen del mapa. “Hermosillo más Guaymas”, en cambio, no significa nada: no hay ninguna ciudad que sea su suma. Y si insistiéramos en calcularla sumando coordenadas, el resultado <strong>dependería de dónde pusimos el origen</strong>, lo cual delata que no es un objeto geométrico.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Elegir un origen es una decisión, no un hecho">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Elegir un origen es una decisión, no un hecho
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cuando fijamos un origen <span class="math inline">\(O\)</span>, cada punto <span class="math inline">\(P\)</span> queda asociado al vector <span class="math inline">\(\vec{OP}\)</span>, y a partir de ahí es tentador tratarlos como lo mismo. Es cómodo y lo haremos constantemente. Pero conviene recordar que esa identificación <strong>la elegimos nosotros</strong>: la geometría no la trae puesta.</p>
+<p>Esta distinción reaparecerá con fuerza en Álgebra Lineal I, el semestre que entra, cuando se pregunten por qué las traslaciones no son transformaciones lineales. La respuesta está aquí.</p>
+</div>
+</div>
+<section id="el-punto-medio-bien-escrito" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="el-punto-medio-bien-escrito"><span class="header-section-number">1.3.1</span> El punto medio, bien escrito</h3>
+<p>Todo el mundo sabe que el punto medio de <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> es <span class="math inline">\(\tfrac12(P+Q)\)</span>. Pero acabamos de decir que <span class="math inline">\(P+Q\)</span> no está definido. ¿Contradicción?</p>
+<p>No: es cuestión de escribirlo bien. El punto medio es <span class="math display">\[
+M \;=\; P+\tfrac{1}{2}\,(Q-P),
+\]</span> que se lee <em>“parto de <span class="math inline">\(P\)</span> y avanzo la mitad del desplazamiento hacia <span class="math inline">\(Q\)</span>”</em>. Aquí todo es legítimo: <span class="math inline">\(Q-P\)</span> es un vector, la mitad de un vector es un vector, y punto más vector es punto. Si desarrollas la expresión obtienes las mismas coordenadas de siempre, pero ahora sabes <strong>por qué</strong> funcionan.</p>
+<p>Ese mismo argumento da, sin esfuerzo adicional, el punto que divide al segmento en cualquier razón: <span class="math display">\[
+P + t\,(Q-P), \qquad t\in[0,1].
+\]</span></p>
+<p>Cuando <span class="math inline">\(t\)</span> recorre todos los reales, y no sólo <span class="math inline">\([0,1]\)</span>, esta expresión describe <strong>toda la recta</strong> que pasa por <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span>. Volveremos a ella en el capítulo siguiente; conviene que la reconozcas cuando aparezca.</p>
+</section>
+<section id="figura-interactiva" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="figura-interactiva"><span class="header-section-number">1.3.2</span> Figura interactiva</h3>
+<p>Arrastra los puntos <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> y observa el vector <span class="math inline">\(Q-P\)</span>. <strong>Antes de arrastrar, predice:</strong> si mueves <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> <em>juntos</em>, ¿cambia el vector? ¿Y si sólo mueves uno?</p>
+<iframe src="applets/punto-y-vector.html" width="100%" height="470" style="border:1px solid #dfe6ee;border-radius:8px" loading="lazy" title="Applet: puntos y vectores en el plano"></iframe>
+<div class="callout callout-style-default callout-note callout-titled" title="¿Qué debiste observar?">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>¿Qué debiste observar?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Si trasladas <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> la misma cantidad, el vector <span class="math inline">\(Q-P\)</span> <strong>no cambia</strong>: un desplazamiento no depende de dónde empiece, sólo de su magnitud y su dirección. Si mueves sólo uno, cambia. Esa invariancia es exactamente lo que distingue a un vector de un punto.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="distancia-entre-dos-puntos" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="distancia-entre-dos-puntos"><span class="header-section-number">1.4</span> Distancia entre dos puntos</h2>
+<p>Construimos la fórmula en dos tiempos. Primero medimos desde el origen, donde el triángulo rectángulo aparece de inmediato, y después movemos ese mismo triángulo a una posición cualquiera.</p>
+<section id="del-origen-a-un-punto" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="del-origen-a-un-punto"><span class="header-section-number">1.4.1</span> Del origen a un punto</h3>
+<p>Si <span class="math inline">\(P=(x_1,y_1)\)</span> está en el primer cuadrante, el segmento <span class="math inline">\(OP\)</span> es la hipotenusa de un triángulo rectángulo cuyos catetos son las coordenadas mismas de <span class="math inline">\(P\)</span>. El cateto horizontal está sobre el eje <span class="math inline">\(X\)</span> y mide <span class="math inline">\(x_1\)</span>, el vertical mide <span class="math inline">\(y_1\)</span>, y el ángulo recto está en <span class="math inline">\((x_1,0)\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/plano-distancia-origen.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:58.0%"></p>
+</figure>
+</div>
+<p>Por el teorema de Pitágoras, <span class="math display">\[
+d(O,P)=\sqrt{x_1^{\,2}+y_1^{\,2}} .
+\]</span></p>
+<p>En los demás cuadrantes el razonamiento es igual, con catetos <span class="math inline">\(\lvert x_1\rvert\)</span> y <span class="math inline">\(\lvert y_1\rvert\)</span>. Los valores absolutos desaparecen al elevar al cuadrado, y por eso no aparecen en la fórmula.</p>
+</section>
+<section id="el-mismo-triángulo-fuera-del-origen" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="el-mismo-triángulo-fuera-del-origen"><span class="header-section-number">1.4.2</span> El mismo triángulo, fuera del origen</h3>
+<p>Cuando ninguno de los dos puntos está en el origen, trasladamos el triángulo hasta que el vértice del ángulo recto quede en <span class="math inline">\((x_2,y_1)\)</span>. Los catetos dejan de ser coordenadas y pasan a ser <strong>diferencias de coordenadas</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/plano-distancia-dos-puntos.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:62.0%"></p>
+</figure>
+</div>
+</section>
+<section id="la-misma-construcción-en-el-espacio" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="la-misma-construcción-en-el-espacio"><span class="header-section-number">1.4.3</span> La misma construcción en el espacio</h3>
+<p>En el espacio conviene imaginar la <strong>caja</strong> que tiene a los dos puntos como vértices opuestos y las aristas paralelas a los ejes. El segmento que queremos medir es su diagonal, y para medirla aparecen dos triángulos rectángulos.</p>
+<p>Empezamos otra vez desde el origen, con <span class="math inline">\(P=(x_1,y_1,z_1)\)</span> y su proyección <span class="math inline">\(P'=(x_1,y_1,0)\)</span> sobre el plano <span class="math inline">\(XY\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/espacio-distancia-origen.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:62.0%"></p>
+</figure>
+</div>
+<ul>
+<li>El <strong>triángulo del piso</strong> tiene catetos <span class="math inline">\(\lvert x_1\rvert\)</span> y <span class="math inline">\(\lvert y_1\rvert\)</span>, vive en el plano <span class="math inline">\(XY\)</span> y su hipotenusa mide <span class="math inline">\(\overline{OP'}=\sqrt{x_1^{\,2}+y_1^{\,2}}\)</span>.</li>
+<li>El <strong>triángulo vertical</strong> tiene catetos <span class="math inline">\(\overline{OP'}\)</span> y <span class="math inline">\(\lvert z_1\rvert\)</span>, vive en el plano vertical que contiene a <span class="math inline">\(O\)</span>, <span class="math inline">\(P'\)</span> y <span class="math inline">\(P\)</span>, y su hipotenusa es <span class="math inline">\(d(O,P)\)</span>.</li>
+</ul>
+<p>El segundo triángulo toma como cateto la hipotenusa del primero, de modo que <span class="math display">\[
+d(O,P)^2=\overline{OP'}^{\,2}+z_1^{\,2}=x_1^{\,2}+y_1^{\,2}+z_1^{\,2}.
+\]</span></p>
+<p>Para dos puntos cualesquiera sacamos la caja del rincón del origen y la colocamos en otro lugar, igual que trasladamos el triángulo en el plano. Con <span class="math inline">\(P=(x_1,y_1,z_1)\)</span> y <span class="math inline">\(Q=(x_2,y_2,z_2)\)</span>, el vértice auxiliar es <span class="math inline">\(R=(x_2,y_2,z_1)\)</span>, la proyección de <span class="math inline">\(Q\)</span> sobre el piso que pasa por <span class="math inline">\(P\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/espacio-distancia-dos-puntos.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:66.0%"></p>
+</figure>
+</div>
+<p>Las aristas de la caja miden ahora <span class="math inline">\(\lvert x_2-x_1\rvert\)</span>, <span class="math inline">\(\lvert y_2-y_1\rvert\)</span> y <span class="math inline">\(\lvert z_2-z_1\rvert\)</span>. La cuenta es la misma de antes, con diferencias de coordenadas en lugar de coordenadas.</p>
+<div id="thm-distancia" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 1.1 (Distancia entre dos puntos)</strong></span> Si <span class="math inline">\(P=(x_1,y_1)\)</span> y <span class="math inline">\(Q=(x_2,y_2)\)</span> son puntos del plano, la distancia entre ellos es <span class="math display">\[
+d(P,Q)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}.
+\]</span> En el espacio, con <span class="math inline">\(P=(x_1,y_1,z_1)\)</span> y <span class="math inline">\(Q=(x_2,y_2,z_2)\)</span>, <span class="math display">\[
+d(P,Q)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demostración</em>. </span>En el plano, los catetos del triángulo trasladado miden <span class="math inline">\(\lvert x_2-x_1\rvert\)</span> y <span class="math inline">\(\lvert y_2-y_1\rvert\)</span>, y su hipotenusa es el segmento <span class="math inline">\(PQ\)</span>, así que el teorema de Pitágoras da <span class="math display">\[
+d(P,Q)^2=\lvert x_2-x_1\rvert^2+\lvert y_2-y_1\rvert^2=(x_2-x_1)^2+(y_2-y_1)^2 ,
+\]</span> y tomamos la raíz positiva porque una distancia no es negativa.</p>
+<p>En el espacio aplicamos el mismo teorema dos veces, como en la construcción anterior. El triángulo del piso, de catetos <span class="math inline">\(\lvert x_2-x_1\rvert\)</span> y <span class="math inline">\(\lvert y_2-y_1\rvert\)</span>, da <span class="math inline">\(\overline{PR}^{\,2}=(x_2-x_1)^2+(y_2-y_1)^2\)</span>. El triángulo vertical, de catetos <span class="math inline">\(\overline{PR}\)</span> y <span class="math inline">\(\lvert z_2-z_1\rvert\)</span>, da <span class="math display">\[
+d(P,Q)^2=\overline{PR}^{\,2}+(z_2-z_1)^2=(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2 . \qquad\square
+\]</span></p>
+</div>
+<p>Vale la pena notar dos cosas. La primera es que <strong>la fórmula no es una definición</strong>, es una consecuencia de Pitágoras, es decir, de la geometría euclidiana. La segunda es que la fórmula sólo tiene esa forma porque los ejes son <strong>perpendiculares</strong> y las unidades <strong>iguales</strong> en ambos. Con ejes oblicuos la distancia se calcula de otro modo.</p>
+<p>Conviene además revisar los casos límite, que siempre son una buena prueba de que una fórmula está bien escrita. Si <span class="math inline">\(P\)</span> es el origen, entonces <span class="math inline">\(x_1=y_1=z_1=0\)</span> y recuperamos la distancia desde el origen. Si <span class="math inline">\(z_1=z_2\)</span>, el tercer sumando se anula y recuperamos la fórmula del plano.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Nota histórica — Un teorema más viejo que Pitágoras">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Nota histórica — Un teorema más viejo que Pitágoras
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>El teorema que sostiene toda esta sección es bastante más antiguo que el personaje que le da nombre. Una tablilla babilónica de arcilla conocida como <strong>Plimpton 322</strong>, escrita alrededor del año 1800 a.C. (unos doce siglos antes de Pitágoras), contiene una lista de ternas de números que cumplen <span class="math inline">\(a^2+b^2=c^2\)</span>, como <span class="math inline">\((3,4,5)\)</span> y otras mucho menos obvias. Los babilonios conocían la <em>relación</em>; la tradición griega aportó lo que convierte una observación en teorema, la <strong>demostración</strong>. Esa diferencia, saber que algo funciona contra saber <em>por qué</em> funciona, es exactamente la que este curso quiere que aprendas a distinguir.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="la-distancia-es-la-norma-de-un-vector" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="la-distancia-es-la-norma-de-un-vector"><span class="header-section-number">1.4.4</span> La distancia es la norma de un vector</h3>
+<p>Observa que si escribimos <span class="math inline">\(v=Q-P=(x_2-x_1,\,y_2-y_1)\)</span>, entonces <span class="math display">\[
+d(P,Q)=\sqrt{v_1^2+v_2^2}=\lVert v\rVert .
+\]</span></p>
+<p>Esto no es una coincidencia ni una notación alternativa: <strong>la distancia entre dos puntos es la longitud del desplazamiento que lleva de uno a otro</strong>. En cuanto lo veas así, la fórmula deja de ser algo que memorizar.</p>
+</section>
+<section id="tres-propiedades-de-la-distancia" class="level3" data-number="1.4.5">
+<h3 data-number="1.4.5" class="anchored" data-anchor-id="tres-propiedades-de-la-distancia"><span class="header-section-number">1.4.5</span> Tres propiedades de la distancia</h3>
+<p>Para cualesquiera puntos <span class="math inline">\(P\)</span>, <span class="math inline">\(Q\)</span> y <span class="math inline">\(R\)</span> se cumple:</p>
+<ol type="1">
+<li><span class="math inline">\(d(P,Q)\ \ge\ 0\)</span>, y <span class="math inline">\(d(P,Q)=0\)</span> si y sólo si <span class="math inline">\(P=Q\)</span>.</li>
+<li><span class="math inline">\(d(P,Q)=d(Q,P)\)</span>, la <strong>simetría</strong>.</li>
+<li><span class="math inline">\(d(P,Q)\ \le\ d(P,R)+d(R,Q)\)</span>, la <strong>desigualdad del triángulo</strong>.</li>
+</ol>
+<p>Las tres son creíbles antes de calcular nada. Una longitud no puede ser negativa, y la única manera de recorrer distancia cero es no moverse. El camino de ida mide lo mismo que el de vuelta. Y pasar por un punto intermedio <span class="math inline">\(R\)</span> no puede <em>acortar</em> el trayecto de <span class="math inline">\(P\)</span> a <span class="math inline">\(Q\)</span>; en el mejor de los casos lo iguala, exactamente cuando <span class="math inline">\(R\)</span> está en el segmento <span class="math inline">\(PQ\)</span>.</p>
+<p>Las dos primeras se verifican en un renglón. Una raíz de suma de cuadrados nunca es negativa, y vale cero únicamente cuando todos los cuadrados son cero, es decir cuando las coordenadas coinciden una a una. Y como <span class="math inline">\((x_2-x_1)^2=(x_1-x_2)^2\)</span>, elevar al cuadrado elimina el signo y intercambiar <span class="math inline">\(P\)</span> con <span class="math inline">\(Q\)</span> no cambia el valor.</p>
+<p>En el espacio las verificaciones son las mismas, con un sumando más. Esa es la ventaja de construir <span class="math inline">\(\mathbb{R}^3\)</span> en paralelo con <span class="math inline">\(\mathbb{R}^2\)</span>: casi nada se demuestra otra vez, basta revisar que el argumento anterior siga funcionando con una coordenada más.</p>
+<p>La tercera propiedad es la única que pide trabajo, y para ella conviene tener antes el producto punto.</p>
+<div id="thm-triangulo" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 1.2 (Desigualdad del triángulo)</strong></span> Para cualesquiera puntos <span class="math inline">\(P\)</span>, <span class="math inline">\(Q\)</span>, <span class="math inline">\(R\)</span>: <span class="math display">\[
+d(P,Q)\ \le\ d(P,R)+d(R,Q),
+\]</span> con igualdad si y sólo si <span class="math inline">\(R\)</span> pertenece al segmento <span class="math inline">\(PQ\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demostración</em>. </span>Escribiendo <span class="math inline">\(u=R-P\)</span> y <span class="math inline">\(v=Q-R\)</span>, se tiene <span class="math inline">\(Q-P=u+v\)</span>, de modo que el enunciado equivale a <span class="math display">\[
+\lVert u+v\rVert \le \lVert u\rVert+\lVert v\rVert .
+\]</span> Elevando al cuadrado, y usando que <span class="math inline">\(\lVert w\rVert^2=\langle w,w\rangle\)</span> (que veremos en <a href="#sec-producto-punto" class="quarto-xref"><span>Sección 1.5</span></a>), <span class="math display">\[
+\lVert u+v\rVert^2=\lVert u\rVert^2+2\langle u,v\rangle+\lVert v\rVert^2 ,
+\]</span> mientras que <span class="math display">\[
+(\lVert u\rVert+\lVert v\rVert)^2=\lVert u\rVert^2+2\lVert u\rVert\lVert v\rVert+\lVert v\rVert^2 .
+\]</span> Basta entonces con que <span class="math inline">\(\langle u,v\rangle\le\lVert u\rVert\lVert v\rVert\)</span>, que es inmediato de <a href="#thm-producto-angulo" class="quarto-xref">Teorema&nbsp;<span>1.3</span></a> porque <span class="math inline">\(\cos\theta\le 1\)</span>. La igualdad ocurre exactamente cuando <span class="math inline">\(\cos\theta=1\)</span>, es decir, cuando <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> apuntan en el mismo sentido, o sea cuando <span class="math inline">\(R\)</span> está entre <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span>. <span class="math inline">\(\square\)</span></p>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Esta demostración usa un resultado de la sección siguiente. No es circular, porque <a href="#thm-producto-angulo" class="quarto-xref">Teorema&nbsp;<span>1.3</span></a> no usa la desigualdad del triángulo, pero conviene leer ambas secciones antes de darla por entendida.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-producto-punto" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="sec-producto-punto"><span class="header-section-number">1.5</span> El producto punto y el ángulo</h2>
+<p>Aquí aparece la herramienta que sostiene el resto del curso.</p>
+<div id="def-producto-punto" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 1.2 (Producto punto)</strong></span> Para <span class="math inline">\(u=(u_1,u_2)\)</span> y <span class="math inline">\(v=(v_1,v_2)\)</span> en el plano, <span class="math display">\[
+\langle u,v\rangle \;=\; u_1v_1+u_2v_2 .
+\]</span> En el espacio se añade el término correspondiente: <span class="math inline">\(\langle u,v\rangle=u_1v_1+u_2v_2+u_3v_3\)</span>.</p>
+</div>
+<p>De la definición se siguen de inmediato tres propiedades, todas verificables en un renglón:</p>
+<ol type="1">
+<li><strong>Simetría:</strong> <span class="math inline">\(\langle u,v\rangle=\langle v,u\rangle\)</span>.</li>
+<li><strong>Linealidad:</strong> <span class="math inline">\(\langle \lambda u+w,\,v\rangle=\lambda\langle u,v\rangle+\langle w,v\rangle\)</span>.</li>
+<li><strong>Positividad:</strong> <span class="math inline">\(\langle u,u\rangle=u_1^2+u_2^2=\lVert u\rVert^2\ \ge 0\)</span>, con igualdad sólo si <span class="math inline">\(u=0\)</span>.</li>
+</ol>
+<p>La tercera es la que conecta el producto punto con la longitud: <span class="math inline">\(\lVert u\rVert=\sqrt{\langle u,u\rangle}\)</span>.</p>
+<div id="thm-producto-angulo" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 1.3 (El producto punto mide ángulos)</strong></span> Si <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> son vectores no nulos y <span class="math inline">\(\theta\in[0,\pi]\)</span> es el ángulo entre ellos, entonces <span class="math display">\[
+\langle u,v\rangle=\lVert u\rVert\,\lVert v\rVert\cos\theta .
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demostración</em>. </span>Coloca <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> con el mismo origen. El tercer lado del triángulo que forman es el vector <span class="math inline">\(v-u\)</span>, y la <strong>ley de cosenos</strong> da <span class="math display">\[
+\lVert v-u\rVert^2=\lVert u\rVert^2+\lVert v\rVert^2-2\lVert u\rVert\lVert v\rVert\cos\theta .
+\]</span> Por otro lado, desarrollando con las propiedades del producto punto, <span class="math display">\[
+\lVert v-u\rVert^2=\langle v-u,\,v-u\rangle=\lVert v\rVert^2-2\langle u,v\rangle+\lVert u\rVert^2 .
+\]</span> Igualando las dos expresiones y cancelando <span class="math inline">\(\lVert u\rVert^2+\lVert v\rVert^2\)</span> queda <span class="math display">\[
+-2\langle u,v\rangle=-2\lVert u\rVert\lVert v\rVert\cos\theta ,
+\]</span> de donde se sigue el resultado. □</p>
+</div>
+<p>Dos consecuencias que usaremos sin parar:</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Perpendicularidad">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Perpendicularidad
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Como <span class="math inline">\(\cos\theta=0\)</span> exactamente cuando <span class="math inline">\(\theta=\pi/2\)</span>: <span class="math display">\[
+u\perp v \iff \langle u,v\rangle=0 .
+\]</span> Comprobar que dos vectores son perpendiculares se reduce a una multiplicación y una suma. Es difícil exagerar lo útil que resulta.</p>
+</div>
+</div>
+<p>Y despejando el coseno, <span class="math display">\[
+\cos\theta=\frac{\langle u,v\rangle}{\lVert u\rVert\,\lVert v\rVert},
+\]</span> lo que permite calcular <strong>cualquier</strong> ángulo entre objetos rectilíneos (rectas, planos, aristas) sin transportador y sin trigonometría adicional.</p>
+</section>
+<section id="inclinación-pendiente-y-ángulo-entre-rectas" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="inclinación-pendiente-y-ángulo-entre-rectas"><span class="header-section-number">1.6</span> Inclinación, pendiente y ángulo entre rectas</h2>
+<p>La <strong>inclinación</strong> de una recta no vertical es el ángulo <span class="math inline">\(\alpha\in[0,\pi)\)</span> que forma con el semieje positivo de las <span class="math inline">\(x\)</span>, medido en sentido contrario a las manecillas. Su <strong>pendiente</strong> es <span class="math inline">\(m=\tan\alpha\)</span>.</p>
+<p>Si la recta pasa por <span class="math inline">\(P=(x_1,y_1)\)</span> y <span class="math inline">\(Q=(x_2,y_2)\)</span> con <span class="math inline">\(x_1\ne x_2\)</span>, el vector <span class="math inline">\(Q-P=(x_2-x_1,\,y_2-y_1)\)</span> apunta en su dirección, y por tanto <span class="math display">\[
+m=\frac{y_2-y_1}{x_2-x_1}.
+\]</span> La pendiente es, entonces, <strong>la razón entre las dos componentes del vector director</strong>. Las rectas verticales no tienen pendiente precisamente porque esa razón no está definida; en cambio, sí tienen vector director <span class="math inline">\((0,1)\)</span>, lo cual es un primer indicio de que el lenguaje vectorial es más robusto que el de pendientes.</p>
+<p>Para el ángulo entre dos rectas hay dos caminos, y conviene conocer los dos:</p>
+<p><strong>Con vectores directores.</strong> Si <span class="math inline">\(d_1\)</span> y <span class="math inline">\(d_2\)</span> son vectores directores de las rectas, <span class="math display">\[
+\cos\theta=\frac{\lvert\langle d_1,d_2\rangle\rvert}{\lVert d_1\rVert\,\lVert d_2\rVert}
+\]</span> (el valor absoluto selecciona el ángulo agudo entre las dos rectas). Este método <strong>nunca falla</strong>: funciona también con rectas verticales y en el espacio.</p>
+<p><strong>Con pendientes.</strong> Si las rectas tienen pendientes <span class="math inline">\(m_1\)</span> y <span class="math inline">\(m_2\)</span> y no son perpendiculares, <span class="math display">\[
+\tan\theta=\left\lvert\frac{m_2-m_1}{1+m_1m_2}\right\rvert .
+\]</span> Es la fórmula clásica, cómoda cuando ya tienes las pendientes a la mano, pero exige tratar aparte los casos vertical y perpendicular.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Paralelismo y perpendicularidad, en los dos lenguajes">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Paralelismo y perpendicularidad, en los dos lenguajes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Con pendientes</th>
+<th>Con vectores</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paralelas</td>
+<td><span class="math inline">\(m_1=m_2\)</span></td>
+<td><span class="math inline">\(d_1=\lambda d_2\)</span></td>
+</tr>
+<tr class="even">
+<td>Perpendiculares</td>
+<td><span class="math inline">\(m_1m_2=-1\)</span></td>
+<td><span class="math inline">\(\langle d_1,d_2\rangle=0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>La condición <span class="math inline">\(m_1m_2=-1\)</span> falla cuando una recta es vertical y la otra horizontal, aunque sean perpendiculares. La condición <span class="math inline">\(\langle d_1,d_2\rangle=0\)</span> no falla nunca. Conviene saber esto antes de un examen.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="lugares-geométricos" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="lugares-geométricos"><span class="header-section-number">1.7</span> Lugares geométricos</h2>
+<p>Llegamos al concepto que da nombre a buena parte del curso.</p>
+<div id="def-lugar" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 1.3 (Lugar geométrico)</strong></span> Un <strong>lugar geométrico</strong> es el conjunto de todos los puntos que cumplen una condición dada, y solamente ellos.</p>
+</div>
+<p>Las dos palabras que hacen el trabajo son <em>“todos”</em> y <em>“solamente”</em>. Cuando afirmamos que cierta ecuación describe un lugar geométrico, estamos afirmando dos cosas a la vez:</p>
+<ol type="1">
+<li>Todo punto que cumple la condición satisface la ecuación.</li>
+<li>Todo punto que satisface la ecuación cumple la condición.</li>
+</ol>
+<p>Saltarse la segunda es el error clásico. Cuando elevamos al cuadrado, por ejemplo, podemos introducir soluciones que no cumplían la condición original.</p>
+<section id="el-procedimiento-en-cuatro-pasos" class="level3" data-number="1.7.1">
+<h3 data-number="1.7.1" class="anchored" data-anchor-id="el-procedimiento-en-cuatro-pasos"><span class="header-section-number">1.7.1</span> El procedimiento, en cuatro pasos</h3>
+<p>Traducir una condición verbal a una ecuación siempre sigue el mismo esquema:</p>
+<ol type="1">
+<li>Llama <span class="math inline">\(P=(x,y)\)</span> al punto genérico que cumple la condición.</li>
+<li>Escribe la condición como una igualdad entre distancias, ángulos o áreas.</li>
+<li>Sustituye cada elemento por su expresión en coordenadas.</li>
+<li>Simplifica, cuidando de no perder ni ganar soluciones.</li>
+</ol>
+</section>
+<section id="ejemplo-trabajado" class="level3" data-number="1.7.2">
+<h3 data-number="1.7.2" class="anchored" data-anchor-id="ejemplo-trabajado"><span class="header-section-number">1.7.2</span> Ejemplo trabajado</h3>
+<blockquote class="blockquote">
+<p><strong>Halla el lugar geométrico de los puntos que equidistan de <span class="math inline">\(A=(-2,1)\)</span> y <span class="math inline">\(B=(4,3)\)</span>.</strong></p>
+</blockquote>
+<p><em>Paso 1.</em> Sea <span class="math inline">\(P=(x,y)\)</span> un punto cualquiera del lugar.</p>
+<p><em>Paso 2.</em> La condición es <span class="math inline">\(d(P,A)=d(P,B)\)</span>.</p>
+<p><em>Paso 3.</em> En coordenadas, <span class="math display">\[
+\sqrt{(x+2)^2+(y-1)^2}=\sqrt{(x-4)^2+(y-3)^2}.
+\]</span></p>
+<p><em>Paso 4.</em> Ambos lados son no negativos, así que elevar al cuadrado es una operación reversible aquí y no introduce soluciones falsas: <span class="math display">\[
+(x+2)^2+(y-1)^2=(x-4)^2+(y-3)^2 .
+\]</span> Desarrollando, <span class="math display">\[
+x^2+4x+4+y^2-2y+1 \;=\; x^2-8x+16+y^2-6y+9 ,
+\]</span> y cancelando <span class="math inline">\(x^2\)</span> e <span class="math inline">\(y^2\)</span>, <span class="math display">\[
+4x+5-2y=-8x+25-6y \;\Longrightarrow\; 12x+4y-20=0 \;\Longrightarrow\; 3x+y-5=0 .
+\]</span></p>
+<p>El lugar es una <strong>recta</strong>. Y no cualquiera: es la mediatriz del segmento <span class="math inline">\(AB\)</span>. Vale la pena comprobar dos cosas que la geometría predice y el álgebra debe confirmar: que el punto medio <span class="math inline">\(M=(1,2)\)</span> satisface la ecuación, y que el vector <span class="math inline">\((3,1)\)</span>, formado por los coeficientes de la ecuación, es paralelo a <span class="math inline">\(B-A=(6,2)\)</span>, es decir, <strong>perpendicular a la recta</strong>.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Ese último hecho no es casualidad">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Ese último hecho no es casualidad
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los coeficientes de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> en la ecuación general de una recta forman un vector <strong>perpendicular</strong> a ella. Es uno de los resultados que más rendimiento dan en todo el curso, y lo desarrollaremos en el <a href="02-la-recta-en-el-plano.html" class="quarto-xref"><span>Capítulo 2</span></a>. Si lo ves aquí por primera vez, guárdalo.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="curvas-y-superficies-qué-esperar" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="curvas-y-superficies-qué-esperar"><span class="header-section-number">1.8</span> Curvas y superficies: qué esperar</h2>
+<p>Terminamos con un mapa de lo que viene, porque ayuda a saber dónde se está parado.</p>
+<p>En el plano, una ecuación <span class="math inline">\(F(x,y)=0\)</span> describe normalmente una <strong>curva</strong>: una condición sobre dos variables deja un grado de libertad. En el espacio, una ecuación <span class="math inline">\(F(x,y,z)=0\)</span> describe normalmente una <strong>superficie</strong>: una condición sobre tres variables deja dos grados de libertad.</p>
+<p>De ahí se sigue algo que suele sorprender: <strong>una curva en el espacio necesita dos ecuaciones</strong>, no una. Una sola ecuación no puede recortar el espacio hasta dejar sólo una dimensión.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>En <span class="math inline">\(\mathbb{R}^2\)</span></th>
+<th>En <span class="math inline">\(\mathbb{R}^3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(F(x,y)=0\)</span> → una curva</td>
+<td><span class="math inline">\(F(x,y,z)=0\)</span> → una superficie</td>
+</tr>
+<tr class="even">
+<td>Punto: dos ecuaciones</td>
+<td>Curva: dos ecuaciones</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Punto: tres ecuaciones</td>
+</tr>
+</tbody>
+</table>
+<p>Este conteo de grados de libertad (que en su versión formal se llama <em>codimensión</em>) explicará más adelante por qué una recta en el espacio se describe con dos planos o con una parametrización, pero nunca con una sola ecuación lineal. No es un capricho de la notación: es aritmética de dimensiones.</p>
+<hr>
+</section>
+<section id="ejercicios" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejercicios">Ejercicios</h2>
+<section id="de-la-condición-a-la-ecuación" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="de-la-condición-a-la-ecuación">De la condición a la ecuación</h3>
+<p><strong>1.1</strong> Halla el lugar geométrico de los puntos cuya distancia al punto <span class="math inline">\((3,0)\)</span> es igual a <span class="math inline">\(5\)</span>.</p>
+<p><strong>1.2</strong> Halla el lugar geométrico de los puntos que equidistan de <span class="math inline">\((0,4)\)</span> y del eje <span class="math inline">\(X\)</span>.</p>
+<p><strong>1.3</strong> Halla el lugar geométrico de los puntos <span class="math inline">\(P\)</span> tales que la suma de sus distancias a <span class="math inline">\((-3,0)\)</span> y <span class="math inline">\((3,0)\)</span> vale <span class="math inline">\(10\)</span>. Simplifica todo lo que puedas. (Aparecerá otra vez en el capítulo de cónicas; guarda tu resultado.)</p>
+<p><strong>1.4</strong> Un segmento de longitud <span class="math inline">\(6\)</span> se desliza de modo que un extremo permanece sobre el eje <span class="math inline">\(X\)</span> y el otro sobre el eje <span class="math inline">\(Y\)</span>. Halla el lugar geométrico que describe su punto medio.</p>
+</section>
+<section id="de-la-ecuación-a-la-figura" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="de-la-ecuación-a-la-figura">De la ecuación a la figura</h3>
+<p><strong>1.5</strong> Describe con palabras, sin graficar, el lugar geométrico <span class="math inline">\(x^2+y^2-6x+8y=0\)</span>. ¿Pasa por el origen?</p>
+<p><strong>1.6</strong> ¿Qué representa la ecuación <span class="math inline">\((x-1)^2+(y+2)^2=0\)</span>? ¿Y <span class="math inline">\((x-1)^2+(y+2)^2=-4\)</span>? Justifica.</p>
+<p><strong>1.7</strong> Describe el conjunto de <span class="math inline">\(\mathbb{R}^3\)</span> dado por <span class="math inline">\(z=2\)</span>. ¿Y el dado por <span class="math inline">\(x=0\)</span> <strong>y</strong> <span class="math inline">\(z=2\)</span>?</p>
+<p><strong>1.8</strong> ¿En qué octante vive cada uno de los puntos <span class="math inline">\((1,2,3)\)</span>, <span class="math inline">\((2,-1,3)\)</span> y <span class="math inline">\((-1,-2,-3)\)</span>? ¿Y dónde vive <span class="math inline">\((0,0,5)\)</span>?</p>
+<p><strong>1.9</strong> Escribe la ecuación del plano paralelo al plano <span class="math inline">\(xz\)</span> que pasa por <span class="math inline">\((0,-4,0)\)</span>, y la del plano paralelo al <span class="math inline">\(xy\)</span> que pasa por <span class="math inline">\((0,0,7)\)</span>.</p>
+</section>
+<section id="puntos-vectores-y-distancia" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="puntos-vectores-y-distancia">Puntos, vectores y distancia</h3>
+<p><strong>1.10</strong> Sean <span class="math inline">\(P=(1,-2)\)</span>, <span class="math inline">\(R=(5,1)\)</span> y <span class="math inline">\(Q=(-3,4)\)</span>.</p>
+<ol type="a">
+<li>Calcula <span class="math inline">\(R-P\)</span> y <span class="math inline">\(Q-R\)</span>. Verifica que <span class="math inline">\((R-P)+(Q-R)=Q-P\)</span> y explica geométricamente por qué debía salir eso.</li>
+<li>Calcula <span class="math inline">\(d(P,R)\)</span>, <span class="math inline">\(d(R,Q)\)</span> y <span class="math inline">\(d(P,Q)\)</span>, y comprueba la desigualdad del triángulo.</li>
+<li>Halla el punto medio de <span class="math inline">\(PQ\)</span> escribiéndolo en la forma <span class="math inline">\(P+t(Q-P)\)</span>.</li>
+</ol>
+<p><strong>1.11</strong> Determina si el triángulo de vértices <span class="math inline">\(A=(0,0)\)</span>, <span class="math inline">\(B=(4,2)\)</span>, <span class="math inline">\(C=(1,5)\)</span> tiene algún ángulo recto. Hazlo con productos punto y explica qué calculaste exactamente.</p>
+<p><strong>1.12</strong> Halla un valor de <span class="math inline">\(k\)</span> para el cual los vectores <span class="math inline">\((2,k)\)</span> y <span class="math inline">\((k+1,3)\)</span> sean perpendiculares. ¿Hay más de uno?</p>
+<p><strong>1.13</strong> Calcula <span class="math inline">\(d\bigl(O,(2,6,3)\bigr)\)</span> y <span class="math inline">\(d\bigl((2,-1,3),(0,1,2)\bigr)\)</span>. En los dos casos el resultado es un entero; identifica los dos triángulos rectángulos que intervienen en el primero.</p>
+<p><strong>1.14</strong> Demuestra que los puntos <span class="math inline">\((1,1)\)</span>, <span class="math inline">\((4,2)\)</span> y <span class="math inline">\((7,3)\)</span> son colineales, de dos maneras distintas: con pendientes y con vectores. ¿Cuál de las dos seguiría funcionando si los puntos estuvieran en <span class="math inline">\(\mathbb{R}^3\)</span>?</p>
+</section>
+<section id="para-pensar-despacio" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="para-pensar-despacio">Para pensar despacio</h3>
+<p><strong>1.15</strong> Explica, con tus palabras y en no más de media página, por qué <span class="math inline">\(P+Q\)</span> no está definido para puntos pero <span class="math inline">\(P+v\)</span> sí lo está para un punto y un vector. Incluye un ejemplo que muestre qué sale mal si se insiste en sumar dos puntos.</p>
+<p><strong>1.16</strong> Demuestra que en cualquier triángulo, el segmento que une los puntos medios de dos lados es paralelo al tercer lado y mide la mitad. Usa vectores: la demostración cabe en tres renglones y no requiere ninguna figura.</p>
+<p><strong>1.17</strong> La desigualdad del triángulo dice que <span class="math inline">\(d(P,Q)\le d(P,R)+d(R,Q)\)</span>. Enuncia con precisión en qué caso se da la igualdad y demuéstralo a partir de <a href="#thm-producto-angulo" class="quarto-xref">Teorema&nbsp;<span>1.3</span></a>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Antes de empezar">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Antes de empezar</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02-la-recta-en-el-plano.html" class="pagination-link" aria-label="La recta en el plano">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La recta en el plano</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Universidad de Sonora · Departamento de Matemáticas</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rosaliahdez/notas-geometria-analitica/edit/main/01-sistemas-de-coordenadas.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/rosaliahdez/notas-geometria-analitica/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Figuras interactivas creadas con GeoGebra — <a href="https://www.geogebra.org" class="uri">https://www.geogebra.org</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
