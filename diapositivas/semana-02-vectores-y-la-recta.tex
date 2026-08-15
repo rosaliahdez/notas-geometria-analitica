@@ -1,0 +1,764 @@
+% ============================================================
+%  Geometría Analítica · LM · Universidad de Sonora
+%  Semana 2 — Vectores, la recta en el plano y el producto punto
+%  Semana CON laboratorio (el laboratorio es quincenal)
+%  Compilar en Overleaf con pdfLaTeX
+% ============================================================
+\documentclass[aspectratio=169,10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot,es-noquoting]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\usepackage{graphicx}
+\graphicspath{{figuras/}}
+% ---------- Tema y colores ----------
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\definecolor{turquesaGA}{HTML}{0E7C8C}
+\definecolor{turquesaClaro}{HTML}{E2F2F4}
+\definecolor{grisT}{HTML}{5F5E5A}
+\definecolor{negroP}{HTML}{2B2B2B}
+\definecolor{terracota}{HTML}{C1502E}
+\definecolor{dorado}{HTML}{B07C10}
+\definecolor{verdeOk}{HTML}{1D9E75}
+\definecolor{rojoAc}{HTML}{C0392B}
+\setbeamercolor{structure}{fg=turquesaGA}
+\setbeamercolor{frametitle}{fg=white,bg=turquesaGA}
+\setbeamercolor{title}{fg=turquesaGA}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.6ex,dp=1.2ex,leftskip=0.3cm]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}}
+\setbeamertemplate{footline}{%
+  \hfill\textcolor{grisT}{\tiny Geometría Analítica · LM · Unison \quad
+  \insertframenumber/\inserttotalframenumber}\hspace{0.3cm}\vspace{0.15cm}}
+\setbeamertemplate{itemize item}{\textcolor{turquesaGA}{\raisebox{0.15ex}{\tiny$\blacksquare$}}}
+\setbeamertemplate{itemize subitem}{\textcolor{grisT}{\raisebox{0.15ex}{\tiny$\bullet$}}}
+% ---------- Caja auxiliar para destacar ideas ----------
+\newcommand{\destaca}[1]{%
+  \par\vspace{3pt}\noindent
+  \colorbox{turquesaClaro}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep\relax}{\vspace{3pt}#1\vspace{3pt}}}%
+  \par\vspace{3pt}}
+% ---------- Hojas de separación por sesión ----------
+%  Las sesiones no llevan número: se identifican por su título.
+\newcommand{\hojaSesion}[2]{%
+  \vfill
+  \begin{beamercolorbox}[wd=\textwidth,sep=16pt,center]{frametitle}
+    {\Large\bfseries #1}\\[11pt]
+    \begin{minipage}{0.82\textwidth}\centering\small #2\end{minipage}
+  \end{beamercolorbox}
+  \vfill}
+% ---------- Abreviaturas ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\pp}[2]{\langle #1,#2\rangle}
+\newcommand{\norma}[1]{\lVert #1\rVert}
+% ============================================================
+\title{\LARGE\textbf{Geometría Analítica}}
+\subtitle{Semana 2 · Vectores, la recta en el plano y el producto punto}
+\author{Prof. Rosalía Gpe. Hernández Amador}
+\institute{Departamento de Matemáticas · Universidad de Sonora}
+\date{Semestre 2026-2}
+\begin{document}
+% ============================================================
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+% ============================================================
+\begin{frame}{Ruta de la semana}
+  \centering
+  {\small
+  \begin{tabular}{@{}l@{}}
+    \toprule
+    \textbf{Las cinco sesiones de la semana, en orden} \\
+    \midrule
+    Puntos y vectores: un objeto nuevo y sus operaciones \\
+    La recta descrita con un vector: forma paramétrica y pendiente \\
+    El vector normal y la ecuación general; las formas de la recta \\
+    Taller de las dos direcciones; la mediatriz \\
+    El producto punto: definición, propiedades y el teorema del ángulo \\
+    \midrule
+    Laboratorio: Construcción 1 en GeoGebra (esta semana hay laboratorio) \\
+    \bottomrule
+  \end{tabular}}
+
+  \vspace{0.4cm}
+  \raggedright
+  \destaca{La semana pasada describimos rectas donde una coordenada queda
+  fija ($x=3$, $y=-2$). Esta semana construimos el \textbf{vector}, la
+  herramienta que describe \textbf{cualquier} recta, y al cerrar la
+  semana definimos el producto punto.}
+\end{frame}
+% ============================================================
+\section{Puntos y vectores}
+% ---------- Portada de la Unidad 2 ----------
+%  Misma página ligera de apertura de unidad que en la semana 1.
+\begin{frame}[plain]
+  \begin{columns}[c]
+    \begin{column}{0.42\textwidth}
+      \centering
+      \begin{tikzpicture}[scale=0.6,>=Stealth]
+        \draw[very thin,color=gray!30] (-0.9,-1.2) grid (4.6,3.1);
+        \draw[->] (-0.9,0) -- (4.8,0);
+        \draw[->] (0,-1.2) -- (0,3.3);
+        \draw[turquesaGA,very thick] (-0.7,-0.85) -- (4.4,1.7);
+        \draw[terracota,very thick,->] (1,0) -- (3,1)
+          node[midway,above,sloped,font=\scriptsize]{$d$};
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.52\textwidth}
+      \raggedright
+      {\small\color{grisT} SEMANA 2}\\[8pt]
+      {\color{dorado}\rule{0.55\linewidth}{1.6pt}}\\[12pt]
+      {\LARGE\bfseries\color{turquesaGA} Unidad 2}\\[8pt]
+      {\large La recta en el plano}\\[14pt]
+      {\small\color{grisT}\itshape Todas las rectas, descritas con un
+      mismo lenguaje: el de los vectores}
+    \end{column}
+  \end{columns}
+\end{frame}
+% ---------- hoja de sesión ----------
+\begin{frame}[plain]
+  \hojaSesion{Puntos y vectores}{%
+  El vector como desplazamiento. Qué operaciones entre puntos y
+  vectores tienen sentido geométrico y cuáles no, por qué la suma de
+  dos puntos no está definida, y cómo la expresión $P+t\,(Q-P)$
+  reescribe el punto medio y describe la recta completa.}
+\end{frame}
+\begin{frame}{Pregunta pendiente}
+  Cerramos la semana 1 con esta pregunta. Si $xy>0$ y $x+y<0$,
+  ¿en qué cuadrante se encuentra el punto $(x,y)$?
+
+  \vspace{0.3cm}
+  \begin{itemize}
+    \item $xy>0$: los signos de $x$ e $y$ son \textbf{iguales},
+      así que el punto está en el cuadrante I o en el III.
+    \item $x+y<0$: la suma de dos positivos no puede ser negativa,
+      así que se descarta el cuadrante I.
+  \end{itemize}
+
+  \vspace{0.3cm}
+  \destaca{El punto está en el \textbf{cuadrante III}. Nótese el método:
+  cada condición \textbf{recorta} el conjunto de posibilidades, y la
+  respuesta es lo que sobrevive a todos los recortes. Así razonamos con
+  los lugares geométricos durante todo el curso.}
+\end{frame}
+% ============================================================
+\begin{frame}{Punto y vector}
+  Un \textcolor{turquesaGA}{\textbf{punto}} es un \textit{lugar}.
+  Un \textcolor{terracota}{\textbf{vector}} es un \textit{desplazamiento}.
+  Ambos se escriben como parejas de números, y de ahí viene la posible
+  confusión. Las operaciones con sentido geométrico son:
+
+  \vspace{0.3cm}
+  \begin{center}
+  {\small
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Expresión} & \textbf{Naturaleza} & \textbf{Interpretación} \\
+    \midrule
+    $Q-P$ & \textcolor{terracota}{vector} & el desplazamiento de $P$ a $Q$ \\
+    $P+v$ & \textcolor{turquesaGA}{punto} & $P$ desplazado según $v$ \\
+    $u+v$, \ $\lambda u$ & \textcolor{terracota}{vectores} & componer y reescalar desplazamientos \\
+    $P+Q$ & --- & \textcolor{rojoAc}{\textbf{no está definido}} \\
+    \bottomrule
+  \end{tabular}}
+  \end{center}
+
+  \vspace{0.3cm}
+  \destaca{Regla de lectura: punto $-$ punto $=$ vector; \ punto $+$
+  vector $=$ punto; \ punto $+$ punto no significa nada. Antes de operar
+  con parejas de números, conviene preguntarse qué \textbf{es} cada una.}
+\end{frame}
+% ============================================================
+\begin{frame}{¿Por qué $P+Q$ no está definido?}
+  Pensemos en un mapa de Sonora:
+
+  \vspace{0.2cm}
+  \begin{itemize}
+    \item \textit{El desplazamiento de Hermosillo a Guaymas} tiene un
+      significado claro, independiente de dónde coloquemos el origen
+      del mapa.
+
+      \vspace{0.2cm}
+    \item \textit{Hermosillo más Guaymas} no corresponde a ninguna
+      ciudad.
+  \end{itemize}
+
+  \vspace{0.4cm}
+  Si de cualquier modo sumamos las coordenadas, el resultado
+  \textbf{depende de dónde se colocó el origen}: al mover el origen del
+  mapa, la ``suma'' cae en otro sitio.
+
+  \vspace{0.3cm}
+  \destaca{Eso revela que $P+Q$ no es un objeto geométrico. La geometría
+  no puede depender de una elección arbitraria (la posición del origen).
+  En cambio, $Q-P$ \textbf{no cambia} al mover el origen, y por eso el
+  desplazamiento sí es un objeto legítimo.}
+\end{frame}
+% ============================================================
+\begin{frame}{El punto medio}
+  Del bachillerato conocemos la fórmula
+  $M=\left(\frac{x_1+x_2}{2},\frac{y_1+y_2}{2}\right)$.
+  Pero acabamos de acordar que la suma de puntos no está definida.
+  La escritura correcta es
+  \[
+    M \;=\; P+\tfrac{1}{2}\,(Q-P).
+  \]
+  Partimos de $P$ y avanzamos \textit{la mitad del desplazamiento}
+  hacia $Q$. Punto más vector es punto, así que cada paso es legítimo,
+  y las coordenadas que resultan son las de siempre.
+
+  \vspace{0.3cm}
+  \destaca{\textbf{Con $t$ arbitrario}, la expresión $P+t\,(Q-P)$ produce
+
+  \begin{itemize}
+    \item para $t=0$, el punto $P$; para $t=1$, el punto $Q$
+    \item para $t=\tfrac12$, el punto medio
+    \item al recorrer $t$ todos los reales, \textbf{toda la recta que
+      pasa por $P$ y $Q$}
+  \end{itemize}
+  Con esta observación empezamos la siguiente sesión.}
+\end{frame}
+% ============================================================
+\begin{frame}{El applet de la semana}
+  \begin{columns}[T]
+    \begin{column}{0.54\textwidth}
+      En el applet \textit{Puntos y vectores} del sitio del curso,
+      antes de mover la figura, escriban su predicción:
+
+      \vspace{0.2cm}
+      \begin{enumerate}
+        \item Si $P$ y $Q$ se trasladan \textbf{juntos},
+          ¿cambia el vector $Q-P$?
+        \item ¿Y si se desplaza únicamente $Q$?
+      \end{enumerate}
+
+      \vspace{0.3cm}
+      \destaca{\small Conclusión esperada: un desplazamiento no depende
+      de dónde inicia, sino únicamente de su \textbf{magnitud} y su
+      \textbf{dirección}. Esa invariancia distingue al vector del
+      punto.}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=.6,>=Stealth]
+        \draw[very thin,color=gray!30] (-2.4,-1.9) grid (3.4,2.9);
+        \draw[->] (-2.4,0) -- (3.4,0);
+        \draw[->] (0,-1.9) -- (0,2.9);
+        \coordinate (P) at (-1.5,-1);
+        \coordinate (Q) at (2.2,1.6);
+        \draw[terracota,very thick,->] (P) -- (Q)
+          node[midway,above,sloped]{\small $Q-P$};
+        \fill[turquesaGA] (P) circle(2.4pt) node[below left]{$P$};
+        \fill[dorado] (Q) circle(2.4pt) node[above right]{$Q$};
+        \coordinate (P2) at (-0.6,0.1);
+        \coordinate (Q2) at (3.1,2.7);
+        \draw[terracota!40,very thick,->] (P2) -- (Q2);
+        \fill[turquesaGA!40] (P2) circle(2.4pt);
+        \fill[dorado!40] (Q2) circle(2.4pt);
+      \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+% ============================================================
+\section{La recta descrita con un vector}
+% ---------- hoja de sesión ----------
+\begin{frame}[plain]
+  \hojaSesion{La recta descrita con un vector}{%
+  Una recta queda determinada por un punto de paso y una dirección:
+  la forma paramétrica $X=P+t\,d$ y el vector director. El puente con
+  el lenguaje del bachillerato ---pendiente e inclinación--- y el caso
+  donde ese lenguaje falla y el vectorial no: las rectas verticales.}
+\end{frame}
+\begin{frame}{¿Qué determina una recta?}
+  Una recta queda determinada por
+  \begin{center}
+    {\large un \textbf{punto de paso} $P$ \quad y \quad
+     una \textbf{dirección} $d$.}
+  \end{center}
+
+  \vspace{0.3cm}
+  \destaca{\textbf{Forma paramétrica (o vectorial).}
+  \[
+    \ell:\quad X = P + t\,d, \qquad t\in\R .
+  \]
+  El vector $d$ se llama \textbf{vector director} de la recta. Cada
+  valor del parámetro $t$ produce un punto; al recorrer $t$ todos los
+  reales, recorremos toda la recta.}
+
+  \vspace{0.3cm}
+  Nótese que es la expresión $P+t\,(Q-P)$ de la sesión anterior, con
+  $d=Q-P$. Conocer dos puntos de una recta nos da de inmediato un
+  vector director.
+\end{frame}
+% ============================================================
+\begin{frame}{Ejemplos}
+  \textbf{Ejemplo 1.} La recta pasa por $P=(1,2)$ con director
+  $d=(3,1)$.
+  \begin{enumerate}
+    \item Determinar los puntos correspondientes a $t=0,\ 1,\ 2,\ -1$.
+    \item ¿Pertenece el punto $(10,5)$ a la recta? ¿Y el $(7,5)$?
+  \end{enumerate}
+
+  \vspace{0.4cm}
+  \destaca{\small \textit{Solución.} 1.~$(1,2)$, $(4,3)$, $(7,4)$,
+  $(-2,1)$.\quad 2.~El punto $(10,5)$ sí pertenece: $t=3$ satisface
+  ambas coordenadas. El punto $(7,5)$ no: la abscisa exige $t=2$ y la
+  ordenada exige $t=3$, y \textbf{el parámetro debe ser el mismo en
+  ambas coordenadas}. Este es el criterio de pertenencia que usaremos
+  en el cuestionario de la semana.}
+\end{frame}
+% ============================================================
+\begin{frame}{De la dirección a la pendiente}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      Con director $d=(d_1,d_2)$ y $d_1\neq 0$, por cada $d_1$ unidades
+      de avance en $x$ la ordenada cambia $d_2$. La razón
+      \[
+        m=\frac{d_2}{d_1}
+      \]
+      es la \textbf{pendiente}. Si la recta pasa por $P=(x_1,y_1)$ y
+      $Q=(x_2,y_2)$:
+      \[
+        m=\frac{y_2-y_1}{x_2-x_1}.
+      \]
+      La \textbf{inclinación} es el ángulo $\alpha\in[0,\pi)$ que la
+      recta forma con el semieje $X$ positivo, y $m=\tan\alpha$.
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=.64,>=Stealth]
+        \draw[very thin,color=gray!30] (-0.9,-0.9) grid (4.6,3.1);
+        \draw[->] (-0.9,0) -- (4.6,0) node[below]{$x$};
+        \draw[->] (0,-0.9) -- (0,3.1) node[left]{$y$};
+        \draw[turquesaGA,very thick] (-0.7,-0.3) -- (4.4,2.25);
+        \coordinate (A) at (1,0.55);
+        \coordinate (B) at (3,1.55);
+        \draw[terracota,very thick,->] (A) -- (B)
+          node[midway,above,sloped]{\small $d$};
+        \draw[dashed,dorado,thick] (A) -- (3,0.55)
+          node[midway,below]{\small $d_1$};
+        \draw[dashed,dorado,thick] (3,0.55) -- (B)
+          node[midway,right]{\small $d_2$};
+      \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.05cm}
+  \destaca{\small Las rectas \textbf{verticales} no tienen pendiente
+  (con $d_1=0$ la razón no está definida), pero sí tienen vector
+  director, $(0,1)$. El lenguaje vectorial cubre los casos donde el de
+  pendientes falla; por eso será el lenguaje principal del curso.}
+\end{frame}
+% ============================================================
+\begin{frame}{Paralelismo en ambos lenguajes}
+  \centering
+  {\small
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    & \textbf{con pendientes} & \textbf{con directores} \\
+    \midrule
+    $\ell_1 \parallel \ell_2$ & $m_1=m_2$ & $d^{(1)}=\lambda\, d^{(2)}$ \\
+    $\ell_1 \perp \ell_2$ & $m_1\, m_2=-1$ & (próxima sesión) \\
+    \bottomrule
+  \end{tabular}}
+  \par\vspace{0.5cm}
+  \raggedright
+  Obsérvese que multiplicar el director por $\lambda\neq 0$ no cambia
+  la recta que describe. Por ejemplo, $(4,-6)$ y $(2,-3)$ dirigen la
+  misma familia de rectas paralelas. La perpendicularidad con vectores
+  la construiremos en la siguiente sesión, a partir de un giro de
+  $90^\circ$.
+
+  \vspace{0.3cm}
+  \destaca{\textit{Ejercicio.} Determinar un vector director de la
+  recta $X=(2,-1)+t\,(4,-6)$ con componentes enteras de valor absoluto
+  mínimo, y calcular su pendiente.
+  \\[3pt]{\small \textit{Solución:} $(2,-3)$, con
+  $m=-\tfrac{3}{2}$.}}
+\end{frame}
+% ============================================================
+\section{El vector normal y la ecuación general}
+% ---------- hoja de sesión ----------
+\begin{frame}[plain]
+  \hojaSesion{El vector normal y la ecuación general}{%
+  El giro de noventa grados produce el vector normal. En la
+  verificación aparece una suma de productos que se anula y que pronto
+  recibirá nombre propio. La ecuación general $Ax+By=C$, cuyos
+  coeficientes son las coordenadas de un vector normal, y las formas de
+  la ecuación de la recta.}
+\end{frame}
+\begin{frame}{El vector perpendicular}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      Dado un vector $d=(d_1,d_2)$, construimos
+      \[
+        n=(-d_2,\ d_1)
+      \]
+      (intercambiamos las componentes y cambiamos el signo de una de
+      ellas).
+
+      \vspace{0.2cm}
+
+      \textbf{Afirmación:} $n$ es $d$ girado $90^\circ$.
+      Verificación con pendientes:
+      \[
+        \frac{d_2}{d_1}\cdot\frac{d_1}{-d_2}=-1 .
+      \]
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=.72,>=Stealth]
+        \draw[very thin,color=gray!30] (-2.6,-0.9) grid (3.1,3.1);
+        \draw[->] (-2.6,0) -- (3.1,0);
+        \draw[->] (0,-0.9) -- (0,3.1);
+        \draw[terracota,very thick,->] (0,0) -- (2.5,1)
+          node[right]{\small $d=(d_1,d_2)$};
+        \draw[turquesaGA,very thick,->] (0,0) -- (-1,2.5)
+          node[above]{\small $n=(-d_2,d_1)$};
+        \draw (0.35,0.14) arc (22:112:0.38);
+        \node[font=\scriptsize] at (0.16,0.52) {$90^\circ$};
+      \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.2cm}
+  \destaca{Obsérvese además la expresión
+  $d_1\cdot(-d_2)+d_2\cdot d_1=0$, una \textbf{suma de productos de
+  componentes} que se anula justo cuando los vectores son
+  perpendiculares. Esta expresión \textbf{recibirá nombre propio al cerrar la
+  semana}; con ella mediremos todos los ángulos y todas las
+  distancias del curso.}
+\end{frame}
+% ============================================================
+\begin{frame}{El vector normal y la ecuación general}
+  Una recta también queda determinada por un punto $P=(x_0,y_0)$ y un
+  vector \textbf{perpendicular} a ella: su \textbf{vector normal}
+  $n=(A,B)$. La condición de pertenencia se escribe
+  \[
+    Ax+By=C, \qquad\text{con } C=Ax_0+By_0
+  \]
+  (obtenemos $C$ exigiendo que $P$ satisfaga la ecuación).
+  A esta expresión la llamamos \textbf{ecuación general} de la recta.
+
+  \vspace{0.3cm}
+  \destaca{\textbf{Observación importante.} Los coeficientes $A$ y $B$
+  de la ecuación general \textbf{son las coordenadas de un vector
+  normal} a la recta. En la ecuación $3x+y=5$, el vector $(3,1)$ es
+  perpendicular a la recta: esa información está a la vista, sin
+  calcular nada. Saber \textbf{leer} una ecuación es tan importante
+  como saber obtenerla.}
+\end{frame}
+% ============================================================
+\begin{frame}{Formas de la ecuación de la recta}
+  \centering
+  {\small
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Forma} & \textbf{Expresión} & \textbf{Dato que permite leer} \\
+    \midrule
+    Paramétrica & $X=P+t\,d$ & un punto y el director; válida en $\R^3$ \\
+    Punto--pendiente & $y-y_0=m(x-x_0)$ & un punto y la pendiente \\
+    Pendiente--ordenada & $y=mx+b$ & la pendiente y el corte con el eje $Y$ \\
+    General & $Ax+By=C$ & el normal $(A,B)$; incluye verticales \\
+    Simétrica & $\dfrac{x}{a}+\dfrac{y}{b}=1$ & los cortes $(a,0)$ y $(0,b)$ \\
+    \bottomrule
+  \end{tabular}}
+
+  \vspace{0.5cm}
+  \raggedright
+  \destaca{La habilidad que practicamos \textbf{no} consiste en
+  memorizar las cinco formas, sino en \textbf{traducir} entre ellas.
+  Cada una exhibe un dato distinto de la misma recta, y el problema
+  dicta cuál conviene usar.}
+\end{frame}
+% ============================================================
+\begin{frame}{Ejemplos}
+  \textbf{Ejemplo 2.} La recta pasa por $(2,1)$ y $(6,3)$.
+  \begin{enumerate}
+    \item Determinar su forma paramétrica y su pendiente.
+    \item Escribir la forma punto--pendiente y llevarla a $y=mx+b$.
+    \item Escribir la forma general y leer su vector normal.
+    \item Comprobar que ese normal es perpendicular al director
+      (la suma de productos correspondiente debe anularse).
+  \end{enumerate}
+
+  \vspace{0.4cm}
+  \destaca{\small \textit{Solución.} $X=(2,1)+t\,(4,2)$;
+  $m=\tfrac12$; \ $y-1=\tfrac12(x-2)$, es decir $y=\tfrac12 x$; \
+  forma general $x-2y=0$, con normal $(1,-2)$; \ y
+  $4\cdot 1+2\cdot(-2)=0$, como esperábamos. Nótese que con la
+  verificación del inciso 4 \textbf{detectamos errores propios} antes
+  de que los detecte el examen.}
+\end{frame}
+% ============================================================
+\section{Taller y laboratorio}
+% ---------- hoja de sesión ----------
+\begin{frame}[plain]
+  \hojaSesion{Taller: las dos direcciones}{%
+  Práctica de las dos traducciones por separado, de la ecuación a la
+  gráfica y de la descripción a la ecuación. La mediatriz como lugar
+  geométrico, con sus dos comprobaciones, y la Construcción~1 en
+  GeoGebra con su criterio de evaluación, la prueba de arrastre.}
+\end{frame}
+\begin{frame}{De la ecuación a la gráfica}
+  Para cada recta, identificamos la forma, leemos el dato que está a
+  la vista y describimos un procedimiento para trazarla.
+
+  \vspace{0.2cm}
+  \begin{center}
+  {\small
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    \textbf{Recta} & \textbf{¿Qué forma es?} & \textbf{¿Qué dato está a la vista?} \\
+    \midrule
+    $y=2x-3$ & & \\[8pt]
+    $3x+4y=12$ & & \\[8pt]
+    $X=(0,1)+t\,(1,-1)$ & & \\[8pt]
+    $x=5$ & & \\
+    \bottomrule
+  \end{tabular}}
+  \end{center}
+
+  \vspace{0.4cm}
+  {\footnotesize La tabla la llenamos en voz alta durante el taller.
+  Obsérvese el último renglón: esa recta no tiene pendiente, pero sí
+  tiene vector director.}
+  % Guía del taller (las soluciones completas van en las notas):
+  %  (a) pendiente-ordenada; corte (0,-3) y m=2.
+  %  (b) general; normal (3,4), cortes (4,0) y (0,3).
+  %  (c) paramétrica; punto de paso (0,1) y director (1,-1).
+  %  (d) vertical; sin pendiente, director (0,1).
+\end{frame}
+% ============================================================
+\begin{frame}{De la descripción a la ecuación}
+  \destaca{\textbf{Problema.} Determinar el lugar geométrico de los
+  puntos que \textbf{equidistan} de $A=(-2,1)$ y $B=(4,3)$.}
+
+  \vspace{0.2cm}
+  Antes de calcular, escribimos la predicción. ¿Qué figura esperamos,
+  y por qué?
+
+  \vspace{0.2cm}
+
+  {\small \textit{Solución.} La condición es $d(P,A)=d(P,B)$ con
+  $P=(x,y)$. Al elevar al cuadrado (operación reversible aquí, pues
+  ambos lados son no negativos) y cancelar $x^2$, $y^2$:
+  \[
+    \boxed{\,3x+y=5\,}
+  \]
+  Una \textbf{recta}, la \textbf{mediatriz} del segmento $AB$.}
+
+  \vspace{0.2cm}
+  \destaca{\small Dos comprobaciones inmediatas: el punto medio $(1,2)$
+  satisface la ecuación, y el normal $(3,1)$ es paralelo a
+  $B-A=(6,2)$, es decir, la mediatriz es perpendicular al segmento,
+  como debía ser. Verificar por una segunda vía es uno de nuestros dos
+  acuerdos de trabajo.}
+\end{frame}
+% ============================================================
+\begin{frame}{Laboratorio: Construcción 1}
+  \textbf{Construcción 1} (actividad GeoGebra en Moodle):
+  \begin{enumerate}
+    \item Dos puntos libres $P$ y $Q$.
+    \item La recta que pasa por ellos.
+    \item El vector director $Q-P$ y, construido a partir de él,
+      un vector normal.
+  \end{enumerate}
+
+  \vspace{0.4cm}
+  \destaca{\textbf{Criterio de evaluación: la prueba de arrastre.}
+  Al arrastrar $P$ o $Q$, todas las propiedades deben conservarse: la
+  recta sigue pasando por ambos puntos y el normal permanece
+  perpendicular. Una figura que se deshace al arrastrarla estaba
+  \textit{dibujada}; una que resiste estaba \textit{construida}.}
+
+  \vspace{0.3cm}
+  {\footnotesize La construcción la empezamos en el laboratorio; la
+  terminan en casa y la entregan en Moodle el domingo.}
+\end{frame}
+% ============================================================
+\section{El producto punto}
+% ---------- hoja de sesión ----------
+\begin{frame}[plain]
+  \hojaSesion{El producto punto}{%
+  La suma de productos que apareció con el vector normal recibe
+  nombre. Definición y
+  propiedades del producto punto, el teorema que lo conecta con el
+  ángulo entre vectores, y la demostración que quedó pendiente en la
+  semana 1, la desigualdad del triángulo.}
+\end{frame}
+\begin{frame}{Definición del producto punto}
+  Al construir el vector normal, giramos $d=(d_1,d_2)$ hacia
+  $n=(-d_2,d_1)$ y apareció una expresión cuyo valor fue cero:
+  \[
+    d_1\cdot(-d_2)+d_2\cdot d_1=0 .
+  \]
+  Anunciamos que esa suma de productos recibiría nombre propio.
+  Hoy cumplimos.
+
+  \vspace{0.2cm}
+  \destaca{\textbf{Definición (producto punto).} Para $u=(u_1,u_2)$ y
+  $v=(v_1,v_2)$:
+  \[
+    \pp{u}{v} \;=\; u_1v_1+u_2v_2 .
+  \]
+  En el espacio, la definición es análoga, con tres sumandos.}
+
+  \vspace{0.2cm}
+  Obsérvese que la operación recibe \textbf{dos vectores} y produce
+  \textbf{un número}, no un vector. Eso la hace útil para
+  \textbf{medir}.
+\end{frame}
+% ============================================================
+\begin{frame}{Propiedades básicas}
+  Se verifican directamente de la definición:
+
+  \vspace{0.2cm}
+  \begin{enumerate}
+    \item \textbf{Simetría:} $\pp{u}{v}=\pp{v}{u}$.
+    \item \textbf{Linealidad:} $\pp{\lambda u+w}{v}
+      =\lambda\pp{u}{v}+\pp{w}{v}$.
+    \item \textbf{Positividad:} $\pp{u}{u}=u_1^2+u_2^2=\norma{u}^2$.
+  \end{enumerate}
+
+  \vspace{0.4cm}
+  La tercera propiedad conecta con lo ya conocido:
+  \[
+    \norma{u}=\sqrt{\pp{u}{u}}
+    \qquad\text{y por tanto}\qquad
+    d(P,Q)=\norma{Q-P}.
+  \]
+
+  \vspace{0.1cm}
+  \destaca{La distancia de la semana 1 ya era un producto punto. Lo
+  nuevo no es la fórmula sino la operación con sus propiedades; de
+  ellas saldrán los ángulos y las distancias que faltan.}
+\end{frame}
+% ============================================================
+\begin{frame}{El teorema del ángulo}
+  \destaca{\textbf{Teorema (el producto punto mide ángulos).}
+  Si $u,v\neq 0$ y $\theta\in[0,\pi]$ es el ángulo entre ellos,
+  \[
+    \pp{u}{v}=\norma{u}\,\norma{v}\cos\theta .
+  \]}
+
+  \vspace{0.1cm}
+  {\small \textit{Demostración} (ley de cosenos). El tercer lado del
+  triángulo formado por $u$ y $v$ es $v-u$, de modo que
+  \[
+    \norma{v-u}^2=\norma{u}^2+\norma{v}^2
+      -2\norma{u}\norma{v}\cos\theta .
+  \]
+  Por otra parte, desarrollando con las propiedades de la diapositiva
+  anterior,
+  \[
+    \norma{v-u}^2=\pp{v-u}{v-u}
+    =\norma{v}^2-2\pp{u}{v}+\norma{u}^2 .
+  \]
+  Igualando ambas expresiones y cancelando se obtiene el resultado.
+  \hfill$\blacksquare$}
+
+  \vspace{0.2cm}
+  \destaca{\textbf{Consecuencia.} Perpendicularidad $\iff$ producto
+  punto igual a cero. El giro con el que construimos el normal produjo un cero
+  porque el ángulo era de $90^\circ$; ahora sabemos que no fue casualidad.}
+\end{frame}
+% ============================================================
+\begin{frame}{La desigualdad del triángulo}
+  En la semana 1 enunciamos sin demostrar la desigualdad del
+  triángulo:
+  \[
+    d(P,Q)\ \le\ d(P,R)+d(R,Q) .
+  \]
+  Con $u=R-P$ y $v=Q-R$, basta demostrar
+  $\norma{u+v}\le\norma{u}+\norma{v}$:
+  \[
+    \norma{u+v}^2=\norma{u}^2+2\,\pp{u}{v}+\norma{v}^2
+    \;\le\;
+    \norma{u}^2+2\,\norma{u}\norma{v}+\norma{v}^2 ,
+  \]
+  puesto que $\pp{u}{v}=\norma{u}\norma{v}\cos\theta$ y
+  $\cos\theta\le 1$. \hfill$\blacksquare$
+
+  \vspace{0.4cm}
+  \destaca{La igualdad ocurre exactamente cuando $\cos\theta=1$, es
+  decir, cuando $R$ pertenece al segmento $PQ$, tal como lo predijimos
+  geométricamente en la semana 1. El pendiente que dejamos anotado en
+  el pizarrón queda \textbf{demostrado}.}
+\end{frame}
+% ============================================================
+\begin{frame}{Cierre de la semana}
+  \textbf{Lo que vimos}
+  {\small
+  \begin{itemize}
+    \item Puntos y vectores: qué operaciones tienen sentido y cuáles no
+    \item La forma paramétrica $X=P+t\,d$, la pendiente, el giro de
+      $90^\circ$, el normal y la ecuación general
+    \item Las cinco formas de la recta y la mediatriz como lugar
+      geométrico
+    \item El producto punto, el teorema del ángulo, y la desigualdad
+      del triángulo, ya demostrada
+  \end{itemize}}
+
+  \vspace{0.2cm}
+  \textbf{Para la próxima semana}
+  {\small
+  \begin{itemize}
+    \item Cuestionario de práctica de la semana 2 en Moodle
+      (intentos ilimitados; no califica)
+    \item Notas de la semana 2 en Moodle, al cierre de la semana
+    \item Lehmann: serie de ejercicios sobre las formas de la ecuación
+      de la recta
+    \item Terminar la \textbf{Construcción 1} y entregarla en Moodle
+      el domingo
+  \end{itemize}}
+
+  \vspace{0.2cm}
+  \destaca{\textbf{Pregunta para la próxima sesión:} la ecuación
+  $5x-2y=20$ contiene, a la vista, un vector perpendicular a la recta
+  y sus dos cortes con los ejes. Identifíquenlos. Y el anuncio de la
+  semana 3: con el producto punto mediremos el ángulo entre dos rectas
+  y obtendremos \textbf{todas} las distancias del curso.}
+\end{frame}
+% ============================================================
+%  Página de cierre del archivo.
+%  Ajustar la URL cuando el libro quede publicado en GitHub Pages.
+\begin{frame}[plain]
+  \centering
+
+  \vspace{1.0cm}
+  \begin{tikzpicture}[scale=0.55,>=Stealth]
+    \draw[very thin,color=gray!30] (-2.6,-1.4) grid (3.6,3.1);
+    \draw[->,thick] (-2.6,0) -- (3.8,0);
+    \draw[->,thick] (0,-1.4) -- (0,3.3);
+    \draw[turquesaGA,very thick] (-2.4,-1.2) -- (3.4,1.7);
+    \draw[terracota,very thick,->] (-0.4,-0.2) -- (1.6,0.8);
+    \draw[dorado,very thick,->] (-0.4,-0.2) -- (-1.4,1.8);
+  \end{tikzpicture}
+
+  \vspace{0.5cm}
+
+  {\Large\color{turquesaGA} ¿Preguntas?}\\[10pt]
+  {\small\color{grisT}
+  \url{https://rosaliahdez.github.io/notas-geometria-analitica/} \\
+  Comunicación por Teams · Cuestionarios y entregas en Moodle (Ramanujan)}
+
+  \vspace{0.7cm}
+
+  {\tiny\color{grisT}
+  Texto base: Ramírez Galarza, \textit{Geometría analítica. Una
+  introducción a la geometría}, UNAM. ---
+  Ejercicios: Lehmann, \textit{Geometría analítica}, Limusa.}
+\end{frame}
+\end{document}

@@ -1,0 +1,35 @@
+# Planos y rectas en el espacio {#sec-planos}
+
+::: {.callout-note appearance="simple"}
+**Unidad 4 del curso.** Semanas 6 y 7.
+:::
+
+::: {.callout-warning appearance="simple"}
+Capítulo en preparación.
+:::
+
+## Una ecuación lineal, dos dimensiones ambiente
+
+**Teorema 5 del curso.** La ecuación $\langle n,X\rangle=c$ describe una recta en el plano y un plano en el espacio. Dimensión y codimensión. De ahí se sigue por qué una recta en $\mathbb{R}^3$ necesita dos ecuaciones o una parametrización, y no es un capricho de la notación sino aritmética de dimensiones.
+
+## Formas de la ecuación del plano
+
+General, simétrica y normal. Ecuación vectorial.
+
+## Formas de las ecuaciones de la recta
+
+Biplanar, paramétrica y simétrica.
+
+## Ángulos
+
+Entre dos rectas, entre dos planos, y entre recta y plano: los tres con producto punto, en una sola sesión.
+
+## Intersecciones
+
+Recta con plano, plano con plano, y los casos degenerados.
+
+## Las seis distancias, de una sola vez
+
+Punto-plano, plano-plano, recta-plano, recta-recta y punto-recta. Todas son la misma proyección sobre el vector adecuado.
+
+## Ejercicios {.unnumbered}

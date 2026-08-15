@@ -1,0 +1,61 @@
+# Familias de rectas {.unnumbered}
+
+::: {.callout-note appearance="simple"}
+Cuaderno opcional del invernadero. Se relaciona con el capítulo de [la recta](../02-la-recta-en-el-plano.qmd). Requiere computadora y conexión; la primera celda tarda unos segundos en despertar.
+:::
+
+En clase vimos que la expresión
+$$
+\ell_1+\lambda\,\ell_2=0
+$$
+describe, al variar $\lambda$, una **familia de rectas que pasan todas por el punto común** de $\ell_1$ y $\ell_2$. En el pizarrón sólo alcanzamos a dibujar tres o cuatro. Aquí puedes dibujar cincuenta.
+
+## El experimento
+
+El código siguiente dibuja miembros del haz generado por
+$$
+\ell_1:\; x+y-2=0 \qquad\text{y}\qquad \ell_2:\; 2x-y-1=0 .
+$$
+
+**Antes de ejecutar, predice:** ¿por qué punto van a pasar *todas* las rectas de la familia? (Puedes calcularlo: es la intersección de $\ell_1$ y $\ell_2$.)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# --- La unica parte matematica: las dos rectas del haz -------------
+# ax + by + c = 0, escritas como (a, b, c)
+l1 = (1,  1, -2)     # x + y - 2 = 0
+l2 = (2, -1, -1)     # 2x - y - 1 = 0
+# --------------------------------------------------------------------
+
+x = np.linspace(-4, 6, 100)
+fig, ax = plt.subplots(figsize=(6, 6))
+
+for lam in np.linspace(-8, 8, 41):
+    a = l1[0] + lam*l2[0]
+    b = l1[1] + lam*l2[1]
+    c = l1[2] + lam*l2[2]
+    if abs(b) > 1e-9:                      # recta no vertical
+        ax.plot(x, (-a*x - c)/b, lw=0.8, alpha=0.6)
+
+ax.set_xlim(-4, 6); ax.set_ylim(-4, 6)
+ax.axhline(0, color='k', lw=0.8); ax.axvline(0, color='k', lw=0.8)
+ax.set_aspect('equal'); ax.grid(alpha=0.3)
+ax.set_title('El haz  $\\ell_1 + \\lambda\\, \\ell_2 = 0$')
+plt.show()
+```
+
+## Qué mirar
+
+1. Todas las rectas se cortan en **un solo punto**. Verifica que es la solución del sistema $\ell_1=0$, $\ell_2=0$.
+2. **Modifica** los coeficientes de `l2` en el código y vuelve a ejecutar. ¿El punto común se movió? ¿Hacia dónde?
+3. Hay una recta del haz que **falta** en el dibujo, por más valores de $\lambda$ que pongas. ¿Cuál es y por qué ningún $\lambda$ finito la produce? (Pista: ¿qué recta obtienes "cuando $\lambda\to\infty$"?)
+
+::: {.callout-tip collapse="true" title="Sobre la pregunta 3"}
+La propia $\ell_2$ no pertenece a la familia $\ell_1+\lambda\ell_2$ para ningún $\lambda$ finito: al crecer $\lambda$, la recta de la familia se parece cada vez más a $\ell_2$, pero nunca la alcanza. Por eso algunos textos escriben el haz como $\mu\,\ell_1+\lambda\,\ell_2=0$ con dos parámetros, que sí incluye a ambas generadoras.
+:::
+
+::: {.callout-note appearance="simple"}
+**Nota para la edición del libro (no para el estudiante):** cuando se instale la extensión `quarto-live` (`quarto add r-wasm/quarto-live` y activar el filtro `live` en `_quarto.yml`), cambiar el bloque ```` ```python ```` de esta página por ```` ```{pyodide} ```` para que la celda sea ejecutable en el navegador. Mientras tanto el código se muestra pero no se ejecuta, y el libro renderiza sin ninguna dependencia de Python.
+:::

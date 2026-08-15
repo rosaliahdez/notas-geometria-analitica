@@ -1,0 +1,652 @@
+% ============================================================
+%  Geometría Analítica · LM · Universidad de Sonora
+%  Semana 3 — Ángulos, distancias, familias de rectas y
+%             puntos notables del triángulo
+%  Semana SIN laboratorio (el laboratorio es quincenal;
+%  la Construcción 2 va la próxima semana)
+%  Compilar en Overleaf con pdfLaTeX
+% ============================================================
+\documentclass[aspectratio=169,10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot,es-noquoting]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\usepackage{graphicx}
+\graphicspath{{figuras/}}
+% ---------- Tema y colores ----------
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\definecolor{turquesaGA}{HTML}{0E7C8C}
+\definecolor{turquesaClaro}{HTML}{E2F2F4}
+\definecolor{grisT}{HTML}{5F5E5A}
+\definecolor{negroP}{HTML}{2B2B2B}
+\definecolor{terracota}{HTML}{C1502E}
+\definecolor{dorado}{HTML}{B07C10}
+\definecolor{verdeOk}{HTML}{1D9E75}
+\definecolor{rojoAc}{HTML}{C0392B}
+\setbeamercolor{structure}{fg=turquesaGA}
+\setbeamercolor{frametitle}{fg=white,bg=turquesaGA}
+\setbeamercolor{title}{fg=turquesaGA}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.6ex,dp=1.2ex,leftskip=0.3cm]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}}
+\setbeamertemplate{footline}{%
+  \hfill\textcolor{grisT}{\tiny Geometría Analítica · LM · Unison \quad
+  \insertframenumber/\inserttotalframenumber}\hspace{0.3cm}\vspace{0.15cm}}
+\setbeamertemplate{itemize item}{\textcolor{turquesaGA}{\raisebox{0.15ex}{\tiny$\blacksquare$}}}
+\setbeamertemplate{itemize subitem}{\textcolor{grisT}{\raisebox{0.15ex}{\tiny$\bullet$}}}
+% ---------- Caja auxiliar para destacar ideas ----------
+\newcommand{\destaca}[1]{%
+  \par\vspace{3pt}\noindent
+  \colorbox{turquesaClaro}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep\relax}{\vspace{3pt}#1\vspace{3pt}}}%
+  \par\vspace{3pt}}
+% ---------- Hojas de separación por sesión ----------
+%  Las sesiones no llevan número: se identifican por su título.
+\newcommand{\hojaSesion}[2]{%
+  \vfill
+  \begin{beamercolorbox}[wd=\textwidth,sep=16pt,center]{frametitle}
+    {\Large\bfseries #1}\\[11pt]
+    \begin{minipage}{0.82\textwidth}\centering\small #2\end{minipage}
+  \end{beamercolorbox}
+  \vfill}
+% ---------- Abreviaturas ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\pp}[2]{\langle #1,#2\rangle}
+\newcommand{\norma}[1]{\lVert #1\rVert}
+% ============================================================
+\title{\LARGE\textbf{Geometría Analítica}}
+\subtitle{Semana 3 · Ángulos, distancias y puntos notables del triángulo}
+\author{Prof. Rosalía Gpe. Hernández Amador}
+\institute{Departamento de Matemáticas · Universidad de Sonora}
+\date{Semestre 2026-2}
+\begin{document}
+% ============================================================
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+% ============================================================
+\begin{frame}{Ruta de la semana}
+  \centering
+  {\small
+  \begin{tabular}{@{}l@{}}
+    \toprule
+    \textbf{Las cinco sesiones de la semana, en orden} \\
+    \midrule
+    Ángulo entre dos rectas, por dos métodos \\
+    Proyección de un vector; distancia de un punto a una recta \\
+    Taller: la forma normal clásica; tarea de redacción \\
+    Familias de rectas con un parámetro \\
+    Taller: los puntos notables del triángulo \\
+    \bottomrule
+  \end{tabular}}
+
+  \vspace{0.4cm}
+  \raggedright
+  \destaca{Esta semana el producto punto de la semana pasada medirá el
+  ángulo entre rectas y producirá \textbf{todas} las distancias del
+  curso. Al final juntamos las herramientas de estas tres semanas en
+  un problema clásico, los puntos notables del triángulo.
+  \textbf{Esta semana no hay laboratorio} (es quincenal); la
+  Construcción 2 va la próxima semana.}
+\end{frame}
+% ============================================================
+\section{Ángulo entre dos rectas}
+% ---------- hoja de sesión ----------
+\begin{frame}[plain]
+  \hojaSesion{Ángulo entre dos rectas}{%
+  Dos métodos para el mismo ángulo: el vectorial, con producto punto
+  de directores, y el clásico, con pendientes. Comparación de sus
+  alcances (las rectas verticales distinguen a uno del otro) y un
+  ejemplo resuelto por ambas vías, con la coincidencia como
+  verificador.}
+\end{frame}
+\begin{frame}{Pregunta pendiente}
+  Cerramos la semana 2 con esta pregunta. La ecuación $5x-2y=20$
+  contiene, a la vista, un vector perpendicular a la recta y sus dos
+  cortes con los ejes. ¿Cuáles son?
+
+  \vspace{0.3cm}
+  \begin{itemize}
+    \item El vector normal se lee de los coeficientes: $n=(5,-2)$.
+    \item Con $y=0$ resulta $x=4$; con $x=0$ resulta $y=-10$.
+      Los cortes son $(4,0)$ y $(0,-10)$.
+  \end{itemize}
+
+  \vspace{0.3cm}
+  \destaca{Dividiendo entre $20$ obtenemos la forma simétrica
+  $\dfrac{x}{4}+\dfrac{y}{-10}=1$, donde los cortes quedan a la vista.
+  Nótese la moraleja: \textbf{cada forma de la ecuación exhibe un dato
+  distinto}, y reescribir la ecuación es una manera de leer datos
+  nuevos.}
+\end{frame}
+% ============================================================
+\begin{frame}{Método 1: con vectores directores}
+  Si $d^{(1)}$ y $d^{(2)}$ son vectores directores de las rectas,
+  \[
+    \cos\theta=\frac{\bigl|\pp{d^{(1)}}{d^{(2)}}\bigr|}
+      {\norma{d^{(1)}}\,\norma{d^{(2)}}}
+  \]
+  (el valor absoluto selecciona el ángulo \textit{agudo} entre las
+  rectas).
+
+  \vspace{0.4cm}
+  \destaca{\textbf{Ventajas de este método:} es válido sin
+  excepciones, incluidas las rectas verticales; y se extiende sin
+  cambios a $\R^3$, donde las pendientes ni siquiera existen. Cuando
+  lleguemos al espacio, en la Unidad 3, esta será la única fórmula
+  que necesitaremos recordar.}
+\end{frame}
+% ============================================================
+\begin{frame}{Método 2: con pendientes (fórmula clásica)}
+  Si las pendientes son $m_1$ y $m_2$ y las rectas no son
+  perpendiculares,
+  \[
+    \tan\theta=\left|\frac{m_2-m_1}{1+m_1m_2}\right| .
+  \]
+  Resulta cómoda cuando las pendientes ya se conocen.
+
+  \vspace{0.3cm}
+  \begin{center}
+  {\small
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    & \textbf{con pendientes} & \textbf{con vectores} \\
+    \midrule
+    paralelas & $m_1=m_2$ & $d^{(1)}=\lambda\, d^{(2)}$ \\
+    perpendiculares & $m_1\,m_2=-1$ & $\pp{d^{(1)}}{d^{(2)}}=0$ \\
+    \bottomrule
+  \end{tabular}}
+  \end{center}
+
+  \vspace{0.3cm}
+  \destaca{\textbf{Observación importante.} La condición $m_1m_2=-1$
+  no es aplicable cuando una recta es vertical y la otra horizontal,
+  aunque son perpendiculares. La condición con producto punto no tiene
+  excepciones. Tener dos lenguajes y saber cuál falla dónde también
+  es contenido del curso.}
+\end{frame}
+% ============================================================
+\begin{frame}{Ejemplos}
+  \textbf{Ejemplo 1.} Determinar el ángulo entre las rectas $y=2x-1$
+  y $y=-\tfrac13 x+4$, por ambos métodos.
+
+  \vspace{0.1cm}
+
+  {\small \textit{Solución.} Con pendientes:
+  $\tan\theta=\bigl|\tfrac{-1/3-2}{1+2\cdot(-1/3)}\bigr|
+  =\bigl|\tfrac{-7/3}{1/3}\bigr|=7$, de donde
+  $\theta\approx 81.9^\circ$. Con directores $(1,2)$ y $(3,-1)$:
+  $\cos\theta=\tfrac{|3-2|}{\sqrt5\,\sqrt{10}}=\tfrac{1}{\sqrt{50}}$,
+  que produce el mismo $\theta\approx 81.9^\circ$.}
+
+  \vspace{0.3cm}
+
+  \textbf{Ejemplo 2.} ¿Son perpendiculares $3x+2y=7$ y
+  $X=(1,1)+t\,(2,-3)$?
+
+  \vspace{0.1cm}
+
+  {\small \textit{Solución.} El normal de la primera es $(3,2)$; su
+  director es, por tanto, $(-2,3)$. Como
+  $\pp{(-2,3)}{(2,-3)}=-13\neq 0$, no son perpendiculares. De hecho
+  $(2,-3)=-(-2,3)$: las rectas son \textit{paralelas}.}
+
+  \vspace{0.2cm}
+  \destaca{\small Nótese, en el Ejemplo 1, que ambos métodos
+  coinciden. Resolver por dos vías es el verificador de cálculo más
+  eficaz que tenemos, y así lo pediremos en los talleres.}
+\end{frame}
+% ============================================================
+\section{Proyección y distancia punto-recta}
+% ---------- hoja de sesión ----------
+\begin{frame}[plain]
+  \hojaSesion{Proyección y distancia punto-recta}{%
+  La proyección, es decir, la componente de un vector en la dirección
+  de otro. Con ella, el teorema de la distancia de un punto a una
+  recta, primero con normal unitario (donde la idea es transparente)
+  y después en el caso general, que produce la fórmula clásica.}
+\end{frame}
+\begin{frame}{Proyección de un vector sobre otro}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      Pregunta: ¿qué tanto de $u$ apunta en la dirección de $v$?
+
+      \vspace{0.2cm}
+      \destaca{\textbf{Proyección.} La \textbf{proyección escalar} de
+      $u$ sobre $v$ es
+      \[
+        \frac{\pp{u}{v}}{\norma{v}}\;=\;\norma{u}\cos\theta ,
+      \]
+      y el \textbf{vector proyección} es ese escalar multiplicado por
+      el vector unitario en la dirección de $v$.}
+
+      \vspace{0.2cm}
+      Si $\norma{v}=1$, la proyección escalar es simplemente
+      $\pp{u}{v}$. Con vectores unitarios,
+      \textbf{proyectar se reduce a multiplicar}.
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=.75,>=Stealth]
+        \draw[very thin,color=gray!30] (-0.9,-0.9) grid (4.1,2.9);
+        \draw[->] (-0.9,0) -- (4.1,0);
+        \draw[->] (0,-0.9) -- (0,2.9);
+        \draw[dorado,very thick,->] (0,0) -- (3.6,0.9)
+          node[right]{\small $v$};
+        \draw[terracota,very thick,->] (0,0) -- (1.4,2.3)
+          node[above]{\small $u$};
+        \coordinate (S) at ({(1.4*3.6+2.3*0.9)/(3.6*3.6+0.9*0.9)*3.6},
+                            {(1.4*3.6+2.3*0.9)/(3.6*3.6+0.9*0.9)*0.9});
+        \draw[dashed,gray,thick] (1.4,2.3) -- (S);
+        \draw[turquesaGA,ultra thick] (0,0) -- (S)
+          node[midway,below,sloped]{\small proyección};
+      \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+% ============================================================
+\begin{frame}{El teorema de la distancia punto-recta}
+  \destaca{\textbf{Teorema.} Si la recta $\ell$ tiene ecuación
+  $Ax+By=C$ con vector normal \textbf{unitario} $n=(A,B)$ (es decir,
+  $A^2+B^2=1$), entonces para cualquier punto $Q=(q_1,q_2)$:
+  \[
+    d(Q,\ell)=\bigl|\,\pp{n}{Q}-C\,\bigr|
+    =\bigl|\,Aq_1+Bq_2-C\,\bigr| .
+  \]}
+
+  \vspace{0.1cm}
+  \textit{Idea de la demostración:} $\pp{n}{Q}$ es la proyección de
+  $Q$ en la dirección perpendicular a la recta (su ``nivel'') y $C$
+  es el nivel común de los puntos de la recta. La distancia es la
+  diferencia de niveles.
+
+  \vspace{0.3cm}
+  \destaca{\textbf{Caso general.} Si el normal no es unitario,
+  dividimos entre su norma:
+  \[
+    d(Q,\ell)=\frac{|Aq_1+Bq_2-C|}{\sqrt{A^2+B^2}} .
+  \]
+  Esta es la fórmula clásica de los libros de texto; ahora sabemos de
+  dónde sale.}
+\end{frame}
+% ============================================================
+\begin{frame}{Ejemplos}
+  \textbf{Ejemplo 3.} Distancia del punto $(2,7)$ a la recta
+  $3x+4y=10$.
+
+  \vspace{0.1cm}
+
+  {\small \textit{Solución.}
+  $d=\dfrac{|3\cdot 2+4\cdot 7-10|}{\sqrt{9+16}}=\dfrac{24}{5}$.}
+
+  \vspace{0.3cm}
+
+  \textbf{Ejemplo 4.} Distancia del origen a la misma recta.
+
+  \vspace{0.1cm}
+
+  {\small \textit{Solución.} $d=\dfrac{|0+0-10|}{5}=2$. Para el
+  origen, la fórmula se reduce a $|C|/\norma{n}$.}
+
+  \vspace{0.3cm}
+
+  \textbf{Pregunta.} ¿Para qué puntos $Q$ la fórmula produce cero?
+
+  \vspace{0.2cm}
+  \destaca{\small \textit{Respuesta.} Exactamente para los puntos de
+  la recta: distancia cero equivale a satisfacer la ecuación. Son las
+  dos caras del lugar geométrico (\textit{todos} y
+  \textit{solamente}) una vez más.}
+\end{frame}
+% ============================================================
+\section{Taller: la forma normal}
+% ---------- hoja de sesión ----------
+\begin{frame}[plain]
+  \hojaSesion{Taller: la forma normal}{%
+  La forma normal de la recta en la notación clásica de Lehmann y su
+  traducción al lenguaje vectorial: son la misma fórmula. El mismo
+  problema de distancia resuelto por las dos vías, y la tarea de
+  redacción de la semana.}
+\end{frame}
+\begin{frame}{La forma normal de la recta}
+  En el texto de Lehmann, la recta aparece escrita en la
+  \textit{forma normal}:
+  \[
+    x\cos\omega+y\,\mathrm{sen}\,\omega-p=0 ,
+  \]
+  donde $\omega$ es el ángulo del vector normal y $p$ la distancia de
+  la recta al origen.
+
+  \vspace{0.3cm}
+
+  Traducción al lenguaje de esta semana:
+  \[
+    (\cos\omega,\ \mathrm{sen}\,\omega) = \text{el normal unitario},
+    \qquad p = \text{el nivel de la recta.}
+  \]
+
+  \vspace{0.1cm}
+  \destaca{No se trata de una fórmula nueva. Es la misma expresión
+  $\pp{n}{X}=p$ con $\norma{n}=1$, en la notación clásica. Saber
+  \textbf{traducir entre notaciones} es parte de la formación
+  matemática: no todos los libros usan la misma notación, pero dicen
+  lo mismo.}
+\end{frame}
+% ============================================================
+\begin{frame}{Taller: el mismo problema por dos vías}
+  Distancia de $(1,5)$ a la recta que pasa por $(0,2)$ y $(4,0)$:
+
+  \vspace{0.3cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Vía clásica:} pendiente, forma punto--pendiente, forma
+      general, división entre $\sqrt{A^2+B^2}$, sustitución.
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Vía vectorial:} director $(4,-2)$; normal $(2,4)$,
+      simplificado a $(1,2)$; nivel $C=\pp{(1,2)}{(0,2)}=4$;
+      \[
+        d=\frac{|1\cdot 1+2\cdot 5-4|}{\sqrt{5}}=\frac{7}{\sqrt 5}.
+      \]
+    \end{column}
+  \end{columns}
+
+  \vspace{0.4cm}
+  \destaca{Ambas vías deben coincidir. Si no coinciden, hay un error
+  que localizar, y aprender a \textbf{localizar errores propios} es
+  una habilidad central de la formación matemática. Nótese que la raíz
+  la dejamos indicada: $7/\sqrt{5}$ es la respuesta exacta.}
+\end{frame}
+% ============================================================
+\begin{frame}{Tarea de redacción}
+  \destaca{\textbf{Tarea de redacción (se entrega en Moodle).}
+  Explicar, con un argumento completo y una figura, por qué
+  $d(Q,\ell)=|\pp{n}{Q}-C|$ cuando $\norma{n}=1$. El texto debe
+  indicar: (a) qué representa $\pp{n}{Q}$; (b) por qué el punto de
+  $\ell$ más cercano a $Q$ es el pie de la perpendicular; (c) en qué
+  paso se utiliza que $\norma{n}=1$.}
+
+  \vspace{0.3cm}
+  En matemáticas no basta con llegar al resultado; hay que saber
+  \textbf{comunicarlo} de modo que otra persona pueda seguir el
+  argumento sin ayuda de quien lo escribió. Esta tarea evalúa
+  exactamente eso.
+
+  \vspace{0.3cm}
+  \destaca{\small \textbf{Aviso de laboratorio.} Esta semana no hay
+  laboratorio (es quincenal). La \textbf{Construcción 2} (el pie de
+  la perpendicular, construido y no dibujado) la trabajaremos la
+  próxima semana, y esta tarea de redacción es su mejor preparación.}
+\end{frame}
+% ============================================================
+\section{Familias de rectas}
+% ---------- hoja de sesión ----------
+\begin{frame}[plain]
+  \hojaSesion{Familias de rectas con un parámetro}{%
+  Una ecuación con un parámetro no describe una recta sino una familia
+  completa: el haz de rectas por un punto, las familias de paralelas,
+  y la familia que pasa por la intersección de dos rectas dadas (una
+  técnica que resuelve problemas sin calcular la intersección).}
+\end{frame}
+\begin{frame}{Familias de rectas}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      \textbf{Haz de rectas por un punto.} Al variar $m$ en
+      \[
+        y-3=m\,(x-2)
+      \]
+      se obtienen \textbf{todas} las rectas que pasan por $(2,3)$
+      \ldots{} salvo una. ¿Cuál falta?
+
+      \vspace{0.2cm}
+
+      \textbf{Familia de paralelas.} Al variar $C$ en
+      \[
+        x+2y=C
+      \]
+      se obtienen todas las rectas con normal $(1,2)$: una familia de
+      paralelas que barre el plano.
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=.55,>=Stealth]
+        \draw[very thin,color=gray!30] (-0.9,-0.9) grid (4.9,4.1);
+        \draw[->] (-0.9,0) -- (5.1,0);
+        \draw[->] (0,-0.9) -- (0,4.3);
+        \draw[terracota,thick] (-0.5,0.5) -- (3.1,4.1);
+        \draw[terracota!70,thick] (-0.9,1.55) -- (4.2,4.1);
+        \draw[terracota!45,thick] (-0.9,3.725) -- (4.9,2.275);
+        \draw[gray!70,thick,dashed] (2,-0.9) -- (2,4.1);
+        \fill[turquesaGA] (2,3) circle(3pt);
+      \end{tikzpicture}\\[2pt]
+      {\scriptsize El haz por $(2,3)$; la vertical, punteada,
+      no la produce ningún $m$.}
+      \end{center}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.1cm}
+  \destaca{La que falta en el haz es la \textbf{vertical} $x=2$: no
+  tiene pendiente, así que ningún valor de $m$ la produce. El
+  parámetro funciona como un \textbf{selector}. Cada valor elige a un
+  miembro de la familia, y elegir bien el valor es resolver el
+  problema.}
+\end{frame}
+% ============================================================
+\begin{frame}{Seleccionar un miembro de la familia}
+  \textbf{Ejemplo 5.} ¿Qué recta de la familia $x+2y=C$ pasa por el
+  punto $(4,1)$?
+
+  \vspace{0.1cm}
+
+  {\small \textit{Solución.} Imponemos la condición: $C=4+2\cdot 1=6$.
+  La recta es $x+2y=6$.}
+
+  \vspace{0.3cm}
+
+  \textbf{Ejemplo 6.} ¿Qué recta del haz $y-3=m\,(x-2)$ pasa por el
+  origen?
+
+  \vspace{0.1cm}
+
+  {\small \textit{Solución.} Con $(0,0)$: $-3=m\,(-2)$, es decir
+  $m=\tfrac32$. La recta es $y=\tfrac32 x$. Verificación: pasa por
+  $(2,3)$, pues $\tfrac32\cdot 2=3$, y por el origen. \checkmark}
+
+  \vspace{0.3cm}
+  \destaca{El esquema es siempre el mismo: la familia aporta la
+  \textbf{forma general} de la ecuación y la condición extra
+  \textbf{despeja el parámetro}. Compárese con el método de los
+  lugares geométricos; es la misma idea, con un solo grado de
+  libertad.}
+\end{frame}
+% ============================================================
+\begin{frame}{La familia por la intersección de dos rectas}
+  Dadas $\ell_1:\,3x+y-5=0$ y $\ell_2:\,x-y+1=0$, considérese la
+  familia
+  \[
+    (3x+y-5)+k\,(x-y+1)=0 .
+  \]
+  Todo punto que satisface \textbf{ambas} ecuaciones satisface la
+  combinación, para cualquier $k$, así que la familia entera pasa por
+  el punto de intersección de $\ell_1$ y $\ell_2$.
+
+  \vspace{0.2cm}
+
+  \textbf{Ejemplo 7.} Determinar la recta que pasa por la intersección
+  de $\ell_1$ y $\ell_2$ y por el origen, \textit{sin calcular la
+  intersección}.
+
+  \vspace{0.1cm}
+
+  {\small \textit{Solución.} Con $(0,0)$: $-5+k\,(1)=0$, es decir
+  $k=5$. La combinación queda $8x-4y=0$, o sea $y=2x$.
+  Verificación por la otra vía: la intersección es $(1,2)$ (resolviendo
+  el sistema), y en efecto $y=2x$ pasa por $(1,2)$ y por el origen.
+  \checkmark}
+
+  \vspace{0.2cm}
+  \destaca{\small La técnica evita calcular la intersección, y la
+  verificación la calculó de todos modos: \textbf{dos vías, un
+  resultado}. Obsérvese que ningún valor de $k$ produce a $\ell_2$
+  misma; la familia la pierde, igual que el haz pierde a la vertical.
+  En la sección \textit{El invernadero} del libro hay un laboratorio
+  interactivo para mover $k$.}
+\end{frame}
+% ============================================================
+\section{Taller: puntos notables del triángulo}
+% ---------- hoja de sesión ----------
+\begin{frame}[plain]
+  \hojaSesion{Taller: los puntos notables del triángulo}{%
+  Las herramientas de tres semanas (mediatrices, punto medio con
+  vectores, perpendicularidad con producto punto) se juntan en un
+  problema clásico: circuncentro, baricentro y ortocentro de un
+  triángulo concreto, y la sorpresa de que los tres quedan alineados.}
+\end{frame}
+\begin{frame}{Tres centros para un mismo triángulo}
+  \centering
+  {\small
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Punto} & \textbf{Donde se cruzan} & \textbf{Propiedad} \\
+    \midrule
+    Circuncentro & las tres mediatrices & equidista de los \textbf{vértices} \\
+    Baricentro & las tres medianas & centro de gravedad; divide $2{:}1$ \\
+    Ortocentro & las tres alturas & pie perpendicular desde cada vértice \\
+    \bottomrule
+  \end{tabular}}
+  \par\vspace{0.4cm}
+  \raggedright
+  Que las tres rectas de cada tipo se corten en \textbf{un solo} punto
+  no es evidente (son teoremas de la geometría euclidiana). Hoy no los
+  demostraremos en general; los \textbf{verificaremos} en un triángulo
+  concreto, con coordenadas, y de paso practicaremos todo lo visto en
+  estas tres semanas.
+
+  \vspace{0.2cm}
+  \destaca{Cada punto notable usa una herramienta de la semana 2: la
+  \textbf{mediatriz}, el \textbf{punto medio} escrito con vectores y
+  la \textbf{perpendicularidad} con producto punto.}
+\end{frame}
+% ============================================================
+\begin{frame}{Taller: el triángulo $A=(0,0)$, $B=(6,0)$, $C=(2,6)$}
+  Por equipos, calculamos:
+
+  \vspace{0.2cm}
+  \begin{enumerate}
+    \item El \textbf{circuncentro}: intersección de dos mediatrices
+      (la tercera es la verificación).
+    \item El \textbf{baricentro}: con $M$ el punto medio de $BC$,
+      \[
+        G = A+\tfrac{2}{3}\,(M-A)
+      \]
+      (nótese la escritura: punto más vector, como el punto medio de la semana 2).
+    \item El \textbf{ortocentro}: intersección de dos alturas; la
+      perpendicularidad se impone con el producto punto.
+  \end{enumerate}
+
+  \vspace{0.3cm}
+  \destaca{\small \textit{Resultados para verificar al final.}
+  Circuncentro $\left(3,\tfrac{7}{3}\right)$; baricentro
+  $\left(\tfrac{8}{3},2\right)$; ortocentro
+  $\left(2,\tfrac{4}{3}\right)$. La mediatriz de $AB$ es $x=3$; la de
+  $AC$ es $x+3y=10$; la altura desde $C$ es $x=2$; la altura desde $A$
+  es $2x-3y=0$.}
+\end{frame}
+% ============================================================
+\begin{frame}{La recta de Euler}
+  Con los tres puntos calculados, comprobemos algo notable:
+  \[
+    \underbrace{(3,\tfrac73)}_{\text{circuncentro}}\qquad
+    \underbrace{(\tfrac83,2)}_{\text{baricentro}}\qquad
+    \underbrace{(2,\tfrac43)}_{\text{ortocentro}}
+  \]
+  El vector del circuncentro al ortocentro es $(-1,-1)$; el vector del
+  circuncentro al baricentro es $\left(-\tfrac13,-\tfrac13\right)$.
+  Uno es múltiplo del otro, así que los tres puntos son
+  \textbf{colineales}, y el baricentro está a un tercio del camino.
+
+  \vspace{0.3cm}
+  \destaca{Esta recta se llama \textbf{recta de Euler}, y el
+  alineamiento ocurre en \textbf{todo} triángulo (no equilátero). Lo
+  verificamos hoy con las herramientas de estas tres semanas
+  (coordenadas, vectores y producto punto). El reto mayor, para quien
+  lo quiera: demostrarlo en general, con un triángulo $A$, $B$, $C$
+  arbitrario.}
+\end{frame}
+% ============================================================
+\begin{frame}{Cierre de la semana}
+  \textbf{Lo que vimos}
+  {\small
+  \begin{itemize}
+    \item Ángulo entre rectas por dos métodos; proyección de un vector
+      sobre otro
+    \item La distancia punto--recta, y la forma normal clásica como la
+      misma fórmula en otra notación
+    \item Familias de rectas con un parámetro: el parámetro como
+      selector
+    \item Los puntos notables del triángulo y la recta de Euler
+  \end{itemize}}
+
+  \vspace{0.2cm}
+  \textbf{Para la próxima semana}
+  {\small
+  \begin{itemize}
+    \item Cuestionario de práctica de la semana 3 en Moodle
+      (intentos ilimitados; no califica)
+    \item \textbf{Tarea de redacción} en Moodle (la fecha límite
+      aparece en la plataforma)
+    \item Lehmann: series sobre la forma normal, la distancia
+      punto--recta y las familias de rectas
+    \item La próxima semana hay laboratorio: \textbf{Construcción 2}
+  \end{itemize}}
+
+  \vspace{0.2cm}
+  \destaca{\textbf{Pregunta para la próxima sesión:} $\pp{u}{v}=0$
+  indica perpendicularidad. ¿Qué información proporciona
+  $\pp{u}{v}<0$? Y el anuncio de la semana 4: cierre de la Parte I
+  (repaso y Examen 1) y la Construcción 2 en el laboratorio.}
+\end{frame}
+% ============================================================
+%  Página de cierre del archivo.
+%  Ajustar la URL cuando el libro quede publicado en GitHub Pages.
+\begin{frame}[plain]
+  \centering
+
+  \vspace{1.0cm}
+  \begin{tikzpicture}[scale=0.6,>=Stealth]
+    \draw[very thin,color=gray!30] (-0.9,-0.9) grid (4.1,2.9);
+    \draw[->,thick] (-0.9,0) -- (4.3,0);
+    \draw[->,thick] (0,-0.9) -- (0,3.1);
+    \draw[dorado,very thick,->] (0,0) -- (3.6,0.9);
+    \draw[terracota,very thick,->] (0,0) -- (1.4,2.3);
+    \coordinate (S) at ({(1.4*3.6+2.3*0.9)/(3.6*3.6+0.9*0.9)*3.6},
+                        {(1.4*3.6+2.3*0.9)/(3.6*3.6+0.9*0.9)*0.9});
+    \draw[dashed,gray,thick] (1.4,2.3) -- (S);
+    \draw[turquesaGA,ultra thick] (0,0) -- (S);
+  \end{tikzpicture}
+
+  \vspace{0.5cm}
+
+  {\Large\color{turquesaGA} ¿Preguntas?}\\[10pt]
+  {\small\color{grisT}
+  \url{https://rosaliahdez.github.io/notas-geometria-analitica/} \\
+  Comunicación por Teams · Cuestionarios y entregas en Moodle (Ramanujan)}
+
+  \vspace{0.7cm}
+
+  {\tiny\color{grisT}
+  Texto base: Ramírez Galarza, \textit{Geometría analítica. Una
+  introducción a la geometría}, UNAM. ---
+  Ejercicios: Lehmann, \textit{Geometría analítica}, Limusa.}
+\end{frame}
+\end{document}

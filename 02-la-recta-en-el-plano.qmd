@@ -1,0 +1,39 @@
+# La recta en el plano {#sec-recta}
+
+::: {.callout-note appearance="simple"}
+**Unidad 2 del curso.** Semanas 2 a 4.
+:::
+
+::: {.callout-warning appearance="simple"}
+Capítulo en preparación. El esqueleto siguiente fija el orden y el enfoque; el contenido se escribe conforme avanza el semestre.
+:::
+
+## Vector director y forma paramétrica
+
+La recta como $\{P+td\}$. Del parámetro a la pendiente. Inclinación y pendiente como caso particular de una dirección.
+
+## El giro de noventa grados y el vector normal
+
+El giro $d=(d_1,d_2)\mapsto n=(-d_2,d_1)$, y la comprobación de que $\langle n,d\rangle=0$. La recta como $\langle n,X\rangle=c$, y de ahí por qué los coeficientes de $Ax+By=C$ **son** el vector normal.
+
+## Las formas de la ecuación
+
+Pendiente-ordenada, punto-pendiente, general, simétrica, paramétrica y normal: la misma recta en seis disfraces, y cuándo conviene cada uno.
+
+## Distancia de un punto a una recta
+
+**Teorema 3 del curso.** Si $\lVert n\rVert=1$, entonces $d(Q,\ell)=\lvert\langle n,Q\rangle-p\rvert$. La forma normal de Lehmann como caso particular de esta expresión.
+
+## Haces de rectas
+
+La familia $\ell_1+\lambda\ell_2=0$ y el punto común.
+
+## Rectas y puntos notables del triángulo
+
+**Teorema 4 del curso.** Concurrencia de las medianas; el baricentro como promedio.
+
+## Aplicación: método gráfico de la programación lineal
+
+Región factible como intersección de semiplanos; el óptimo en un vértice.
+
+## Ejercicios {.unnumbered}

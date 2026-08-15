@@ -1,0 +1,44 @@
+/*-- scss:defaults --*/
+
+// Paleta del curso Geometría Analítica: turquesa + terracota + dorado.
+// (Deliberadamente distinta de la azul del curso de Estadística.)
+$primary:        #0E7C8C;
+$link-color:     #C1502E;
+$font-size-root: 17px;
+
+/*-- scss:rules --*/
+
+// Titulares en el verde del curso
+h1, h2, h3 {
+  color: $primary;
+}
+
+// Los teoremas y definiciones de Quarto, con un marco sobrio
+.theorem, .definition {
+  border-left: 4px solid $primary;
+  background: #E2F2F4;
+  padding: .7rem 1rem;
+  border-radius: 0 6px 6px 0;
+  margin: 1.2rem 0;
+}
+
+// Las demostraciones, ligeramente sangradas
+.proof {
+  margin-left: 1rem;
+  color: #333;
+}
+
+// Tablas más compactas y legibles
+table {
+  font-size: .93em;
+}
+thead th {
+  background: #E2F2F4;
+  color: $primary;
+}
+
+// Los iframes de applets, sin scroll fantasma
+iframe {
+  display: block;
+  margin: 1rem auto;
+}

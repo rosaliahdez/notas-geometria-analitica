@@ -1,0 +1,37 @@
+# Vectores en el espacio {#sec-vectores}
+
+::: {.callout-note appearance="simple"}
+**Unidad 3 del curso.** Semanas 5 y 6. El programa oficial la lista después de *Planos y rectas en el espacio*; la adelantamos para que las distancias y los ángulos del capítulo siguiente sean aplicaciones de una sola idea, en vez de seis fórmulas independientes.
+:::
+
+::: {.callout-warning appearance="simple"}
+Capítulo en preparación.
+:::
+
+## Vectores en $\mathbb{R}^3$
+
+Definición e interpretación geométrica. Suma y multiplicación por un escalar. Base canónica. Norma de un vector y su relación con la distancia euclidiana.
+
+## El producto punto en el espacio
+
+La misma definición que en el plano. Ángulo, paralelismo y perpendicularidad. Cosenos y números directores presentados como lo que son: las componentes del vector unitario.
+
+## Proyección de un vector sobre otro
+
+Descomposición de un vector en componente paralela y componente perpendicular. Es la herramienta con la que se calculan todas las distancias del capítulo siguiente.
+
+## El determinante como área orientada
+
+El determinante $2\times2$, el signo y su significado geométrico. Nada de reglas mnemotécnicas.
+
+## Producto cruz
+
+Definición, anticonmutatividad y perpendicularidad al plano generado. Por qué es una anomalía de $\mathbb{R}^3$ sin análogo en el plano ni en dimensión cuatro.
+
+**Teorema 6 del curso.** $\lVert u\times v\rVert$ es el área del paralelogramo generado por $u$ y $v$.
+
+## Volumen y coplanaridad
+
+Determinante $3\times3$ como volumen del paralelepípedo. Triple producto escalar y criterio de coplanaridad.
+
+## Ejercicios {.unnumbered}

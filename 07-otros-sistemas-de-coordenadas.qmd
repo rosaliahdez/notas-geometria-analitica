@@ -1,0 +1,35 @@
+# Otros sistemas de coordenadas {#sec-otros-sistemas}
+
+::: {.callout-note appearance="simple"}
+**Unidad 7 del curso.** Semanas 14 y 15.
+:::
+
+::: {.callout-warning appearance="simple"}
+Capítulo en preparación.
+:::
+
+## Coordenadas polares
+
+Definición y conversión con las cartesianas. La no unicidad de la representación. Curvas polares básicas.
+
+## La ecuación polar focal
+
+$$
+r(\theta)=\frac{\ell}{1+e\cos\theta}
+$$
+
+Una sola ecuación, un solo parámetro, las tres cónicas. Es el cierre del curso: el mismo $e$ que se movió con un deslizador en el capítulo de cónicas, y la ecuación con la que Kepler describió las órbitas.
+
+## Coordenadas cilíndricas
+
+Definición, conversión y superficies con ecuación simple en este sistema.
+
+## Coordenadas esféricas
+
+Definición, conversión y superficies con ecuación simple en este sistema.
+
+## Qué sistema conviene en cada caso
+
+Elegir bien las coordenadas convierte una ecuación complicada en una trivial. Cuáles de estos sistemas reaparecen en Cálculo III y IV, y para qué.
+
+## Ejercicios {.unnumbered}

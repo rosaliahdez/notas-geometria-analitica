@@ -1,0 +1,49 @@
+# Cónicas en el plano {#sec-conicas}
+
+::: {.callout-note appearance="simple"}
+**Unidad 5 del curso.** Semanas 8 a 12.
+:::
+
+::: {.callout-warning appearance="simple"}
+Capítulo en preparación.
+:::
+
+## Isometrías del plano
+
+Traslación, rotación y reflexión. Qué se conserva. El significado de "propiedad geométrica euclidiana": la que no cambia bajo isometrías.
+
+## Traslación de sistemas de coordenadas
+
+## La circunferencia
+
+Formas canónica y general. Completar cuadrados como traducción entre registros, no como truco. Circunferencia determinada por tres condiciones. Tangentes y propiedades.
+
+## La elipse
+
+Definición bifocal y deducción completa de la ecuación canónica. Elementos: centro, focos, vértices, ejes, lado recto. Excentricidad: qué determina la forma y qué determina el tamaño. Propiedad focal de reflexión, demostrada **sin cálculo** por el argumento de camino mínimo.
+
+## La parábola
+
+Definición foco-directriz, ecuación y propiedades.
+
+## La hipérbola
+
+Definición bifocal con diferencia, ecuación, asíntotas y propiedades.
+
+## Una sola definición para las tres
+
+**Teorema 7 del curso.** Equivalencia entre la definición bifocal y la foco-directriz. La excentricidad como único parámetro de forma.
+
+## Las cónicas como secciones del cono
+
+**Teorema 8 del curso.** Esferas de Dandelin. El único ingrediente es que los segmentos tangentes desde un punto exterior a una esfera son iguales. Es la respuesta a por qué se llaman cónicas.
+
+## Rotación de ejes
+
+**Teorema 9 del curso.** La rotación preserva normas y productos punto. Derivación trigonométrica; la linealidad descubierta; y la tabla de cuatro coeficientes que en Álgebra Lineal I se llamará matriz.
+
+## Clasificación de la ecuación general de segundo grado
+
+**Teorema 10 del curso.** Invariancia de $B^2-4AC$ y de $A+C$ bajo rotación. Clasificación y casos degenerados. La idea de fondo: el tipo de cónica no depende del sistema de coordenadas.
+
+## Ejercicios {.unnumbered}

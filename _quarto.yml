@@ -1,0 +1,103 @@
+project:
+  type: book
+  output-dir: _book
+  # Se copian tal cual al sitio publicado (los applets son HTML/JS independientes)
+  resources:
+    - applets/**
+    - imagenes/**
+
+book:
+  title: "Geometría Analítica"
+  subtitle: "Notas del curso · Licenciatura en Matemáticas"
+  author: "Rosalía Gpe. Hernández Amador"
+  date: today
+  date-format: "D [de] MMMM [de] YYYY"
+  language: es
+  search: true
+  page-navigation: true
+  reader-mode: true
+  repo-url: https://github.com/rosaliahdez/notas-geometria-analitica
+  repo-actions: [edit, issue]
+  # Para ofrecer el PDF descargable hace falta LaTeX en esta máquina
+  # (quarto install tinytex). Mientras tanto queda desactivado, porque
+  # "quarto publish gh-pages" renderiza aquí, no en GitHub.
+  # downloads: [pdf]
+  sidebar:
+    style: docked
+    collapse-level: 1
+  page-footer:
+    left: "Universidad de Sonora · Departamento de Matemáticas"
+    right: "Figuras interactivas creadas con GeoGebra — <https://www.geogebra.org>"
+  chapters:
+    - index.qmd
+    - part: "Parte I — El plano"
+      chapters:
+        - 01-sistemas-de-coordenadas.qmd
+        - 02-la-recta-en-el-plano.qmd
+    - part: "Parte II — El espacio"
+      chapters:
+        - 03-vectores-en-el-espacio.qmd
+        - 04-planos-y-rectas-en-el-espacio.qmd
+    - part: "Parte III — Curvas y superficies de segundo grado"
+      chapters:
+        - 05-conicas.qmd
+        - 06-superficies-cuadricas.qmd
+        - 07-otros-sistemas-de-coordenadas.qmd
+    - part: "El invernadero (opcional)"
+      chapters:
+        - invernadero.qmd
+        - invernadero/01-familias-de-rectas.qmd
+  appendices:
+    - referencias.qmd
+
+bibliography: referencias.bib
+lang: es
+
+# ---------------------------------------------------------------------------
+# Cuando instales las celdas ejecutables de Python para "El invernadero":
+#     quarto add r-wasm/quarto-live
+# descomenta estas dos líneas y cambia los bloques ```python por ```{pyodide}
+# SOLO en los archivos de invernadero/ (nunca en los capítulos del cuerpo).
+#
+# filters:
+#   - live
+# ---------------------------------------------------------------------------
+
+format:
+  html:
+    theme:
+      - cosmo
+      - estilos.scss
+    toc: true
+    toc-depth: 3
+    toc-title: "En esta página"
+    number-sections: true
+    html-math-method: mathjax
+    fig-align: center
+    link-external-newwindow: true
+    code-copy: true
+    smooth-scroll: true
+#   pdf:
+#     documentclass: scrbook
+#     papersize: a4
+#     geometry:
+#       - top=25mm
+#       - bottom=25mm
+#       - inner=28mm
+#       - outer=22mm
+#     number-sections: true
+#     colorlinks: true
+#     linkcolor: RoyalBlue
+#     urlcolor: RoyalBlue
+#     include-in-header:
+#       text: |
+#         \usepackage{amsmath,amssymb,amsthm}
+#         \usepackage{mathrsfs}
+#         \newcommand{\R}{\mathbb{R}}
+#         \newcommand{\prodpt}[2]{\langle #1,#2\rangle}
+#         \newcommand{\norma}[1]{\lVert #1 \rVert}
+
+execute:
+  freeze: auto
+  echo: true
+  warning: false

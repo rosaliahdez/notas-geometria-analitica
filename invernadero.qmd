@@ -1,0 +1,36 @@
+# El invernadero {#sec-invernadero .unnumbered}
+
+::: {.callout-important title="Antes de entrar, lee esto"}
+Esta sección es **completamente opcional**. No entra en ninguna evaluación, no se deja de tarea, y nada del curso depende de ella. Si no la abres nunca, no te pierdes de ningún contenido obligatorio.
+
+Está aquí por una razón distinta: aquí puedes **experimentar**. Las cosas que en el pizarrón cuestan media hora de cuentas —probar veinte casos, mover un parámetro, verificar una identidad con números feos— aquí las hace una computadora en un segundo, y tú te quedas con la parte interesante: decidir qué probar y entender qué salió.
+:::
+
+## Qué es esto
+
+Cada página del invernadero contiene código en **Python**, un lenguaje de programación que vas a estudiar formalmente el próximo semestre en Programación de Computadoras. No necesitas saber programar para usar estas páginas: el código ya está escrito, y lo único que se te pide modificar es **la línea que contiene la matemática** —una ecuación, un parámetro, una condición—.
+
+Piensa en cada cuaderno como un experimento preparado: el aparato ya está montado; tú decides qué medir.
+
+## Aviso técnico
+
+Las páginas de esta sección ejecutan Python **dentro de tu navegador** (no hay que instalar nada), pero para lograrlo descargan el intérprete la primera vez: **varios megabytes**. Por eso:
+
+- Conviene abrirlas desde una **computadora con buena conexión**, no desde datos móviles.
+- La primera celda tarda unos segundos en despertar. Es normal.
+- El resto del libro **no** paga este costo: sólo estas páginas lo hacen, y sólo cuando las abres.
+
+## Los cuadernos
+
+| Cuaderno | Qué se experimenta | Relacionado con |
+|---|---|---|
+| [Familias de rectas](invernadero/01-familias-de-rectas.qmd) | Un parámetro que recorre un haz | @sec-recta |
+| Dibuja tu propia cónica *(próximamente)* | La condición focal, trazada por la máquina | @sec-conicas |
+| El discriminante no cambia *(próximamente)* | Verificación simbólica de la invariancia de $B^2-4AC$ | @sec-conicas |
+| El ángulo que anula el término cruzado *(próximamente)* | $\cot 2\theta=(A-C)/B$ probado en casos aleatorios | @sec-conicas |
+| Trazas de una cuádrica *(próximamente)* | Cortar con planos y mirar las secciones | @sec-cuadricas |
+| Cónicas en polares *(próximamente)* | Mover $e$ y ver las tres curvas | @sec-otros-sistemas |
+
+## Una regla de la casa
+
+La misma del resto del curso: **antes de ejecutar, predice**. Escribe en un papel qué esperas que salga. Si sale lo que esperabas, entendiste; si no, encontraste algo que vale la pena — y eso es mejor.

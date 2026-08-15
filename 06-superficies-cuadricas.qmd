@@ -1,0 +1,37 @@
+# Superficies cuádricas {#sec-cuadricas}
+
+::: {.callout-note appearance="simple"}
+**Unidad 6 del curso.** Semanas 12 y 13.
+:::
+
+::: {.callout-warning appearance="simple"}
+Capítulo en preparación.
+:::
+
+## Representación paramétrica y representación cartesiana
+
+## El método de trazas
+
+Una superficie se entiende como la familia de sus secciones planas: cortar con $x=k$, $y=k$, $z=k$ y reconstruir. Es el análogo tridimensional de descomponer una figura plana en sus elementos.
+
+## Superficies de revolución
+
+Cómo se genera la ecuación a partir de la curva generatriz.
+
+## Superficies regladas
+
+El hiperboloide de una hoja y sus **dos** familias de rectas.
+
+## La esfera
+
+Ecuación, esfera por cuatro puntos, propiedades. Intersección con rectas y planos; rectas y planos tangentes.
+
+## El catálogo de cuádricas
+
+Elipsoide y sus tipos. Hiperboloide de una y de dos hojas. Cono elíptico. Paraboloide elíptico y paraboloide hiperbólico. La transición continua entre hiperboloide de una hoja, cono e hiperboloide de dos hojas.
+
+## La ecuación general de segundo grado con tres incógnitas
+
+Qué se puede decir sin álgebra lineal, y qué queda pendiente para después.
+
+## Ejercicios {.unnumbered}

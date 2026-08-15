@@ -1,0 +1,60 @@
+# Antes de empezar {.unnumbered}
+
+Estas notas acompañan el curso de **Geometría Analítica** (asignatura 6886) de la Licenciatura en Matemáticas de la Universidad de Sonora. No sustituyen a la clase ni a los libros de texto, son el hilo del que jalar entre una sesión y la siguiente.
+
+::: {.callout-warning appearance="simple"}
+**Libro en construcción.** Se escribe durante el semestre 2026-2 y crece capítulo por capítulo, conforme avanza el curso. Los capítulos que todavía no se han impartido aparecen como esquema.
+:::
+
+## Qué se propone este curso {.unnumbered}
+
+La geometría analítica nació de una idea sencilla y muy poderosa, **que una figura geométrica puede describirse con una ecuación y que una ecuación puede dibujarse**. Todo lo que haremos este semestre vive en ese ir y venir.
+
+Conviene decirlo desde ahora, porque marca la diferencia entre aprobar el curso y entenderlo:
+
+::: {.callout-important title="Las dos direcciones no son la misma tarea"}
+Pasar de la ecuación a la curva y pasar de la curva a la ecuación son habilidades **distintas**. Ser bueno en una no garantiza serlo en la otra, y sólo se aprenden practicando las dos por separado. Por eso, en los ejercicios y en las evaluaciones, siempre aparecerán ambas.
+:::
+
+## Una sola herramienta, muchas fórmulas {.unnumbered}
+
+Un curso tradicional de geometría analítica presenta una docena de fórmulas independientes: la distancia entre dos puntos, el ángulo entre dos rectas, la distancia de un punto a una recta, la ecuación normal, los cosenos directores, la distancia de un punto a un plano, la distancia entre dos rectas que se cruzan…
+
+Aquí vamos a hacer algo distinto. Casi todo eso sale de **una sola operación**, el producto punto:
+$$
+\langle u,v\rangle \;=\; u_1v_1+u_2v_2 \qquad\text{(y su análogo en el espacio)},
+$$
+junto con dos hechos que la conectan con la geometría: que $\lVert u\rVert^2=\langle u,u\rangle$ y que $\langle u,v\rangle=\lVert u\rVert\,\lVert v\rVert\cos\theta$.
+
+No es que las fórmulas clásicas estén mal. Es que son **doce aplicaciones de un mismo teorema**, y verlas así cuesta mucho menos memoria y da mucha más comprensión. Cada vez que aparezca una fórmula "nueva", conviene preguntarse de cuál caso particular se trata.
+
+## Cómo están hechas estas notas {.unnumbered}
+
+- **Las figuras se mueven.** Donde veas una figura interactiva, arrástrala. Pero antes de moverla, **predice qué va a pasar**. Una figura que confirma lo que ya sabías enseña poco; una que te contradice enseña muchísimo.
+- **Los teoremas del curso están numerados y demostrados.** Son diez en todo el semestre. No son los únicos resultados que usaremos, pero sí los que hay que saber justificar.
+- **Los ejercicios vienen en dos direcciones**, como se dijo arriba.
+- **El invernadero** es una sección opcional al final, con código de Python que corre dentro del navegador. No entra en ninguna evaluación y nadie tiene que abrirlo. Está ahí por si tienes curiosidad y ganas de experimentar.
+
+## Notación {.unnumbered}
+
+| Símbolo | Significado |
+|---|---|
+| $A$, $B$, $P$, $Q$ | Puntos (lugares) |
+| $u$, $v$, $n$, $d$ | Vectores (desplazamientos) |
+| $\langle u,v\rangle$ | Producto punto de $u$ y $v$ |
+| $\lVert u\rVert$ | Norma (longitud) del vector $u$ |
+| $d(P,Q)$ | Distancia entre los puntos $P$ y $Q$ |
+| $\mathbb{R}^2$, $\mathbb{R}^3$ | El plano y el espacio coordenados |
+| $\ell$, $\Pi$ | Una recta y un plano |
+
+La distinción entre **puntos** y **vectores** (que se escriben igual pero no son lo mismo) aparece en las primeras semanas del curso, y vale la pena tomarla en serio desde el principio.
+
+## Bibliografía del curso {.unnumbered}
+
+- **Texto base:** Ramírez Galarza, A. I. *Geometría analítica. Una introducción a la geometría*. Prensas de Ciencias, UNAM.
+- **Ejercitario:** Lehmann, C. H. *Geometría analítica*. Limusa. Tiene las mejores series de problemas que existen sobre este tema; su lenguaje es pre-vectorial, y traducirlo es un ejercicio excelente.
+- **Para ir más lejos:** Bracho, J. *Introducción analítica a las geometrías*. Fondo de Cultura Económica.
+
+---
+
+*Si encuentras un error o algo que no se entiende, dilo. Mejora el material para quienes vengan después.*

@@ -1,0 +1,37 @@
+# Salida generada por Quarto (NO se sube a la rama main;
+# quarto publish gh-pages la manda sola a la rama gh-pages)
+/_book/
+/.quarto/
+
+# Cache de re-render
+/_freeze/
+
+# RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# LaTeX intermedios (de compilar diapositivas localmente)
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+**/*.quarto_ipynb
+
+# Los PDF de las diapositivas se compilan en Overleaf; no se versionan
+diapositivas/*.pdf
+.Rproj.user
+.httr-oauth
+.quarto
