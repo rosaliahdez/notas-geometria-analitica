@@ -37,28 +37,21 @@ usethis::use_git()
 ```
 
 Pregunta si hace el primer commit con todo lo que hay y si reinicia RStudio. A
-las dos, que sí. Al volver aparece la pestaña **Git**. En su esquina derecha se
-lee el nombre de la rama, que debe decir **main**; si dijera `master`, se corrige
-con `usethis::git_default_branch_rename()`.
+las dos, que sí. Al volver aparece la pestaña **Git**.
 
-**d. Conectar con el repositorio de GitHub.** También en la consola:
-
-```r
-usethis::use_git_remote(
-  "origin",
-  "https://github.com/rosaliahdez/notas-geometria-analitica.git",
-  overwrite = TRUE
-)
-```
-
-**e. Primer envío.** En la pestaña **Terminal**, una sola vez:
+**d. Poner la rama, el remoto y el primer envío.** `use_git()` suele dejar la
+rama con el nombre `master`, y hasta aquí la carpeta no sabe nada del
+repositorio de GitHub. Las dos cosas se arreglan en la pestaña **Terminal**, en
+este orden y una sola vez:
 
 ```
+git branch -M main
+git remote add origin https://github.com/rosaliahdez/notas-geometria-analitica.git
 git push -u origin main
 ```
 
-Si lo rechaza diciendo *fetch first* o *unrelated histories*, es porque el
-repositorio de GitHub se creó con README. Entonces:
+Si el push lo rechaza diciendo *fetch first* o *unrelated histories*, es porque
+el repositorio de GitHub se creó con README. Entonces:
 
 ```
 git pull origin main --rebase --allow-unrelated-histories
@@ -67,7 +60,7 @@ git push -u origin main
 
 De aquí en adelante, el botón **Push** de la pestaña Git ya funciona solo.
 
-**f. Primera publicación del sitio.** En la Terminal:
+**e. Primera publicación del sitio.** En la Terminal:
 
 ```
 quarto publish gh-pages
@@ -76,7 +69,7 @@ quarto publish gh-pages
 Pregunta si se usa el repositorio detectado y se contesta que sí. Crea la rama
 `gh-pages`, renderiza el libro y sube el resultado.
 
-**g. Comprobar GitHub Pages.** En el navegador, dentro del repositorio,
+**f. Comprobar GitHub Pages.** En el navegador, dentro del repositorio,
 `Settings → Pages`. La fuente debe ser **Deploy from a branch**, rama
 **gh-pages**, carpeta **/ (root)**. Y en `Settings → General`, que el
 repositorio sea **Public**: con cuenta gratuita, Pages sólo publica repositorios
@@ -164,6 +157,8 @@ funciona normal.
 
 | Lo que dice | Qué pasó |
 |---|---|
+| `src refspec main does not match any` | La rama local se llama `master`. `git branch -M main` y volver a empujar |
+| `'origin' does not appear to be a git repository` | Falta conectar el remoto. `git remote add origin <url del repositorio>` |
 | `Unable to publish, uncommitted changes` | Falta el paso 1. Quarto exige el repositorio limpio |
 | `Authentication failed` al hacer push | El token caducó. Ver la sección de arriba |
 | `quarto: command not found` | Se escribió en la consola de R y no en la Terminal |

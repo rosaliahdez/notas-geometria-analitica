@@ -32,6 +32,6 @@ desktop.ini
 
 # Los PDF de las diapositivas se compilan en Overleaf; no se versionan
 diapositivas/*.pdf
-.Rproj.user
-.httr-oauth
-.quarto
+
+# Carpeta de cosas por borrar; no tiene que llegar al repositorio
+_to_delete/
