@@ -160,4 +160,73 @@
   \node[font=\scriptsize,color=grisT] at (0.45,1.55) {plano $xz$};
 \end{tikzpicture}
 
+% ---------- 7. Dibujar un punto con su trayectoria punteada ----------
+\begin{tikzpicture}[scale=1.35,>=Stealth]
+  \draw[->,thick] (0,0) -- (-1.9,-1.52) node[below left]{$x$};
+  \draw[->,thick] (0,0) -- (2.4,0) node[right]{$y$};
+  \draw[gray!60] (0,0) -- (-1.7,0);
+  \draw[->,thick] (0,0) -- (0,2.4) node[above]{$z$};
+  \coordinate (A) at (-1.1,-0.88);
+  \coordinate (B) at (-2.1,-0.88);
+  \coordinate (P) at (-2.1,1.12);
+  \draw[dashed,terracota,thick] (0,0) -- (A);
+  \node[below right,font=\scriptsize] at (A) {$2$};
+  \draw[dashed,terracota,thick] (A) -- (B);
+  \draw[dashed,terracota,thick] (B) -- (P)
+    node[midway,left,font=\scriptsize]{$2$};
+  \draw[dashed,dorado,thick] (B) -- (-1,0);
+  \node[above,font=\scriptsize] at (-1,0) {$-1$};
+  \fill[dorado] (B) circle(1.4pt)
+    node[below,font=\scriptsize]{$(2,-1,0)$};
+  \fill[turquesaGA] (P) circle(2pt)
+    node[above right,font=\small]{$P=(2,-1,2)$};
+  \node[above left,font=\small] at (0,0) {$O$};
+\end{tikzpicture}
+
+% ---------- 8. Inclinación y pendiente ----------
+\begin{tikzpicture}[scale=1.0,>=Stealth]
+  \draw[very thin,color=gray!30] (-0.4,-0.4) grid (5.4,3.4);
+  \draw[->] (-0.4,0) -- (5.6,0) node[below]{$x$};
+  \draw[->] (0,-0.4) -- (0,3.6) node[left]{$y$};
+  \coordinate (P) at (1,0.8);
+  \coordinate (Q) at (4.2,2.8);
+  \coordinate (R) at (4.2,0.8);
+  \draw[turquesaGA,very thick] (-0.2,0.05) -- (5.1,3.36);
+  \draw[dashed,terracota,thick] (P) -- (R)
+    node[midway,below]{\small $x_2-x_1$};
+  \draw[dashed,terracota,thick] (R) -- (Q)
+    node[midway,right]{\small $y_2-y_1$};
+  \fill[turquesaGA] (P) circle(2.2pt) node[above left]{$P$};
+  \fill[turquesaGA] (Q) circle(2.2pt) node[above left]{$Q$};
+  \draw (3.9,0.8) -- (3.9,1.1) -- (4.2,1.1);
+  % angulo de inclinacion en el corte con el eje x
+  \coordinate (A) at (-0.28,0);
+  \draw[dorado,thick] (0.55,0) arc (0:32:0.83);
+  \node[dorado,font=\small] at (0.95,0.18) {$\alpha$};
+  \node[font=\scriptsize,color=grisT] at (2.6,3.2) {$m=\tan\alpha$};
+\end{tikzpicture}
+
+% ---------- 9. Ángulo entre dos rectas ----------
+\begin{tikzpicture}[scale=1.0,>=Stealth]
+  \draw[very thin,color=gray!30] (-0.4,-0.4) grid (5.4,3.4);
+  \draw[->] (-0.4,0) -- (5.6,0) node[below]{$x$};
+  \draw[->] (0,-0.4) -- (0,3.6) node[left]{$y$};
+  % l1: pasa por (0.5,0) con pendiente 0.5
+  \draw[turquesaGA,very thick] (0.1,-0.2) -- (5.3,2.4)
+    node[right,font=\small]{$\ell_1$};
+  % l2: pasa por (4.2,0) con pendiente -0.9
+  \draw[terracota,very thick] (0.5,3.33) -- (4.55,-0.32)
+    node[below,font=\small]{$\ell_2$};
+  \coordinate (I) at (2.879,1.19);
+  \fill[negroP] (I) circle(1.8pt);
+  % angulos de inclinacion
+  \draw[dorado,thin] (1.1,0) arc (0:26.6:0.6);
+  \node[font=\scriptsize,color=dorado] at (1.35,0.16) {$\alpha_1$};
+  \draw[dorado,thin] (4.9,0) arc (0:138:0.7);
+  \node[font=\scriptsize,color=dorado] at (4.95,0.42) {$\alpha_2$};
+  % angulo entre las rectas
+  \draw[dorado,very thick] ($(I)+(26.6:0.85)$) arc (26.6:138:0.85);
+  \node[font=\small,color=dorado] at (2.72,2.32) {$\theta$};
+\end{tikzpicture}
+
 \end{document}

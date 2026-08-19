@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; La recta en el plano – Geometría Analítica</title>
+<title>2&nbsp; Vectores y la recta en el plano – Geometría Analítica</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -115,7 +115,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-sistemas-de-coordenadas.html">Parte I — El plano</a></li><li class="breadcrumb-item"><a href="./02-la-recta-en-el-plano.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La recta en el plano</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-sistemas-de-coordenadas.html">Parte I — El plano</a></li><li class="breadcrumb-item"><a href="./02-la-recta-en-el-plano.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectores y la recta en el plano</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -151,7 +151,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Antes de empezar</span></a>
+ <span class="menu-text">Presentación</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -172,7 +172,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-la-recta-en-el-plano.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La recta en el plano</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectores y la recta en el plano</span></span></a>
   </div>
 </li>
       </ul>
@@ -232,7 +232,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">El invernadero (opcional)</span></a>
+ <span class="menu-text">Cálculo asistido por computadora (opcional)</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -240,13 +240,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./invernadero.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">El invernadero</span></a>
+  <a href="./calculo-asistido.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cálculo asistido por computadora</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./invernadero/01-familias-de-rectas.html" class="sidebar-item-text sidebar-link">
+  <a href="./calculo-asistido/01-operaciones-con-vectores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Operaciones con vectores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./calculo-asistido/02-familias-de-rectas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Familias de rectas</span></a>
   </div>
 </li>
@@ -279,23 +285,56 @@ window.Quarto = {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#vector-director-y-forma-paramétrica" id="toc-vector-director-y-forma-paramétrica" class="nav-link active" data-scroll-target="#vector-director-y-forma-paramétrica"><span class="header-section-number">2.1</span> Vector director y forma paramétrica</a></li>
-  <li><a href="#el-giro-de-noventa-grados-y-el-vector-normal" id="toc-el-giro-de-noventa-grados-y-el-vector-normal" class="nav-link" data-scroll-target="#el-giro-de-noventa-grados-y-el-vector-normal"><span class="header-section-number">2.2</span> El giro de noventa grados y el vector normal</a></li>
-  <li><a href="#las-formas-de-la-ecuación" id="toc-las-formas-de-la-ecuación" class="nav-link" data-scroll-target="#las-formas-de-la-ecuación"><span class="header-section-number">2.3</span> Las formas de la ecuación</a></li>
-  <li><a href="#distancia-de-un-punto-a-una-recta" id="toc-distancia-de-un-punto-a-una-recta" class="nav-link" data-scroll-target="#distancia-de-un-punto-a-una-recta"><span class="header-section-number">2.4</span> Distancia de un punto a una recta</a></li>
-  <li><a href="#haces-de-rectas" id="toc-haces-de-rectas" class="nav-link" data-scroll-target="#haces-de-rectas"><span class="header-section-number">2.5</span> Haces de rectas</a></li>
-  <li><a href="#rectas-y-puntos-notables-del-triángulo" id="toc-rectas-y-puntos-notables-del-triángulo" class="nav-link" data-scroll-target="#rectas-y-puntos-notables-del-triángulo"><span class="header-section-number">2.6</span> Rectas y puntos notables del triángulo</a></li>
-  <li><a href="#aplicación-método-gráfico-de-la-programación-lineal" id="toc-aplicación-método-gráfico-de-la-programación-lineal" class="nav-link" data-scroll-target="#aplicación-método-gráfico-de-la-programación-lineal"><span class="header-section-number">2.7</span> Aplicación: método gráfico de la programación lineal</a></li>
-  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
+  <li><a href="#la-recta-en-el-lenguaje-que-ya-se-conoce" id="toc-la-recta-en-el-lenguaje-que-ya-se-conoce" class="nav-link active" data-scroll-target="#la-recta-en-el-lenguaje-que-ya-se-conoce"><span class="header-section-number">2.1</span> La recta, en el lenguaje que ya se conoce</a>
+  <ul class="collapse">
+  <li><a href="#ejemplo-trabajado-la-mediatriz" id="toc-ejemplo-trabajado-la-mediatriz" class="nav-link" data-scroll-target="#ejemplo-trabajado-la-mediatriz"><span class="header-section-number">2.1.1</span> Ejemplo trabajado: la mediatriz</a></li>
+  </ul></li>
+  <li><a href="#sec-angulo-pendientes" id="toc-sec-angulo-pendientes" class="nav-link" data-scroll-target="#sec-angulo-pendientes"><span class="header-section-number">2.2</span> El ángulo entre dos rectas, con pendientes</a></li>
+  <li><a href="#sec-punto-vector" id="toc-sec-punto-vector" class="nav-link" data-scroll-target="#sec-punto-vector"><span class="header-section-number">2.3</span> Puntos y vectores</a></li>
+  <li><a href="#sec-operaciones-vectores" id="toc-sec-operaciones-vectores" class="nav-link" data-scroll-target="#sec-operaciones-vectores"><span class="header-section-number">2.4</span> Las operaciones con vectores</a>
+  <ul class="collapse">
+  <li><a href="#suma-y-resta" id="toc-suma-y-resta" class="nav-link" data-scroll-target="#suma-y-resta"><span class="header-section-number">2.4.1</span> Suma y resta</a></li>
+  <li><a href="#el-producto-por-un-escalar" id="toc-el-producto-por-un-escalar" class="nav-link" data-scroll-target="#el-producto-por-un-escalar"><span class="header-section-number">2.4.2</span> El producto por un escalar</a></li>
+  </ul></li>
+  <li><a href="#operaciones-entre-puntos-y-vectores" id="toc-operaciones-entre-puntos-y-vectores" class="nav-link" data-scroll-target="#operaciones-entre-puntos-y-vectores"><span class="header-section-number">2.5</span> Operaciones entre puntos y vectores</a>
+  <ul class="collapse">
+  <li><a href="#el-punto-medio" id="toc-el-punto-medio" class="nav-link" data-scroll-target="#el-punto-medio"><span class="header-section-number">2.5.1</span> El punto medio</a></li>
+  <li><a href="#figura-interactiva" id="toc-figura-interactiva" class="nav-link" data-scroll-target="#figura-interactiva"><span class="header-section-number">2.5.2</span> Figura interactiva</a></li>
+  </ul></li>
+  <li><a href="#la-distancia-es-la-norma-de-un-vector" id="toc-la-distancia-es-la-norma-de-un-vector" class="nav-link" data-scroll-target="#la-distancia-es-la-norma-de-un-vector"><span class="header-section-number">2.6</span> La distancia es la norma de un vector</a></li>
+  <li><a href="#sec-parametrica" id="toc-sec-parametrica" class="nav-link" data-scroll-target="#sec-parametrica"><span class="header-section-number">2.7</span> La recta descrita con un vector</a>
+  <ul class="collapse">
+  <li><a href="#primer-caso-las-rectas-que-pasan-por-el-origen" id="toc-primer-caso-las-rectas-que-pasan-por-el-origen" class="nav-link" data-scroll-target="#primer-caso-las-rectas-que-pasan-por-el-origen"><span class="header-section-number">2.7.1</span> Primer caso: las rectas que pasan por el origen</a></li>
+  <li><a href="#segundo-caso-cualquier-recta" id="toc-segundo-caso-cualquier-recta" class="nav-link" data-scroll-target="#segundo-caso-cualquier-recta"><span class="header-section-number">2.7.2</span> Segundo caso: cualquier recta</a></li>
+  <li><a href="#pertenencia-a-una-recta" id="toc-pertenencia-a-una-recta" class="nav-link" data-scroll-target="#pertenencia-a-una-recta"><span class="header-section-number">2.7.3</span> Pertenencia a una recta</a></li>
+  <li><a href="#de-la-dirección-a-la-pendiente" id="toc-de-la-dirección-a-la-pendiente" class="nav-link" data-scroll-target="#de-la-dirección-a-la-pendiente"><span class="header-section-number">2.7.4</span> De la dirección a la pendiente</a></li>
+  </ul></li>
+  <li><a href="#el-giro-de-noventa-grados-y-el-vector-normal" id="toc-el-giro-de-noventa-grados-y-el-vector-normal" class="nav-link" data-scroll-target="#el-giro-de-noventa-grados-y-el-vector-normal"><span class="header-section-number">2.8</span> El giro de noventa grados y el vector normal</a></li>
+  <li><a href="#sec-producto-punto" id="toc-sec-producto-punto" class="nav-link" data-scroll-target="#sec-producto-punto"><span class="header-section-number">2.9</span> El producto punto y el ángulo</a></li>
+  <li><a href="#sec-desigualdad-triangulo" id="toc-sec-desigualdad-triangulo" class="nav-link" data-scroll-target="#sec-desigualdad-triangulo"><span class="header-section-number">2.10</span> La desigualdad del triángulo, demostrada</a></li>
+  <li><a href="#sec-angulo-vectorial" id="toc-sec-angulo-vectorial" class="nav-link" data-scroll-target="#sec-angulo-vectorial"><span class="header-section-number">2.11</span> El ángulo entre rectas, con el producto punto</a></li>
+  <li><a href="#las-formas-de-la-ecuación-ahora-completas" id="toc-las-formas-de-la-ecuación-ahora-completas" class="nav-link" data-scroll-target="#las-formas-de-la-ecuación-ahora-completas"><span class="header-section-number">2.12</span> Las formas de la ecuación, ahora completas</a></li>
+  <li><a href="#distancia-de-un-punto-a-una-recta" id="toc-distancia-de-un-punto-a-una-recta" class="nav-link" data-scroll-target="#distancia-de-un-punto-a-una-recta"><span class="header-section-number">2.13</span> Distancia de un punto a una recta</a></li>
+  <li><a href="#haces-de-rectas" id="toc-haces-de-rectas" class="nav-link" data-scroll-target="#haces-de-rectas"><span class="header-section-number">2.14</span> Haces de rectas</a></li>
+  <li><a href="#rectas-y-puntos-notables-del-triángulo" id="toc-rectas-y-puntos-notables-del-triángulo" class="nav-link" data-scroll-target="#rectas-y-puntos-notables-del-triángulo"><span class="header-section-number">2.15</span> Rectas y puntos notables del triángulo</a></li>
+  <li><a href="#aplicación-método-gráfico-de-la-programación-lineal" id="toc-aplicación-método-gráfico-de-la-programación-lineal" class="nav-link" data-scroll-target="#aplicación-método-gráfico-de-la-programación-lineal"><span class="header-section-number">2.16</span> Aplicación: método gráfico de la programación lineal</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">2.17</span> Resumen</a></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a>
+  <ul class="collapse">
+  <li><a href="#puntos-vectores-y-distancia" id="toc-puntos-vectores-y-distancia" class="nav-link" data-scroll-target="#puntos-vectores-y-distancia">Puntos, vectores y distancia</a></li>
+  <li><a href="#operaciones-con-vectores-y-forma-paramétrica" id="toc-operaciones-con-vectores-y-forma-paramétrica" class="nav-link" data-scroll-target="#operaciones-con-vectores-y-forma-paramétrica">Operaciones con vectores y forma paramétrica</a></li>
+  <li><a href="#producto-punto-1" id="toc-producto-punto-1" class="nav-link" data-scroll-target="#producto-punto-1">Producto punto</a></li>
+  <li><a href="#pendiente-y-ángulo-entre-rectas" id="toc-pendiente-y-ángulo-entre-rectas" class="nav-link" data-scroll-target="#pendiente-y-ángulo-entre-rectas">Pendiente y ángulo entre rectas</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rosaliahdez/notas-geometria-analitica/edit/main/02-la-recta-en-el-plano.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/rosaliahdez/notas-geometria-analitica/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-sistemas-de-coordenadas.html">Parte I — El plano</a></li><li class="breadcrumb-item"><a href="./02-la-recta-en-el-plano.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La recta en el plano</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-sistemas-de-coordenadas.html">Parte I — El plano</a></li><li class="breadcrumb-item"><a href="./02-la-recta-en-el-plano.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectores y la recta en el plano</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-recta" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La recta en el plano</span></span></h1>
+<h1 class="title"><span id="sec-recta" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectores y la recta en el plano</span></span></h1>
 </div>
 
 
@@ -318,8 +357,31 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Unidad 2 del curso.</strong> Semanas 2 a 4.</p>
+<p><strong>Unidad 2 del temario.</strong> La recta en el plano, tratada con vectores.</p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Objetivos del capítulo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Objetivos del capítulo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Escribir la ecuación de una recta del plano en <strong>forma paramétrica</strong>, <span class="math inline">\(X=P+t\,d\)</span>. Es el objetivo principal del capítulo: de todas las formas de la ecuación de una recta, es la única que no depende de la pendiente y, por eso, la única que se generaliza al espacio y, en general, a <span class="math inline">\(\mathbb{R}^n\)</span>.</li>
+<li>Distinguir un <strong>punto</strong> de un <strong>vector</strong> y operar con ellos sin mezclarlos.</li>
+<li>Efectuar las operaciones con vectores —suma, resta y producto por un escalar— e interpretar geométricamente cada una.</li>
+<li>Describir una recta mediante un <strong>punto de paso</strong> y un <strong>vector director</strong>, y reconocer la forma paramétrica como la traslación de una recta que pasa por el origen.</li>
+<li>Reconocer la distancia entre dos puntos como la <strong>norma</strong> de un vector.</li>
+<li>Calcular el <strong>producto punto</strong> y usarlo para medir ángulos y decidir perpendicularidad.</li>
+<li>Demostrar la <strong>desigualdad del triángulo</strong>, resultado que quedó pendiente en <a href="01-sistemas-de-coordenadas.html" class="quarto-xref"><span>Capítulo 1</span></a>.</li>
+<li>Calcular el <strong>ángulo entre dos rectas</strong>, primero con pendientes y después con el producto punto, y reconocer por qué la segunda expresión no tiene excepciones.</li>
+<li>Traducir entre las distintas formas de la ecuación de una recta y calcular la distancia de un punto a una recta.</li>
+</ul>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning">
@@ -328,42 +390,567 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Capítulo en preparación. El esqueleto siguiente fija el orden y el enfoque; el contenido se escribe conforme avanza el semestre.</p>
+<p>Capítulo en preparación. Las primeras secciones ya están escritas; el resto es el esqueleto que fija el orden y el enfoque, y se completa conforme avanza el curso.</p>
 </div>
 </div>
 </div>
-<section id="vector-director-y-forma-paramétrica" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="vector-director-y-forma-paramétrica"><span class="header-section-number">2.1</span> Vector director y forma paramétrica</h2>
-<p>La recta como <span class="math inline">\(\{P+td\}\)</span>. Del parámetro a la pendiente. Inclinación y pendiente como caso particular de una dirección.</p>
+<section id="la-recta-en-el-lenguaje-que-ya-se-conoce" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="la-recta-en-el-lenguaje-que-ya-se-conoce"><span class="header-section-number">2.1</span> La recta, en el lenguaje que ya se conoce</h2>
+<p>Del bachillerato se conocen varias maneras de escribir la ecuación de una recta del plano. Conviene tenerlas a la vista, porque este capítulo empieza justo donde ellas terminan.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Forma</th>
+<th>Expresión</th>
+<th>Dato que se lee de inmediato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Punto–pendiente</td>
+<td><span class="math inline">\(y-y_0=m(x-x_0)\)</span></td>
+<td>un punto de paso y la pendiente</td>
+</tr>
+<tr class="even">
+<td>Pendiente–ordenada</td>
+<td><span class="math inline">\(y=mx+b\)</span></td>
+<td>la pendiente y el corte con el eje <span class="math inline">\(Y\)</span></td>
+</tr>
+<tr class="odd">
+<td>General</td>
+<td><span class="math inline">\(Ax+By+C=0\)</span></td>
+<td>en apariencia ninguno; se verá que <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dicen bastante</td>
+</tr>
+<tr class="even">
+<td>Simétrica</td>
+<td><span class="math inline">\(\dfrac{x}{a}+\dfrac{y}{b}=1\)</span></td>
+<td>los cortes con los ejes, <span class="math inline">\((a,0)\)</span> y <span class="math inline">\((0,b)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Las cuatro dependen, directa o indirectamente, de la <strong>pendiente</strong>, y de ahí vienen sus dos limitaciones: ninguna describe las rectas verticales, y ninguna se generaliza al espacio, donde la dirección de una recta no cabe en un solo número. La forma que falta en esa lista, la <strong>paramétrica</strong>, es la que no tiene ese defecto, y construirla es el objetivo de este capítulo.</p>
+<section id="ejemplo-trabajado-la-mediatriz" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="ejemplo-trabajado-la-mediatriz"><span class="header-section-number">2.1.1</span> Ejemplo trabajado: la mediatriz</h3>
+<blockquote class="blockquote">
+<p><strong>Hallar el lugar geométrico de los puntos que equidistan de <span class="math inline">\(A=(-2,1)\)</span> y <span class="math inline">\(B=(4,3)\)</span>.</strong></p>
+</blockquote>
+<p><em>Paso 1.</em> Sea <span class="math inline">\(P=(x,y)\)</span> un punto cualquiera del lugar.</p>
+<p><em>Paso 2.</em> La condición es <span class="math inline">\(d(P,A)=d(P,B)\)</span>.</p>
+<p><em>Paso 3.</em> En coordenadas, <span class="math display">\[
+\sqrt{(x+2)^2+(y-1)^2}=\sqrt{(x-4)^2+(y-3)^2}.
+\]</span></p>
+<p><em>Paso 4.</em> Ambos lados son no negativos, así que elevar al cuadrado es reversible aquí y no introduce soluciones falsas: <span class="math display">\[
+(x+2)^2+(y-1)^2=(x-4)^2+(y-3)^2 .
+\]</span> Desarrollando, <span class="math display">\[
+x^2+4x+4+y^2-2y+1 \;=\; x^2-8x+16+y^2-6y+9 ,
+\]</span> y cancelando <span class="math inline">\(x^2\)</span> e <span class="math inline">\(y^2\)</span>, <span class="math display">\[
+4x+5-2y=-8x+25-6y \;\Longrightarrow\; 12x+4y-20=0 \;\Longrightarrow\; 3x+y-5=0 .
+\]</span></p>
+<p>El lugar geométrico es una <strong>recta</strong>, precisamente la mediatriz del segmento <span class="math inline">\(AB\)</span>, y la ecuación quedó escrita en forma general. Conviene comprobar un hecho que la geometría anticipa y el álgebra debe confirmar: el punto medio <span class="math inline">\(M=(1,2)\)</span> satisface la ecuación.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Una observación importante">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Una observación importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los coeficientes de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> en la ecuación general de una recta forman un par de números <strong>perpendicular</strong> a ella. En este ejemplo, el par <span class="math inline">\((3,1)\)</span> es perpendicular a la mediatriz. Es uno de los resultados de mayor utilidad del curso, y se desarrolla más adelante en este capítulo, al construir el vector normal.</p>
+</div>
+</div>
 </section>
-<section id="el-giro-de-noventa-grados-y-el-vector-normal" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="el-giro-de-noventa-grados-y-el-vector-normal"><span class="header-section-number">2.2</span> El giro de noventa grados y el vector normal</h2>
+</section>
+<section id="sec-angulo-pendientes" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-angulo-pendientes"><span class="header-section-number">2.2</span> El ángulo entre dos rectas, con pendientes</h2>
+<p>Cuando dos rectas se cortan determinan dos pares de ángulos suplementarios. Para hablar de <em>el</em> ángulo entre ellas se fija un criterio: <span class="math inline">\(\theta\)</span> es el ángulo que se recorre, en sentido contrario al de las manecillas, desde la recta <span class="math inline">\(\ell_1\)</span> hasta la recta <span class="math inline">\(\ell_2\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/plano-angulo-entre-rectas.svg" class="img-fluid figure-img" style="width:44.0%"></p>
+<figcaption>El ángulo <span class="math inline">\(\theta\)</span>, medido de <span class="math inline">\(\ell_1\)</span> a <span class="math inline">\(\ell_2\)</span>, y las inclinaciones de ambas rectas.</figcaption>
+</figure>
+</div>
+<div id="thm-angulo-rectas" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2.1 (Ángulo entre dos rectas)</strong></span> Si <span class="math inline">\(\ell_1\)</span> y <span class="math inline">\(\ell_2\)</span> tienen pendientes <span class="math inline">\(m_1\)</span> y <span class="math inline">\(m_2\)</span>, y no son perpendiculares, el ángulo <span class="math inline">\(\theta\)</span> medido de <span class="math inline">\(\ell_1\)</span> a <span class="math inline">\(\ell_2\)</span> satisface <span class="math display">\[
+\tan\theta=\frac{m_2-m_1}{1+m_1m_2}.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demostración</em>. </span>En el triángulo que forman las dos rectas con el eje <span class="math inline">\(X\)</span>, el ángulo exterior es igual a la suma de los interiores no adyacentes, de donde <span class="math inline">\(\alpha_2=\alpha_1+\theta\)</span> y por tanto <span class="math inline">\(\theta=\alpha_2-\alpha_1\)</span>. Aplicando la fórmula de la tangente de una diferencia, <span class="math display">\[
+\tan\theta=\tan(\alpha_2-\alpha_1)=\frac{\tan\alpha_2-\tan\alpha_1}{1+\tan\alpha_1\tan\alpha_2}=\frac{m_2-m_1}{1+m_1m_2}. \qquad\square
+\]</span></p>
+</div>
+<p>De la fórmula se leen los dos casos extremos. Si las rectas son <strong>paralelas</strong>, entonces <span class="math inline">\(m_1=m_2\)</span>, el numerador se anula y <span class="math inline">\(\theta=0\)</span>. Si son <strong>perpendiculares</strong>, entonces <span class="math inline">\(\theta=\pi/2\)</span> y la tangente no está definida, lo cual ocurre exactamente cuando el denominador se anula, es decir cuando <span class="math inline">\(m_1m_2=-1\)</span>. Ésa es la demostración de la condición de perpendicularidad enunciada antes.</p>
+<p><strong>Ejemplo.</strong> Las rectas de pendientes <span class="math inline">\(m_1=\tfrac12\)</span> y <span class="math inline">\(m_2=-\tfrac95\)</span> forman un ángulo <span class="math inline">\(\theta\)</span> con <span class="math display">\[
+\tan\theta=\frac{-\tfrac95-\tfrac12}{1+\bigl(\tfrac12\bigr)\bigl(-\tfrac95\bigr)}=\frac{-\tfrac{23}{10}}{\tfrac{1}{10}}=-23 ,
+\]</span> de donde <span class="math inline">\(\theta\approx 92.5^\circ\)</span>. El signo negativo indica que el ángulo medido de <span class="math inline">\(\ell_1\)</span> a <span class="math inline">\(\ell_2\)</span> es obtuso; el ángulo agudo entre las dos rectas mide <span class="math inline">\(180^\circ-92.5^\circ=87.5^\circ\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Paralelismo y perpendicularidad">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Paralelismo y perpendicularidad
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dos rectas no verticales, de pendientes <span class="math inline">\(m_1\)</span> y <span class="math inline">\(m_2\)</span>, son <strong>paralelas</strong> si y sólo si <span class="math inline">\(m_1=m_2\)</span>, porque tienen la misma inclinación. Son <strong>perpendiculares</strong> si y sólo si <span class="math display">\[
+m_1m_2=-1 .
+\]</span> La primera condición se lee directamente de la definición de pendiente; la segunda acaba de obtenerse del teorema anterior. Conviene notar que la condición de perpendicularidad falla cuando una de las rectas es vertical, caso en el que la pendiente no existe aunque la perpendicularidad sí.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Esta fórmula exige tratar por separado las rectas verticales, que no tienen pendiente. En <a href="#sec-angulo-vectorial" class="quarto-xref"><span>Sección 2.11</span></a> se obtiene una expresión equivalente en términos de vectores, que no presenta esa excepción y que además vale en el espacio. Ése es, en pequeño, el argumento de todo el capítulo.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-punto-vector" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sec-punto-vector"><span class="header-section-number">2.3</span> Puntos y vectores</h2>
+<p>Esta sección introduce la distinción conceptual sobre la que se apoya el resto del curso. La idea es sencilla de enunciar y, sin embargo, se pierde de vista con frecuencia.</p>
+<blockquote class="blockquote">
+<p>Un <strong>punto</strong> es un lugar. Un <strong>vector</strong> es un desplazamiento.</p>
+</blockquote>
+<p>Ambos se representan como parejas de números, lo cual es origen frecuente de confusión. Se trata, sin embargo, de objetos de naturaleza distinta, que no admiten cualquier combinación.</p>
+<p>Un vector <span class="math inline">\(v=(v_1,v_2)\)</span> indica cuánto se avanza en la dirección del eje <span class="math inline">\(X\)</span> y cuánto en la del eje <span class="math inline">\(Y\)</span>. Su representación geométrica es una flecha, y conviene precisar desde ahora dónde empieza esa flecha.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="El convenio formal: los vectores están anclados al origen">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>El convenio formal: los vectores están anclados al origen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Formalmente, un vector de <span class="math inline">\(\mathbb{R}^2\)</span> es una pareja <span class="math inline">\((v_1,v_2)\)</span>, y su representación geométrica es la flecha que va <strong>del origen</strong> al punto <span class="math inline">\((v_1,v_2)\)</span>. Ése es el objeto con el que opera el Álgebra Lineal, y por eso el espacio vectorial tiene un solo vector cero, la flecha que no sale de <span class="math inline">\(O\)</span>.</p>
+<p>Cuando esa misma flecha se dibuja con punto inicial en otro lugar, se dibuja una <strong>copia trasladada</strong>, un recurso de representación que los textos de física llaman <em>vector libre</em>. El recurso es legítimo porque un desplazamiento no cambia al trasladarse, invariancia que se comprueba en la figura interactiva de este capítulo. El convenio del curso es el formal: al operar, todo vector está anclado al origen; al ilustrar, la flecha se traslada a donde aclare la figura.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Elegir un origen es una decisión, no un hecho">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Elegir un origen es una decisión, no un hecho
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Al fijar un origen <span class="math inline">\(O\)</span>, cada punto <span class="math inline">\(P\)</span> queda asociado al vector <span class="math inline">\(\vec{OP}\)</span>, y resulta tentador identificarlos. Es una identificación cómoda, que se emplea de manera constante, pero conviene recordar que <strong>proviene de una elección</strong> y no de la geometría misma.</p>
+<p>La distinción reaparece en Álgebra Lineal I, al preguntar por qué las traslaciones no son transformaciones lineales. La respuesta se encuentra aquí.</p>
+</div>
+</div>
+</section>
+<section id="sec-operaciones-vectores" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec-operaciones-vectores"><span class="header-section-number">2.4</span> Las operaciones con vectores</h2>
+<p>Entre vectores están definidas dos operaciones, y ambas se efectúan componente a componente. Su interés no reside en el cálculo, que es inmediato, sino en la lectura geométrica de cada una.</p>
+<section id="suma-y-resta" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="suma-y-resta"><span class="header-section-number">2.4.1</span> Suma y resta</h3>
+<p>Para <span class="math inline">\(u=(u_1,u_2)\)</span> y <span class="math inline">\(v=(v_1,v_2)\)</span>, <span class="math display">\[
+u+v=(u_1+v_1,\ u_2+v_2),
+\qquad
+u-v=(u_1-v_1,\ u_2-v_2).
+\]</span></p>
+<p>La <strong>suma</strong> compone desplazamientos: se recorre <span class="math inline">\(u\)</span> y, desde su extremo, se recorre <span class="math inline">\(v\)</span>; la flecha que cierra el camino es <span class="math inline">\(u+v\)</span>. Puesto que el orden de los sumandos no altera el resultado, las dos maneras de recorrer el camino producen el mismo extremo y la figura que se forma es un paralelogramo. De ahí que la construcción reciba indistintamente el nombre de <em>regla del triángulo</em> o <em>regla del paralelogramo</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/plano-suma-vectores.svg" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>La suma <span class="math inline">\(u+v\)</span> cierra el camino que recorre primero <span class="math inline">\(u\)</span> y después <span class="math inline">\(v\)</span>. Punteadas, las copias trasladadas de ambos vectores.</figcaption>
+</figure>
+</div>
+<p>La <strong>resta</strong> responde a una pregunta que reaparece durante todo el curso: <em>¿qué desplazamiento lleva de un extremo al otro?</em> La respuesta es <span class="math inline">\(u-v\)</span>, y su copia trasladada va del extremo de <span class="math inline">\(v\)</span> al extremo de <span class="math inline">\(u\)</span>. Anclada al origen, es la flecha que le corresponde por convenio.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/plano-resta-vectores.svg" class="img-fluid figure-img" style="width:34.0%"></p>
+<figcaption>La copia trasladada de <span class="math inline">\(u-v\)</span> va del extremo de <span class="math inline">\(v\)</span> al de <span class="math inline">\(u\)</span>. Anclada al origen es la flecha en turquesa.</figcaption>
+</figure>
+</div>
+</section>
+<section id="el-producto-por-un-escalar" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="el-producto-por-un-escalar"><span class="header-section-number">2.4.2</span> El producto por un escalar</h3>
+<p>En este contexto, un número real recibe el nombre de <strong>escalar</strong>, precisamente porque su efecto sobre un vector es de escala. La operación también se define componente a componente, <span class="math display">\[
+\lambda\,v=(\lambda v_1,\ \lambda v_2), \qquad \lambda\in\mathbb{R},
+\]</span> y su lectura geométrica es la siguiente:</p>
+<ul>
+<li>si <span class="math inline">\(\lvert\lambda\rvert&gt;1\)</span>, la flecha se alarga; si <span class="math inline">\(0&lt;\lvert\lambda\rvert&lt;1\)</span>, se acorta;</li>
+<li>si <span class="math inline">\(\lambda&lt;0\)</span>, el sentido se invierte;</li>
+<li>si <span class="math inline">\(\lambda=0\)</span>, se obtiene el vector cero.</li>
+</ul>
+<p>La <strong>dirección</strong> no cambia en ningún caso: todos los múltiplos de un mismo vector no nulo quedan sobre una misma recta que pasa por el origen. Esta observación, que parece menor, es el punto de partida de la descripción vectorial de la recta.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/plano-producto-escalar.svg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Los múltiplos de <span class="math inline">\(v\)</span> conservan la dirección y sólo modifican la longitud y el sentido.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Las propiedades, y hacia dónde conducen">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Las propiedades, y hacia dónde conducen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las dos operaciones satisfacen, para todos los vectores <span class="math inline">\(u,v,w\)</span> y todos los escalares <span class="math inline">\(\lambda,\mu\)</span>: <span class="math display">\[
+u+v=v+u, \qquad (u+v)+w=u+(v+w), \qquad u+0=u, \qquad u+(-u)=0,
+\]</span> <span class="math display">\[
+\lambda(u+v)=\lambda u+\lambda v, \qquad (\lambda+\mu)u=\lambda u+\mu u, \qquad \lambda(\mu u)=(\lambda\mu)u, \qquad 1\,u=u .
+\]</span> Todas se verifican en un renglón, componente a componente. El conjunto <span class="math inline">\(\mathbb{R}^2\)</span> con estas dos operaciones y estas ocho propiedades constituye el primer ejemplo de <strong>espacio vectorial</strong>, estructura que se estudia con detalle en Álgebra Lineal I. Este curso trabaja en ella sin nombrarla a cada paso.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="operaciones-entre-puntos-y-vectores" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="operaciones-entre-puntos-y-vectores"><span class="header-section-number">2.5</span> Operaciones entre puntos y vectores</h2>
+<p>Falta precisar qué ocurre cuando puntos y vectores aparecen en una misma expresión.</p>
+<div id="def-punto-vector" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.1 (Operaciones legítimas)</strong></span> Sean <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> puntos, y <span class="math inline">\(u\)</span>, <span class="math inline">\(v\)</span> vectores. Entonces:</p>
+<ul>
+<li><span class="math inline">\(Q-P\)</span> es un <strong>vector</strong>, el desplazamiento que lleva de <span class="math inline">\(P\)</span> a <span class="math inline">\(Q\)</span>. Se escribe también <span class="math inline">\(\vec{PQ}\)</span>.</li>
+<li><span class="math inline">\(P+v\)</span> es un <strong>punto</strong>, el resultado de desplazar <span class="math inline">\(P\)</span> según <span class="math inline">\(v\)</span>.</li>
+<li><span class="math inline">\(u+v\)</span> y <span class="math inline">\(\lambda u\)</span> son <strong>vectores</strong>.</li>
+<li><span class="math inline">\(P+Q\)</span> <strong>no está definido</strong>.</li>
+</ul>
+</div>
+<p>La regla de lectura se resume así: punto menos punto es vector, punto más vector es punto, y punto más punto no significa nada.</p>
+<p>La última afirmación requiere justificación. Considérense dos ciudades, Hermosillo y Guaymas. “El desplazamiento de Hermosillo a Guaymas” tiene un significado claro, independiente de dónde se ponga el origen del mapa. “Hermosillo más Guaymas”, en cambio, no significa nada, porque no hay ninguna ciudad que sea su suma. Y si se calculara sumando coordenadas, el resultado <strong>dependería del origen elegido</strong>, lo cual muestra que no corresponde a ningún objeto geométrico.</p>
+<section id="el-punto-medio" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="el-punto-medio"><span class="header-section-number">2.5.1</span> El punto medio</h3>
+<p>El punto medio de <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> suele escribirse <span class="math inline">\(\tfrac12(P+Q)\)</span>, expresión que contradice lo anterior, puesto que <span class="math inline">\(P+Q\)</span> no está definido. La contradicción es sólo aparente y se resuelve escribiendo el punto medio como <span class="math display">\[
+M \;=\; P+\tfrac{1}{2}\,(Q-P),
+\]</span> que se lee <em>“partimos de <span class="math inline">\(P\)</span> y avanzamos la mitad del desplazamiento hacia <span class="math inline">\(Q\)</span>”</em>. Todas las operaciones son ahora legítimas, porque <span class="math inline">\(Q-P\)</span> es un vector, la mitad de un vector es un vector, y punto más vector es punto. Al desarrollar la expresión se obtienen las coordenadas habituales, con la ventaja de conocer su justificación.</p>
+<p>El mismo argumento proporciona, sin esfuerzo adicional, el punto que divide al segmento en cualquier razón, <span class="math display">\[
+P + t\,(Q-P), \qquad t\in[0,1].
+\]</span></p>
+<p>Cuando <span class="math inline">\(t\)</span> recorre todos los reales, y no sólo <span class="math inline">\([0,1]\)</span>, esta expresión describe <strong>toda la recta</strong> que pasa por <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span>. Es la forma paramétrica de la recta, que se construye con detalle en <a href="#sec-parametrica" class="quarto-xref"><span>Sección 2.7</span></a>.</p>
+</section>
+<section id="figura-interactiva" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="figura-interactiva"><span class="header-section-number">2.5.2</span> Figura interactiva</h3>
+<p>La figura permite desplazar los puntos <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> y observar el vector <span class="math inline">\(Q-P\)</span>. <strong>Antes de moverlos conviene anticipar el resultado.</strong> Si <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> se desplazan la misma cantidad, ¿cambia el vector? ¿Y si se desplaza sólo uno?</p>
+<iframe src="applets/punto-y-vector.html" width="100%" height="470" style="border:1px solid #dfe6ee;border-radius:8px" loading="lazy" title="Applet: puntos y vectores en el plano"></iframe>
+<div class="callout callout-style-default callout-note callout-titled" title="Observación">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Observación
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Al trasladar <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> la misma cantidad, el vector <span class="math inline">\(Q-P\)</span> <strong>no cambia</strong>, porque un desplazamiento no depende de su punto de partida, sino sólo de su magnitud y su dirección. Si se desplaza uno solo de los puntos, el vector cambia. Esa invariancia es precisamente lo que distingue a un vector de un punto.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="la-distancia-es-la-norma-de-un-vector" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="la-distancia-es-la-norma-de-un-vector"><span class="header-section-number">2.6</span> La distancia es la norma de un vector</h2>
+<p>Si escribimos <span class="math inline">\(v=Q-P=(x_2-x_1,\,y_2-y_1)\)</span>, entonces la fórmula del <a href="01-sistemas-de-coordenadas.html#thm-distancia" class="quarto-xref">Teorema&nbsp;<span>1.1</span></a> se lee <span class="math display">\[
+d(P,Q)=\sqrt{v_1^2+v_2^2}=\lVert v\rVert .
+\]</span></p>
+<p>No se trata de una coincidencia ni de una notación alternativa. <strong>La distancia entre dos puntos es la longitud del desplazamiento que lleva de uno a otro</strong>, y entendida así la fórmula no requiere memorización.</p>
+</section>
+<section id="sec-parametrica" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="sec-parametrica"><span class="header-section-number">2.7</span> La recta descrita con un vector</h2>
+<p>Del bachillerato se conoce la recta en la forma <span class="math inline">\(y=mx+b\)</span>, donde <span class="math inline">\(m\)</span> es la pendiente y <span class="math inline">\(b\)</span> la ordenada al origen, y en la forma punto–pendiente <span class="math inline">\(y-y_0=m(x-x_0)\)</span>. La pendiente se definió en <a href="01-sistemas-de-coordenadas.html" class="quarto-xref"><span>Capítulo 1</span></a> como la tangente de la inclinación. Ya se señaló al abrir el capítulo que esas expresiones comparten dos limitaciones: <strong>no describen las rectas verticales</strong>, que carecen de pendiente, y no se generalizan al espacio, donde una recta no queda determinada por un solo número.</p>
+<p>La descripción vectorial no tiene ninguna de las dos limitaciones. Se construye en dos pasos.</p>
+<section id="primer-caso-las-rectas-que-pasan-por-el-origen" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="primer-caso-las-rectas-que-pasan-por-el-origen"><span class="header-section-number">2.7.1</span> Primer caso: las rectas que pasan por el origen</h3>
+<p>Sea <span class="math inline">\(d\neq 0\)</span> un vector. Según se observó en <a href="#sec-operaciones-vectores" class="quarto-xref"><span>Sección 2.4</span></a>, todos sus múltiplos conservan la dirección, de modo que el conjunto <span class="math display">\[
+\ell_0:\quad X=t\,d, \qquad t\in\mathbb{R},
+\]</span> está contenido en una recta. Recíprocamente, todo punto de esa recta es un múltiplo de <span class="math inline">\(d\)</span>, de manera que la expresión anterior la describe por completo: es la recta que pasa por el origen y por el punto <span class="math inline">\(d\)</span>.</p>
+<p>Cada valor del parámetro <span class="math inline">\(t\)</span> produce un punto: <span class="math inline">\(t=0\)</span> da el origen, <span class="math inline">\(t=1\)</span> da <span class="math inline">\(d\)</span>, y los valores negativos dan los puntos del otro lado.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/plano-recta-origen.svg" class="img-fluid figure-img" style="width:54.0%"></p>
+<figcaption>Los múltiplos <span class="math inline">\(t\,d\)</span> recorren la recta completa. Cada valor del parámetro produce un punto.</figcaption>
+</figure>
+</div>
+<p>Obsérvese que <span class="math inline">\(d\)</span> puede sustituirse por cualquier otro punto de la recta distinto del origen sin que la recta cambie: el vector director de una recta <strong>no es único</strong>, y dos directores de una misma recta difieren en un factor escalar.</p>
+</section>
+<section id="segundo-caso-cualquier-recta" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="segundo-caso-cualquier-recta"><span class="header-section-number">2.7.2</span> Segundo caso: cualquier recta</h3>
+<p>Una recta que no pasa por el origen tiene la misma dirección que una que sí pasa; es esa recta <strong>trasladada</strong>. Y trasladar un conjunto de puntos consiste en sumar a cada uno de ellos un mismo vector, es decir, en fijar un punto <span class="math inline">\(P\)</span> de la recta buscada y desplazar hasta él la recta <span class="math inline">\(\ell_0\)</span>.</p>
+<div id="def-recta-parametrica" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.2 (Forma paramétrica de la recta)</strong></span> Dados un punto <span class="math inline">\(P\)</span> y un vector <span class="math inline">\(d\neq 0\)</span>, la recta que pasa por <span class="math inline">\(P\)</span> con dirección <span class="math inline">\(d\)</span> es el conjunto de puntos <span class="math display">\[
+\ell:\quad X = P + t\,d, \qquad t\in\mathbb{R}.
+\]</span> El punto <span class="math inline">\(P\)</span> se llama <strong>punto de paso</strong> y el vector <span class="math inline">\(d\)</span>, <strong>vector director</strong> de la recta.</p>
+</div>
+<p>Una recta queda determinada, entonces, por un punto de paso y una dirección. Cada valor de <span class="math inline">\(t\)</span> produce un punto de <span class="math inline">\(\ell\)</span> y, al recorrer <span class="math inline">\(t\)</span> todos los reales, se obtienen todos sus puntos. Todas las operaciones involucradas son legítimas: <span class="math inline">\(t\,d\)</span> es un vector y <span class="math inline">\(P+t\,d\)</span> es un punto.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/plano-recta-trasladada.svg" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>La recta <span class="math inline">\(X=P+t\,d\)</span> es la recta por el origen, punteada en gris, trasladada al punto de paso <span class="math inline">\(P\)</span>.</figcaption>
+</figure>
+</div>
+<p>En el lenguaje del bachillerato ocurre exactamente lo mismo: <span class="math inline">\(y=mx\)</span> pasa por el origen y <span class="math inline">\(y=mx+b\)</span> es esa misma recta subida <span class="math inline">\(b\)</span> unidades. La forma paramétrica hace explícita esa traslación y, además, describe también las rectas verticales.</p>
+<p>Si la recta se conoce por dos de sus puntos, <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span>, un vector director es <span class="math inline">\(d=Q-P\)</span>, y se recupera la expresión <span class="math inline">\(X=P+t\,(Q-P)\)</span> obtenida al estudiar el punto medio.</p>
+</section>
+<section id="pertenencia-a-una-recta" class="level3" data-number="2.7.3">
+<h3 data-number="2.7.3" class="anchored" data-anchor-id="pertenencia-a-una-recta"><span class="header-section-number">2.7.3</span> Pertenencia a una recta</h3>
+<p>Escribiendo <span class="math inline">\(X=(x,y)\)</span>, <span class="math inline">\(P=(x_0,y_0)\)</span> y <span class="math inline">\(d=(d_1,d_2)\)</span>, la forma paramétrica equivale al par de <strong>ecuaciones paramétricas</strong> <span class="math display">\[
+x=x_0+t\,d_1, \qquad y=y_0+t\,d_2 .
+\]</span> Un punto pertenece a la recta cuando <strong>existe un mismo valor de <span class="math inline">\(t\)</span></strong> que satisface las dos ecuaciones. Éste es el criterio que decide la pertenencia, y el error más frecuente consiste en resolver cada coordenada por separado sin verificar que el parámetro coincida.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Ejemplo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sea <span class="math inline">\(\ell: X=(1,2)+t\,(3,1)\)</span>.</p>
+<p>Para <span class="math inline">\(t=0,1,2,-1\)</span> se obtienen los puntos <span class="math inline">\((1,2)\)</span>, <span class="math inline">\((4,3)\)</span>, <span class="math inline">\((7,4)\)</span> y <span class="math inline">\((-2,1)\)</span>.</p>
+<p>El punto <span class="math inline">\((10,5)\)</span> pertenece a <span class="math inline">\(\ell\)</span>: la abscisa exige <span class="math inline">\(1+3t=10\)</span>, es decir <span class="math inline">\(t=3\)</span>, y con ese mismo valor la ordenada da <span class="math inline">\(2+3=5\)</span>.</p>
+<p>El punto <span class="math inline">\((7,5)\)</span> no pertenece: la abscisa exige <span class="math inline">\(t=2\)</span> y la ordenada exige <span class="math inline">\(t=3\)</span>. Al no coincidir el parámetro, el punto no está en la recta, aunque cada coordenada por separado sea alcanzable.</p>
+</div>
+</div>
+</section>
+<section id="de-la-dirección-a-la-pendiente" class="level3" data-number="2.7.4">
+<h3 data-number="2.7.4" class="anchored" data-anchor-id="de-la-dirección-a-la-pendiente"><span class="header-section-number">2.7.4</span> De la dirección a la pendiente</h3>
+<p>Sea <span class="math inline">\(d=(d_1,d_2)\)</span> un vector director con <span class="math inline">\(d_1\neq 0\)</span>. Al avanzar <span class="math inline">\(d_1\)</span> unidades en <span class="math inline">\(x\)</span>, la ordenada cambia <span class="math inline">\(d_2\)</span> unidades, de modo que la pendiente de la recta es <span class="math display">\[
+m=\frac{d_2}{d_1},
+\]</span> y si la recta pasa por <span class="math inline">\(P=(x_1,y_1)\)</span> y <span class="math inline">\(Q=(x_2,y_2)\)</span>, tomando <span class="math inline">\(d=Q-P\)</span> se recupera la expresión conocida <span class="math inline">\(m=\dfrac{y_2-y_1}{x_2-x_1}\)</span>.</p>
+<p>La pendiente es, por tanto, un caso particular de la noción de dirección: resume en un solo número la información de un vector director, al precio de perder los casos en que <span class="math inline">\(d_1=0\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Dónde falla un lenguaje y el otro no">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Dónde falla un lenguaje y el otro no
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una recta vertical no tiene pendiente, porque la razón <span class="math inline">\(d_2/d_1\)</span> no está definida cuando <span class="math inline">\(d_1=0\)</span>. Sí tiene, en cambio, vector director <span class="math inline">\((0,1)\)</span>, y su forma paramétrica no presenta ninguna anomalía. Recíprocamente, si una recta no es vertical y tiene pendiente <span class="math inline">\(m\)</span>, entonces <span class="math inline">\((1,m)\)</span> es un vector director suyo.</p>
+<p>El lenguaje vectorial cubre los casos en que el de pendientes falla, y es además el único de los dos que se generaliza al espacio. Por esa razón se adopta como lenguaje principal del curso.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="el-giro-de-noventa-grados-y-el-vector-normal" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="el-giro-de-noventa-grados-y-el-vector-normal"><span class="header-section-number">2.8</span> El giro de noventa grados y el vector normal</h2>
 <p>El giro <span class="math inline">\(d=(d_1,d_2)\mapsto n=(-d_2,d_1)\)</span>, y la comprobación de que <span class="math inline">\(\langle n,d\rangle=0\)</span>. La recta como <span class="math inline">\(\langle n,X\rangle=c\)</span>, y de ahí por qué los coeficientes de <span class="math inline">\(Ax+By=C\)</span> <strong>son</strong> el vector normal.</p>
 </section>
-<section id="las-formas-de-la-ecuación" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="las-formas-de-la-ecuación"><span class="header-section-number">2.3</span> Las formas de la ecuación</h2>
-<p>Pendiente-ordenada, punto-pendiente, general, simétrica, paramétrica y normal: la misma recta en seis disfraces, y cuándo conviene cada uno.</p>
+<section id="sec-producto-punto" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="sec-producto-punto"><span class="header-section-number">2.9</span> El producto punto y el ángulo</h2>
+<p>Se introduce ahora la herramienta sobre la que se apoya el resto del curso.</p>
+<div id="def-producto-punto" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.3 (Producto punto)</strong></span> Para <span class="math inline">\(u=(u_1,u_2)\)</span> y <span class="math inline">\(v=(v_1,v_2)\)</span> en el plano, <span class="math display">\[
+\langle u,v\rangle \;=\; u_1v_1+u_2v_2 .
+\]</span> En el espacio se añade el término correspondiente, <span class="math inline">\(\langle u,v\rangle=u_1v_1+u_2v_2+u_3v_3\)</span>.</p>
+</div>
+<p>De la definición se siguen de inmediato tres propiedades, todas verificables en un renglón.</p>
+<ol type="1">
+<li><strong>Simetría:</strong> <span class="math inline">\(\langle u,v\rangle=\langle v,u\rangle\)</span>.</li>
+<li><strong>Linealidad:</strong> <span class="math inline">\(\langle \lambda u+w,\,v\rangle=\lambda\langle u,v\rangle+\langle w,v\rangle\)</span>.</li>
+<li><strong>Positividad:</strong> <span class="math inline">\(\langle u,u\rangle=u_1^2+u_2^2=\lVert u\rVert^2\ \ge 0\)</span>, con igualdad sólo si <span class="math inline">\(u=0\)</span>.</li>
+</ol>
+<p>La tercera es la que conecta el producto punto con la longitud, <span class="math inline">\(\lVert u\rVert=\sqrt{\langle u,u\rangle}\)</span>.</p>
+<div id="thm-producto-angulo" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2.2 (El producto punto mide ángulos)</strong></span> Si <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> son vectores no nulos y <span class="math inline">\(\theta\in[0,\pi]\)</span> es el ángulo entre ellos, entonces <span class="math display">\[
+\langle u,v\rangle=\lVert u\rVert\,\lVert v\rVert\cos\theta .
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demostración</em>. </span>Colocamos <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> con el mismo origen. El tercer lado del triángulo que forman es el vector <span class="math inline">\(v-u\)</span>, y la <strong>ley de cosenos</strong> da <span class="math display">\[
+\lVert v-u\rVert^2=\lVert u\rVert^2+\lVert v\rVert^2-2\lVert u\rVert\lVert v\rVert\cos\theta .
+\]</span> Por otro lado, desarrollando con las propiedades del producto punto, <span class="math display">\[
+\lVert v-u\rVert^2=\langle v-u,\,v-u\rangle=\lVert v\rVert^2-2\langle u,v\rangle+\lVert u\rVert^2 .
+\]</span> Igualando las dos expresiones y cancelando <span class="math inline">\(\lVert u\rVert^2+\lVert v\rVert^2\)</span> queda <span class="math display">\[
+-2\langle u,v\rangle=-2\lVert u\rVert\lVert v\rVert\cos\theta ,
+\]</span> de donde se sigue el resultado. <span class="math inline">\(\square\)</span></p>
+</div>
+<p>Dos consecuencias de uso constante.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Perpendicularidad">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Perpendicularidad
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Como <span class="math inline">\(\cos\theta=0\)</span> exactamente cuando <span class="math inline">\(\theta=\pi/2\)</span>, <span class="math display">\[
+u\perp v \iff \langle u,v\rangle=0 .
+\]</span> Comprobar que dos vectores son perpendiculares se reduce a dos productos y una suma. Es una de las herramientas de uso más frecuente en el curso.</p>
+</div>
+</div>
+<p>Y despejando el coseno, <span class="math display">\[
+\cos\theta=\frac{\langle u,v\rangle}{\lVert u\rVert\,\lVert v\rVert},
+\]</span> lo que permite calcular <strong>cualquier</strong> ángulo entre objetos rectilíneos (rectas, planos, aristas) sin transportador y sin trigonometría adicional.</p>
 </section>
-<section id="distancia-de-un-punto-a-una-recta" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="distancia-de-un-punto-a-una-recta"><span class="header-section-number">2.4</span> Distancia de un punto a una recta</h2>
+<section id="sec-desigualdad-triangulo" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="sec-desigualdad-triangulo"><span class="header-section-number">2.10</span> La desigualdad del triángulo, demostrada</h2>
+<p>Con el producto punto disponible puede demostrarse el resultado que quedó pendiente en <a href="01-sistemas-de-coordenadas.html" class="quarto-xref"><span>Capítulo 1</span></a>, la tercera propiedad de la distancia.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Demostración</em>. </span>Se trata de demostrar la <strong>desigualdad del triángulo</strong>, la tercera propiedad de la distancia enunciada en <a href="01-sistemas-de-coordenadas.html" class="quarto-xref"><span>Capítulo 1</span></a>. Escribiendo <span class="math inline">\(u=R-P\)</span> y <span class="math inline">\(v=Q-R\)</span>, se tiene <span class="math inline">\(Q-P=u+v\)</span>, de modo que el enunciado equivale a <span class="math display">\[
+\lVert u+v\rVert \le \lVert u\rVert+\lVert v\rVert .
+\]</span> Elevando al cuadrado y usando que <span class="math inline">\(\lVert w\rVert^2=\langle w,w\rangle\)</span>, <span class="math display">\[
+\lVert u+v\rVert^2=\lVert u\rVert^2+2\langle u,v\rangle+\lVert v\rVert^2 ,
+\]</span> mientras que <span class="math display">\[
+(\lVert u\rVert+\lVert v\rVert)^2=\lVert u\rVert^2+2\lVert u\rVert\lVert v\rVert+\lVert v\rVert^2 .
+\]</span> Basta entonces con que <span class="math inline">\(\langle u,v\rangle\le\lVert u\rVert\lVert v\rVert\)</span>, que es inmediato del <a href="#thm-producto-angulo" class="quarto-xref">Teorema&nbsp;<span>2.2</span></a> porque <span class="math inline">\(\cos\theta\le 1\)</span>. La igualdad ocurre exactamente cuando <span class="math inline">\(\cos\theta=1\)</span>, es decir, cuando <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> apuntan en el mismo sentido, lo que ocurre exactamente cuando <span class="math inline">\(R\)</span> está entre <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span>. <span class="math inline">\(\square\)</span></p>
+</div>
+<p>La demostración es válida en el plano y en el espacio, porque en ningún renglón interviene el número de coordenadas. Un solo argumento cubre los dos casos.</p>
+</section>
+<section id="sec-angulo-vectorial" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="sec-angulo-vectorial"><span class="header-section-number">2.11</span> El ángulo entre rectas, con el producto punto</h2>
+<p>Al comienzo de este capítulo el ángulo entre dos rectas se calculó con las pendientes, mediante la fórmula del <a href="#thm-angulo-rectas" class="quarto-xref">Teorema&nbsp;<span>2.1</span></a>. Esa expresión obliga a tratar por separado las rectas verticales, que no tienen pendiente, y no se generaliza al espacio. El producto punto proporciona una alternativa sin esas limitaciones.</p>
+<p>Si <span class="math inline">\(d_1\)</span> y <span class="math inline">\(d_2\)</span> son vectores directores de dos rectas, en el sentido de <a href="#def-recta-parametrica" class="quarto-xref">Definición&nbsp;<span>2.2</span></a>, el ángulo agudo <span class="math inline">\(\theta\)</span> entre ellas satisface <span class="math display">\[
+\cos\theta=\frac{\lvert\langle d_1,d_2\rangle\rvert}{\lVert d_1\rVert\,\lVert d_2\rVert},
+\]</span> donde el valor absoluto selecciona el ángulo agudo de los dos que las rectas determinan.</p>
+<p>Este procedimiento funciona sin excepciones. Una recta vertical carece de pendiente, pero tiene vector director <span class="math inline">\((0,1)\)</span>, y el cálculo procede igual. La misma fórmula, con vectores de tres componentes, dará el ángulo entre rectas del espacio.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Paralelismo y perpendicularidad, en los dos lenguajes">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Paralelismo y perpendicularidad, en los dos lenguajes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Con pendientes</th>
+<th>Con vectores</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paralelas</td>
+<td><span class="math inline">\(m_1=m_2\)</span></td>
+<td><span class="math inline">\(d_1=\lambda d_2\)</span></td>
+</tr>
+<tr class="even">
+<td>Perpendiculares</td>
+<td><span class="math inline">\(m_1m_2=-1\)</span></td>
+<td><span class="math inline">\(\langle d_1,d_2\rangle=0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>La condición <span class="math inline">\(m_1m_2=-1\)</span> falla cuando una recta es vertical y la otra horizontal, aunque sean perpendiculares. La condición <span class="math inline">\(\langle d_1,d_2\rangle=0\)</span> no falla nunca.</p>
+<p>La relación entre ambos lenguajes es directa. Si una recta no es vertical y tiene pendiente <span class="math inline">\(m\)</span>, entonces <span class="math inline">\((1,m)\)</span> es un vector director suyo, porque al avanzar una unidad en <span class="math inline">\(x\)</span> la recta sube <span class="math inline">\(m\)</span> unidades.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="las-formas-de-la-ecuación-ahora-completas" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="las-formas-de-la-ecuación-ahora-completas"><span class="header-section-number">2.12</span> Las formas de la ecuación, ahora completas</h2>
+<p>La tabla con la que abrió el capítulo se completa aquí con las dos formas construidas en él, la paramétrica y la normal: la misma recta en seis disfraces, la traducción entre ellos y el criterio para decidir cuál conviene en cada problema.</p>
+</section>
+<section id="distancia-de-un-punto-a-una-recta" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="distancia-de-un-punto-a-una-recta"><span class="header-section-number">2.13</span> Distancia de un punto a una recta</h2>
 <p><strong>Teorema 3 del curso.</strong> Si <span class="math inline">\(\lVert n\rVert=1\)</span>, entonces <span class="math inline">\(d(Q,\ell)=\lvert\langle n,Q\rangle-p\rvert\)</span>. La forma normal de Lehmann como caso particular de esta expresión.</p>
 </section>
-<section id="haces-de-rectas" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="haces-de-rectas"><span class="header-section-number">2.5</span> Haces de rectas</h2>
+<section id="haces-de-rectas" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="haces-de-rectas"><span class="header-section-number">2.14</span> Haces de rectas</h2>
 <p>La familia <span class="math inline">\(\ell_1+\lambda\ell_2=0\)</span> y el punto común.</p>
 </section>
-<section id="rectas-y-puntos-notables-del-triángulo" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="rectas-y-puntos-notables-del-triángulo"><span class="header-section-number">2.6</span> Rectas y puntos notables del triángulo</h2>
+<section id="rectas-y-puntos-notables-del-triángulo" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="rectas-y-puntos-notables-del-triángulo"><span class="header-section-number">2.15</span> Rectas y puntos notables del triángulo</h2>
 <p><strong>Teorema 4 del curso.</strong> Concurrencia de las medianas; el baricentro como promedio.</p>
 </section>
-<section id="aplicación-método-gráfico-de-la-programación-lineal" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="aplicación-método-gráfico-de-la-programación-lineal"><span class="header-section-number">2.7</span> Aplicación: método gráfico de la programación lineal</h2>
+<section id="aplicación-método-gráfico-de-la-programación-lineal" class="level2" data-number="2.16">
+<h2 data-number="2.16" class="anchored" data-anchor-id="aplicación-método-gráfico-de-la-programación-lineal"><span class="header-section-number">2.16</span> Aplicación: método gráfico de la programación lineal</h2>
 <p>Región factible como intersección de semiplanos; el óptimo en un vértice.</p>
+</section>
+<section id="resumen" class="level2" data-number="2.17">
+<h2 data-number="2.17" class="anchored" data-anchor-id="resumen"><span class="header-section-number">2.17</span> Resumen</h2>
+<p>La distinción entre punto y vector, que abre el capítulo, permite escribir sin ambigüedad expresiones como el punto medio o la recta que pasa por dos puntos. Las <strong>operaciones con vectores</strong> —suma, resta y producto por un escalar— admiten en todos los casos una lectura geométrica, y de la última se sigue que los múltiplos de un vector llenan una recta que pasa por el origen. Trasladando esa recta a un punto de paso se obtiene la <strong>forma paramétrica</strong> <span class="math inline">\(X=P+t\,d\)</span>, que describe cualquier recta, incluidas las verticales, y de la que la pendiente resulta ser un caso particular. La distancia se reveló como la norma de un vector, y el <strong>producto punto</strong> apareció como la operación que mide ángulos y decide perpendicularidad con dos productos y una suma. Con esa herramienta quedó demostrada la desigualdad del triángulo, pendiente desde el capítulo anterior, y el ángulo entre rectas admitió una expresión sin excepciones. El resto del capítulo aplica el mismo instrumento a las formas de la ecuación de la recta y a la distancia de un punto a una recta.</p>
+<hr>
 </section>
 <section id="ejercicios" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ejercicios">Ejercicios</h2>
+<section id="puntos-vectores-y-distancia" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="puntos-vectores-y-distancia">Puntos, vectores y distancia</h3>
+<p><strong>2.1</strong> Sean <span class="math inline">\(P=(1,-2)\)</span>, <span class="math inline">\(R=(5,1)\)</span> y <span class="math inline">\(Q=(-3,4)\)</span>.</p>
+<ol type="a">
+<li>Calcular <span class="math inline">\(R-P\)</span> y <span class="math inline">\(Q-R\)</span>. Comprobar que <span class="math inline">\((R-P)+(Q-R)=Q-P\)</span> y explicar geométricamente por qué debía salir eso.</li>
+<li>Calcular <span class="math inline">\(d(P,R)\)</span>, <span class="math inline">\(d(R,Q)\)</span> y <span class="math inline">\(d(P,Q)\)</span>, y comprobar la desigualdad del triángulo.</li>
+<li>Hallar el punto medio de <span class="math inline">\(PQ\)</span> escribiéndolo en la forma <span class="math inline">\(P+t(Q-P)\)</span>.</li>
+</ol>
+<p><strong>2.2</strong> Un segmento de longitud <span class="math inline">\(6\)</span> se desliza de modo que un extremo permanece sobre el eje <span class="math inline">\(X\)</span> y el otro sobre el eje <span class="math inline">\(Y\)</span>. Hallar el lugar geométrico que describe su punto medio.</p>
+<p><strong>2.3</strong> Explicar en no más de media página por qué <span class="math inline">\(P+Q\)</span> no está definido para dos puntos, mientras que <span class="math inline">\(P+v\)</span> sí lo está para un punto y un vector. Incluir un ejemplo que muestre qué sale mal si se insiste en sumar dos puntos.</p>
+</section>
+<section id="operaciones-con-vectores-y-forma-paramétrica" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="operaciones-con-vectores-y-forma-paramétrica">Operaciones con vectores y forma paramétrica</h3>
+<p><strong>2.4</strong> Sean <span class="math inline">\(u=(3,-1)\)</span> y <span class="math inline">\(v=(-2,4)\)</span>. Calcular <span class="math inline">\(u+v\)</span>, <span class="math inline">\(u-v\)</span>, <span class="math inline">\(2u\)</span>, <span class="math inline">\(-\tfrac12 v\)</span> y <span class="math inline">\(2u-3v\)</span>. Dibujar <span class="math inline">\(u\)</span>, <span class="math inline">\(v\)</span> y <span class="math inline">\(u+v\)</span> en un mismo sistema coordenado y comprobar sobre la figura la regla del paralelogramo.</p>
+<p><strong>2.5</strong> Determinar el escalar <span class="math inline">\(\lambda\)</span> para el cual <span class="math inline">\((6,-9)=\lambda\,(-2,3)\)</span>, y describir la relación geométrica entre ambos vectores.</p>
+<p><strong>2.6</strong> Escribir en forma paramétrica la recta que pasa por <span class="math inline">\(A=(-1,3)\)</span> y <span class="math inline">\(B=(2,4)\)</span>. Determinar tres de sus puntos y decidir, justificando el criterio empleado, si los puntos <span class="math inline">\((8,6)\)</span> y <span class="math inline">\((5,6)\)</span> pertenecen a ella.</p>
+<p><strong>2.7</strong> Una recta tiene forma paramétrica <span class="math inline">\(X=(2,-1)+t\,(0,5)\)</span>. Determinar su pendiente, si la tiene, y escribir su ecuación en la forma que resulte adecuada. Explicar por qué la forma punto–pendiente no puede emplearse en este caso.</p>
+</section>
+<section id="producto-punto-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="producto-punto-1">Producto punto</h3>
+<p><strong>2.8</strong> Determinar si el triángulo de vértices <span class="math inline">\(A=(0,0)\)</span>, <span class="math inline">\(B=(4,2)\)</span> y <span class="math inline">\(C=(1,5)\)</span> tiene algún ángulo recto. Hacerlo con productos punto y explicar qué se calculó exactamente.</p>
+<p><strong>2.9</strong> Hallar un valor de <span class="math inline">\(k\)</span> para el cual los vectores <span class="math inline">\((2,k)\)</span> y <span class="math inline">\((k+1,3)\)</span> sean perpendiculares. ¿Hay más de uno?</p>
+<p><strong>2.10</strong> Demostrar que los puntos <span class="math inline">\((1,1)\)</span>, <span class="math inline">\((4,2)\)</span> y <span class="math inline">\((7,3)\)</span> son colineales, de dos maneras distintas, con pendientes y con vectores. ¿Cuál de las dos seguiría funcionando en <span class="math inline">\(\mathbb{R}^3\)</span>?</p>
+<p><strong>2.11</strong> Demostrar que en cualquier triángulo el segmento que une los puntos medios de dos lados es paralelo al tercer lado y mide la mitad. Conviene usar vectores, porque la demostración cabe en tres renglones y no requiere ninguna figura.</p>
+<p><strong>2.12</strong> Enunciar con precisión en qué caso la desigualdad del triángulo se cumple con igualdad, y demostrarlo a partir del <a href="#thm-producto-angulo" class="quarto-xref">Teorema&nbsp;<span>2.2</span></a>.</p>
+</section>
+<section id="pendiente-y-ángulo-entre-rectas" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pendiente-y-ángulo-entre-rectas">Pendiente y ángulo entre rectas</h3>
+<p><strong>2.13</strong> Determinar si las rectas que pasan por <span class="math inline">\((0,1)\)</span> y <span class="math inline">\((4,3)\)</span>, y por <span class="math inline">\((1,5)\)</span> y <span class="math inline">\((3,1)\)</span>, respectivamente, son perpendiculares. Justificar con la condición de pendientes.</p>
+<p><strong>2.14</strong> Calcular el ángulo que forman las rectas de pendientes <span class="math inline">\(m_1=3\)</span> y <span class="math inline">\(m_2=-\tfrac12\)</span>, y decir cuál es el ángulo agudo entre ellas.</p>
+<p><strong>2.15</strong> Una recta vertical y una horizontal son perpendiculares, y sin embargo la condición <span class="math inline">\(m_1m_2=-1\)</span> no puede aplicarse. Explicar por qué, y resolver el mismo caso con vectores directores y el producto punto.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Soluciones y retroalimentación">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Soluciones y retroalimentación
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>2.1</strong> (a) <span class="math inline">\(R-P=(4,3)\)</span> y <span class="math inline">\(Q-R=(-8,3)\)</span>, cuya suma es <span class="math inline">\((-4,6)=Q-P\)</span>. Geométricamente, ir de <span class="math inline">\(P\)</span> a <span class="math inline">\(R\)</span> y luego de <span class="math inline">\(R\)</span> a <span class="math inline">\(Q\)</span> es el mismo viaje que ir directo de <span class="math inline">\(P\)</span> a <span class="math inline">\(Q\)</span>. (b) <span class="math inline">\(d(P,R)=5\)</span>, <span class="math inline">\(d(R,Q)=\sqrt{64+9}=\sqrt{73}\)</span> y <span class="math inline">\(d(P,Q)=\sqrt{16+36}=\sqrt{52}\)</span>. Como <span class="math inline">\(\sqrt{52}\le 5+\sqrt{73}\)</span>, la desigualdad se cumple, y con desigualdad estricta porque <span class="math inline">\(R\)</span> no está en el segmento <span class="math inline">\(PQ\)</span>. (c) <span class="math inline">\(M=P+\tfrac12(Q-P)=(1,-2)+(-2,3)=(-1,1)\)</span>.</p>
+<p><strong>2.2</strong> Si los extremos son <span class="math inline">\((a,0)\)</span> y <span class="math inline">\((0,b)\)</span> con <span class="math inline">\(a^2+b^2=36\)</span>, el punto medio es <span class="math inline">\((x,y)=\bigl(\tfrac a2,\tfrac b2\bigr)\)</span>, de donde <span class="math inline">\(a=2x\)</span> y <span class="math inline">\(b=2y\)</span>. Sustituyendo, <span class="math inline">\(4x^2+4y^2=36\)</span>, es decir <span class="math inline">\(x^2+y^2=9\)</span>. El punto medio describe una circunferencia de radio <span class="math inline">\(3\)</span>. <em>El resultado admite una lectura geométrica directa: el punto medio de la escalera que resbala equidista siempre del origen.</em></p>
+<p><strong>2.3</strong> La respuesta debe apoyarse en que un punto es un lugar y un vector un desplazamiento. Sumar dos lugares no tiene significado geométrico, y se comprueba porque el resultado cambia si se mueve el origen, mientras que la distancia o el desplazamiento entre los mismos dos puntos no cambia. Ejemplo: con origen en <span class="math inline">\(O\)</span>, los puntos <span class="math inline">\((1,0)\)</span> y <span class="math inline">\((3,0)\)</span> “suman” <span class="math inline">\((4,0)\)</span>; si el origen se corre una unidad a la derecha, los mismos puntos son <span class="math inline">\((0,0)\)</span> y <span class="math inline">\((2,0)\)</span> y “suman” <span class="math inline">\((2,0)\)</span>, que es otro lugar.</p>
+<p><strong>2.4</strong> <span class="math inline">\(u+v=(1,3)\)</span>; <span class="math inline">\(u-v=(5,-5)\)</span>; <span class="math inline">\(2u=(6,-2)\)</span>; <span class="math inline">\(-\tfrac12 v=(1,-2)\)</span>; y <span class="math inline">\(2u-3v=(6,-2)-(-6,12)=(12,-14)\)</span>. <em>En la figura, <span class="math inline">\(u+v\)</span> es la diagonal del paralelogramo que tiene a <span class="math inline">\(u\)</span> y a <span class="math inline">\(v\)</span> por lados; la copia trasladada de <span class="math inline">\(v\)</span> parte del extremo de <span class="math inline">\(u\)</span> y termina en el extremo de <span class="math inline">\(u+v\)</span>.</em></p>
+<p><strong>2.5</strong> <span class="math inline">\(\lambda=-3\)</span>, puesto que <span class="math inline">\(-3(-2,3)=(6,-9)\)</span>. Ambos vectores tienen la misma dirección y sentidos opuestos, y el primero es tres veces más largo que el segundo. <em>Ser múltiplo uno del otro es exactamente la condición de paralelismo.</em></p>
+<p><strong>2.6</strong> Un vector director es <span class="math inline">\(d=B-A=(3,1)\)</span>, de modo que <span class="math inline">\(\ell: X=(-1,3)+t\,(3,1)\)</span>. Tres de sus puntos: <span class="math inline">\((-1,3)\)</span> con <span class="math inline">\(t=0\)</span>, <span class="math inline">\((2,4)\)</span> con <span class="math inline">\(t=1\)</span> y <span class="math inline">\((5,5)\)</span> con <span class="math inline">\(t=2\)</span>. El punto <span class="math inline">\((8,6)\)</span> sí pertenece, porque <span class="math inline">\(-1+3t=8\)</span> da <span class="math inline">\(t=3\)</span> y <span class="math inline">\(3+t=6\)</span> da el mismo <span class="math inline">\(t=3\)</span>. El punto <span class="math inline">\((5,6)\)</span> no pertenece: la abscisa exige <span class="math inline">\(t=2\)</span> y la ordenada exige <span class="math inline">\(t=3\)</span>, y el criterio requiere <strong>un mismo</strong> valor del parámetro en ambas coordenadas.</p>
+<p><strong>2.7</strong> El director es <span class="math inline">\((0,5)\)</span>, con primera componente nula, así que la recta <strong>no tiene pendiente</strong>: es vertical. Su ecuación es <span class="math inline">\(x=2\)</span>. La forma punto–pendiente <span class="math inline">\(y-y_0=m(x-x_0)\)</span> presupone la existencia de <span class="math inline">\(m\)</span>, y aquí no existe; la forma paramétrica, en cambio, describe la recta sin dificultad.</p>
+<p><strong>2.8</strong> <span class="math inline">\(B-A=(4,2)\)</span>, <span class="math inline">\(C-A=(1,5)\)</span> y <span class="math inline">\(C-B=(-3,3)\)</span>. Los productos punto son <span class="math inline">\(\langle B-A,C-A\rangle=14\)</span>, <span class="math inline">\(\langle A-B,C-B\rangle=-12+6=-6\)</span> y <span class="math inline">\(\langle A-C,B-C\rangle=(-1)(3)+(-5)(-3)=12\)</span>. Ninguno es cero, así que el triángulo no tiene ángulos rectos. <em>En cada caso se calcula el producto punto de los dos lados que concurren en un mismo vértice.</em></p>
+<p><strong>2.9</strong> La condición es <span class="math inline">\(2(k+1)+3k=0\)</span>, es decir <span class="math inline">\(5k+2=0\)</span> y <span class="math inline">\(k=-\tfrac25\)</span>. Es el único valor, porque la ecuación es lineal en <span class="math inline">\(k\)</span>.</p>
+<p><strong>2.10</strong> Con pendientes, la de <span class="math inline">\((1,1)\)</span> a <span class="math inline">\((4,2)\)</span> es <span class="math inline">\(\tfrac13\)</span> y la de <span class="math inline">\((4,2)\)</span> a <span class="math inline">\((7,3)\)</span> también es <span class="math inline">\(\tfrac13\)</span>. Con vectores, <span class="math inline">\((4,2)-(1,1)=(3,1)\)</span> y <span class="math inline">\((7,3)-(4,2)=(3,1)\)</span> son proporcionales. En <span class="math inline">\(\mathbb{R}^3\)</span> sólo sirve el argumento con vectores, porque la pendiente no está definida ahí.</p>
+<p><strong>2.11</strong> Si el triángulo tiene vértices <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, los puntos medios de <span class="math inline">\(AB\)</span> y <span class="math inline">\(AC\)</span> son <span class="math inline">\(M=A+\tfrac12(B-A)\)</span> y <span class="math inline">\(N=A+\tfrac12(C-A)\)</span>. Entonces <span class="math inline">\(N-M=\tfrac12(C-B)\)</span>, que es paralelo al tercer lado y mide la mitad. <em>La demostración se reduce a esa resta.</em></p>
+<p><strong>2.12</strong> La igualdad <span class="math inline">\(d(P,Q)=d(P,R)+d(R,Q)\)</span> ocurre exactamente cuando <span class="math inline">\(R\)</span> pertenece al segmento <span class="math inline">\(PQ\)</span>. En la demostración, la igualdad se alcanza cuando <span class="math inline">\(\langle u,v\rangle=\lVert u\rVert\lVert v\rVert\)</span>, es decir cuando <span class="math inline">\(\cos\theta=1\)</span>, lo que equivale a que <span class="math inline">\(u=R-P\)</span> y <span class="math inline">\(v=Q-R\)</span> apunten en el mismo sentido.</p>
+<p><strong>2.13</strong> Las pendientes son <span class="math inline">\(m_1=\dfrac{3-1}{4-0}=\dfrac12\)</span> y <span class="math inline">\(m_2=\dfrac{1-5}{3-1}=-2\)</span>. Como <span class="math inline">\(m_1m_2=-1\)</span>, las rectas son perpendiculares.</p>
+<p><strong>2.14</strong> <span class="math inline">\(\tan\theta=\dfrac{-\tfrac12-3}{1+3\bigl(-\tfrac12\bigr)}=\dfrac{-\tfrac72}{-\tfrac12}=7\)</span>, de donde <span class="math inline">\(\theta\approx 81.87^\circ\)</span>, que ya es agudo. <em>Si el resultado hubiera salido negativo, el ángulo agudo sería su suplemento.</em></p>
+<p><strong>2.15</strong> La condición <span class="math inline">\(m_1m_2=-1\)</span> presupone que ambas pendientes existen, y la de una recta vertical no está definida, porque su inclinación es <span class="math inline">\(\pi/2\)</span> y la tangente no toma valor ahí. Con vectores no hay excepción: la vertical tiene director <span class="math inline">\((0,1)\)</span> y la horizontal <span class="math inline">\((1,0)\)</span>, y <span class="math inline">\(\langle(0,1),(1,0)\rangle=0\)</span>, de modo que el producto punto reconoce la perpendicularidad sin necesidad de distinguir casos.</p>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
